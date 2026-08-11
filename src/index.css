@@ -1,6 +1,10 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter/wght.css";
 
 @theme {
+  --font-bangla: "Bangla MN";
+  --font-inter: "Inter Variable";
+
   --color-azul: #00294e;
   --color-azul-intenso: #031a2e;
   --color-naranja: #f47b0d;
@@ -18,4 +22,5 @@ body {
   margin: 0;
   background-color: var(--color-azul);
   color: white;
+  font-family: var(--font-inter);
 }
