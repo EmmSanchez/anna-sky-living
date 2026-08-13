@@ -24,3 +24,20 @@ body {
   color: white;
   font-family: var(--font-inter);
 }
+
+/* Embla carousel */
+.embla {
+  margin: auto;
+}
+
+.embla__container {
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 auto;
+  min-width: 0;
+  padding-left: 10px;
+  padding-right: 35px;
+}
