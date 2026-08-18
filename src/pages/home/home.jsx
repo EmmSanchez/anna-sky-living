@@ -1,8 +1,10 @@
 import Amenidades from "./components/amenidades";
+import AvanceObra from "./components/avance-obra";
 import GrupoTrecasa from "./components/grupo-trecasa";
 import Hero from "./components/hero";
 import PermisosDeObra from "./components/permisos-de-obra";
 import Tipologias from "./components/tipologias";
+import VideoBanner from "./components/video-banner";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <PermisosDeObra />
       <Amenidades />
       <Tipologias />
+      <VideoBanner />
+      <AvanceObra />
     </main>
   );
 }
