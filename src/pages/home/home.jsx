@@ -2,6 +2,7 @@ import Amenidades from "./components/amenidades";
 import GrupoTrecasa from "./components/grupo-trecasa";
 import Hero from "./components/hero";
 import PermisosDeObra from "./components/permisos-de-obra";
+import Tipologias from "./components/tipologias";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <GrupoTrecasa />
       <PermisosDeObra />
       <Amenidades />
+      <Tipologias />
     </main>
   );
 }

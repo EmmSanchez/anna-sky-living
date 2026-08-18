@@ -1,0 +1,71 @@
+import tipoA from "../../../assets/images/tipologias/tipo-a.png";
+import tipoB from "../../../assets/images/tipologias/tipo-b.png";
+import tipoC from "../../../assets/images/tipologias/tipo-c.png";
+import tipoD from "../../../assets/images/tipologias/tipo-d.png";
+
+const modelos = [
+  {
+    id: "tipo-a",
+    label: "Modelo tipo a",
+    image: tipoA,
+  },
+  {
+    id: "tipo-b",
+    label: "Modelo tipo b",
+    image: tipoB,
+  },
+  {
+    id: "tipo-c",
+    label: "Modelo tipo c",
+    image: tipoC,
+  },
+  {
+    id: "tipo-d",
+    label: "Modelo tipo d",
+    image: tipoD,
+  },
+];
+
+export default function Tipologias() {
+  return (
+    <div className="w-full flex flex-col justify-center items-center py-[60px] px-[10px] gap-[30px] bg-blanco">
+      <div className="flex flex-col justify-center items-center gap-[15px] border">
+        <h2 className="text-[35px] font-bangla text-negro uppercase tracking-wider">
+          Tipologías
+        </h2>
+        <p className="text-[21px] text-center font-light text-negro">
+          Cuatro modelos diseñados para diferentes estilos de visa, con
+          <br />
+          distribuciones funcionales y acabados de primera
+        </p>
+      </div>
+
+      {/* Modelos */}
+      <div className="flex flex-wrap justify-center gap-[10px]">
+        {modelos.map((modelo) => {
+          return (
+            <div
+              key={modelo.id}
+              className="flex flex-col justify-between w-[300px] h-[495px] px-[24px] py-[30px] gap-[32px] border border-naranja rounded-[15px] shadow-md"
+            >
+              <img
+                src={modelo.image}
+                alt={`Imagen ${modelo.label}`}
+                className="w-[255px] h-[303px]"
+              />
+
+              <div className="flex flex-col shrink-0 gap-[20px]">
+                <h3 className="text-[30px] text-center font-bangla uppercase text-negro">
+                  {modelo.label}
+                </h3>
+                <button className="flex px-[36px] py-[16px] gap-[10px] justify-center items-center text-[18px] font-bold tracking-wider rounded-[10px] bg-naranja uppercase">
+                  Ver modelo
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
