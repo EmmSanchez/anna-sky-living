@@ -6,6 +6,7 @@ import Hero from "./components/hero";
 import PermisosDeObra from "./components/permisos-de-obra";
 import Tipologias from "./components/tipologias";
 import VideoBanner from "./components/video-banner";
+import Visitanos from "./components/visitanos";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <VideoBanner />
       <AvanceObra />
       <ConoceElProyecto />
+      <Visitanos />
     </main>
   );
 }
