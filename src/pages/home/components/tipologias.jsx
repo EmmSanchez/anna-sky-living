@@ -3,6 +3,8 @@ import tipoB from "../../../assets/images/tipologias/tipo-b.png";
 import tipoC from "../../../assets/images/tipologias/tipo-c.png";
 import tipoD from "../../../assets/images/tipologias/tipo-d.png";
 
+import imageIcon from "../../../assets/icons/imagen.svg";
+
 const modelos = [
   {
     id: "tipo-a",
@@ -59,6 +61,11 @@ export default function Tipologias() {
                   {modelo.label}
                 </h3>
                 <button className="flex px-[36px] py-[16px] gap-[10px] justify-center items-center text-[18px] font-bold tracking-wider rounded-[10px] bg-naranja uppercase">
+                  <img
+                    src={imageIcon}
+                    alt="Ícono de imagen"
+                    className="w-[18px]"
+                  />
                   Ver modelo
                 </button>
               </div>

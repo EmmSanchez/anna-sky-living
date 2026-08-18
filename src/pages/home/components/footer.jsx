@@ -64,7 +64,10 @@ export default function Footer() {
           </button>
           {buttons.map((button) => {
             return (
-              <button className="text-[16px] font-bold uppercase p-[16px]">
+              <button
+                key={button.id}
+                className="text-[16px] font-bold uppercase p-[16px]"
+              >
                 {button.label}
               </button>
             );
@@ -75,7 +78,10 @@ export default function Footer() {
         <div className="self-center flex flex-wrap justify-between items-center w-full max-w-[306px]">
           {socials.map((social) => {
             return (
-              <button className="flex size-[40px] justify-center items-center border rounded-[5px] border-naranja">
+              <button
+                key={social.id}
+                className="flex size-[40px] justify-center items-center border rounded-[5px] border-naranja"
+              >
                 <img src={social.icon} alt="" />
               </button>
             );
