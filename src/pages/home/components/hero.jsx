@@ -1,4 +1,4 @@
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import heroBackground from "../../../assets/images/hero-background.jpg";
 import annaSkyLiving from "../../../assets/logos/anna-sky-living-white.svg";
 
