@@ -2,6 +2,7 @@ import Amenidades from "./components/amenidades";
 import AvanceObra from "./components/avance-obra";
 import ConoceElProyecto from "./components/conoce-el-proyecto";
 import Contacto from "./components/contacto";
+import Footer from "./components/footer";
 import GrupoTrecasa from "./components/grupo-trecasa";
 import Hero from "./components/hero";
 import PermisosDeObra from "./components/permisos-de-obra";
@@ -22,6 +23,7 @@ export default function Home() {
       <ConoceElProyecto />
       <Visitanos />
       <Contacto />
+      <Footer />
     </main>
   );
 }
