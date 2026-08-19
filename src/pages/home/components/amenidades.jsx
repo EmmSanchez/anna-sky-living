@@ -1,4 +1,5 @@
 import { ExpandableCarousel } from "../../../components/embla-carousel/expandable-carousel";
+import { motion } from "motion/react";
 
 // icons
 import albercaIcon from "../../../assets/icons/amenidades/alberca.svg";
@@ -101,12 +102,21 @@ export default function Amenidades() {
 
   const amenidades = slidesData.map((slide) => {
     return (
-      <div
+      <motion.div
         key={slide.id}
+        animate={{
+          width: selectedAmenidad === slide.id ? 850 : 340,
+        }}
+        initial={false}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         onClick={() =>
           setSelectedAmenidad(selectedAmenidad === slide.id ? null : slide.id)
         }
-        className={`group relative flex shrink-0 flex-col h-[670px] rounded-[15px] shadow-2xl overflow-hidden bg-cyan-500 shadow-[0_10.48px_18.16px_-6.98px_rgba(0,0,0,0.12),0_8.73px_15.89px_-6.98px_rgba(0,0,0,0.15)] hover:cursor-pointer transition-all duration-500 ease-out ${selectedAmenidad === slide.id ? "outline-3 outline-naranja w-[850px]" : "w-[340px] outline-0 outline-naranja"}`}
+        className={`group relative flex shrink-0 flex-col min-w-[340px] h-[670px] rounded-[15px] shadow-2xl overflow-hidden bg-cyan-500 shadow-[0_10.48px_18.16px_-6.98px_rgba(0,0,0,0.12),0_8.73px_15.89px_-6.98px_rgba(0,0,0,0.15)] hover:cursor-pointer transition-[outline-color,outline-width] duration-500 ease-out ${
+          selectedAmenidad === slide.id
+            ? "outline-3 outline-naranja"
+            : "outline-0 outline-naranja"
+        }`}
       >
         {/* Overlay and image */}
         <div className="absolute z-0 w-full h-full">
@@ -137,16 +147,20 @@ export default function Amenidades() {
           />
           <h4 className="text-[28px] font-bold uppercase">{slide.title}</h4>
         </div>
-      </div>
+      </motion.div>
     );
   });
 
   return (
     <div className="flex flex-col self-center w-full max-w-[1280px] h-fit justify-center items-center px-[30px] pt-[30px] pb-[60px] gap-[30px]">
-      <h2 className="text-[35px] font-bangla uppercase">Amenidades</h2>
-      <h3 className="text-[35px] font-bangla uppercase leading-none">
-        Disfruta lo extraordinario
-      </h3>
+      <div className="flex flex-col justify-center items-center gap-[10px]">
+        <h2 className="text-[35px] font-bangla uppercase leading-none">
+          Amenidades
+        </h2>
+        <h3 className="text-[35px] font-bangla uppercase leading-none">
+          Disfruta lo extraordinario
+        </h3>
+      </div>
 
       {/* Carousel */}
       <div className="flex items-center w-[1120px] h-[710px] gap-[35px]">

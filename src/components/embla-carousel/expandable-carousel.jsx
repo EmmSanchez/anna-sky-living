@@ -53,8 +53,17 @@ export function ExpandableCarousel({ slides = [], variant, isAnySelected }) {
     emblaApi?.scrollTo(index);
   };
 
-  const scrollNext = () => emblaApi?.scrollNext();
-  const scrollPrev = () => emblaApi?.scrollPrev();
+  const scrollNext = () => {
+    isPausedRef.current = true;
+    autoScroll.current.stop();
+    emblaApi?.scrollNext();
+  };
+
+  const scrollPrev = () => {
+    isPausedRef.current = true;
+    autoScroll.current.stop();
+    emblaApi?.scrollPrev();
+  };
 
   return (
     <div className="relative embla flex flex-col justify-center w-full h-full">
