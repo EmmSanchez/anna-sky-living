@@ -146,7 +146,6 @@ export default function AvanceObra() {
   });
 
   const activeGroup = Math.floor(currentSlide / 4);
-  console.log(activeGroup);
 
   return (
     <section

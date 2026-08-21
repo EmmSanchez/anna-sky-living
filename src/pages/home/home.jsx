@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router";
 import Amenidades from "./components/amenidades";
 import AvanceObra from "./components/avance-obra";
 import ConoceElProyecto from "./components/conoce-el-proyecto";
@@ -10,7 +11,19 @@ import Tipologias from "./components/tipologias";
 import VideoBanner from "./components/video-banner";
 import Visitanos from "./components/visitanos";
 
+// Modelos
+import ModeloTipoA from "./components/popup/modelos/modelo-tipo-a";
+
+const popupsPorModelo = {
+  "tipo-a": ModeloTipoA,
+};
+
 export default function Home() {
+  const [searchParams] = useSearchParams();
+
+  const modeloId = searchParams.get("modelo");
+  const ModeloPopup = popupsPorModelo[modeloId];
+
   return (
     <main className="flex flex-col">
       <Hero />
@@ -24,6 +37,8 @@ export default function Home() {
       <Visitanos />
       <Contacto />
       <Footer />
+
+      {ModeloPopup && <ModeloPopup />}
     </main>
   );
 }

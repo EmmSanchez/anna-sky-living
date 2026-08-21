@@ -1,3 +1,5 @@
+import { useSearchParams } from "react-router";
+
 import tipoA from "../../../assets/images/tipologias/tipo-a.png";
 import tipoB from "../../../assets/images/tipologias/tipo-b.png";
 import tipoC from "../../../assets/images/tipologias/tipo-c.png";
@@ -29,6 +31,20 @@ const modelos = [
 ];
 
 export default function Tipologias() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const modeloId = searchParams.get("modelo");
+  const modeloSeleccionado = modelos.find((m) => m.id === modeloId) || null;
+
+  const abrirModal = (modelo) => {
+    setSearchParams({ modelo: modelo.id });
+  };
+
+  const cerrarModal = () => {
+    searchParams.delete("modelo");
+    setSearchParams(searchParams);
+  };
+
   return (
     <section
       id="modelos"
@@ -63,7 +79,10 @@ export default function Tipologias() {
                 <h3 className="text-[30px] text-center font-bangla uppercase text-negro">
                   {modelo.label}
                 </h3>
-                <button className="flex px-[36px] py-[16px] gap-[10px] justify-center items-center text-[18px] font-bold tracking-wider rounded-[10px] bg-naranja uppercase">
+                <button
+                  onClick={() => abrirModal(modelo)}
+                  className="flex px-[36px] py-[16px] gap-[10px] justify-center items-center text-[18px] font-bold tracking-wider rounded-[10px] bg-naranja uppercase hover:cursor-pointer"
+                >
                   <img
                     src={imageIcon}
                     alt="Ícono de imagen"
