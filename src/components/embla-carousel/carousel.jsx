@@ -2,21 +2,39 @@ import React, { useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import arrowIcon from "../../assets/icons/arrow.svg";
+import {
+  SelectedSnapDisplay,
+  useSelectedSnapDisplay,
+} from "./EmblaCarouselSelectedSnapDisplay";
 
-export function ExpandableCarousel({ slides = [], variant, isAnySelected }) {
+export function Carousel({
+  slides = [],
+  variant,
+  isAnySelected,
+  autoScrollOptions = {},
+  emblaOptions = {},
+  onSlideChange,
+}) {
   const autoScroll = useRef(
     AutoScroll({
       speed: 1,
       startDelay: 1000,
       stopOnInteraction: true,
       stopOnMouseEnter: false,
+      ...autoScrollOptions,
     }),
   );
 
   const isPausedRef = useRef(false);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start", startIndex: 0, duration: 30 },
+    {
+      loop: true,
+      align: "start",
+      startIndex: 0,
+      duration: 30,
+      ...emblaOptions,
+    },
     [autoScroll.current],
   );
 
@@ -65,8 +83,24 @@ export function ExpandableCarousel({ slides = [], variant, isAnySelected }) {
     emblaApi?.scrollPrev();
   };
 
+  const handleMouseLeave = () => {
+    if (isAnySelected) return; // si hay algo seleccionado, no reanudar solo
+    isPausedRef.current = false;
+    autoScroll.current.play();
+  };
+
+  const { selectedSnap, snapCount } = useSelectedSnapDisplay(emblaApi);
+
+  // NUEVO: avisa al padre cada vez que cambia el slide activo
+  useEffect(() => {
+    onSlideChange?.(selectedSnap);
+  }, [selectedSnap, onSlideChange]);
+
   return (
-    <div className="relative embla flex flex-col justify-center w-full h-full">
+    <div
+      className="relative embla flex flex-col justify-center w-full h-full"
+      onMouseLeave={handleMouseLeave}
+    >
       <div className="embla__viewport h-full overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex h-full items-center">
           {variant === "card" &&

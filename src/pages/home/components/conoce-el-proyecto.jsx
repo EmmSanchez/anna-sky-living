@@ -30,7 +30,10 @@ const caracteristicas = [
 
 export default function ConoceElProyecto() {
   return (
-    <div className="flex justify-center items-center w-full bg-blanco">
+    <section
+      id="conoce-proyecto"
+      className="flex justify-center items-center w-full bg-blanco"
+    >
       <div className="flex flex w-full max-w-[1280px] justify-center items-center py-[60px] gap-[40px]">
         {/* Left panel */}
         <div className="flex flex-col w-[620px] gap-[30px]">
@@ -100,6 +103,6 @@ export default function ConoceElProyecto() {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

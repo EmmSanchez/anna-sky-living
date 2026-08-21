@@ -2,7 +2,7 @@ import sendIcon from "../../../assets/icons/send.svg";
 
 export default function Contacto() {
   return (
-    <div className="flex justify-center items-center w-full">
+    <section id="contacto" className="flex justify-center items-center w-full">
       <div className="flex flex-col w-full max-w-[1280px] justify-center items-center p-[60px] gap-[30px]">
         <div className="flex flex-col gap-[15px]">
           <h2 className="text-[35px] text-center font-bangla uppercase leading-[120%]">
@@ -55,6 +55,6 @@ export default function Contacto() {
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,4 +1,6 @@
-import { ExpandableCarousel } from "../../../components/embla-carousel/expandable-carousel";
+import { useState, useCallback } from "react";
+import { Carousel } from "../../../components/embla-carousel/carousel";
+import { motion } from "motion/react";
 
 // images
 import avance1 from "../../../assets/images/avances/avance-1.jpg";
@@ -108,20 +110,26 @@ const slidesData = [
 ];
 
 export default function AvanceObra() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const handleSlideChange = useCallback((index) => {
+    setCurrentSlide(index);
+  }, []);
+
   const amenidades = slidesData.map((slide) => {
     return (
       <div
         key={slide.id}
-        className={`group relative flex shrink-0 flex-col w-[326px] h-[520px] p-[20px] overflow-hidden bg-azul-intenso hover:cursor-pointer transition-all duration-500 ease-out`}
+        className={`group relative flex shrink-0 flex-col w-[260px] h-[520px] p-[20px] overflow-hidden bg-azul-intenso hover:cursor-pointer transition-all duration-500 ease-out`}
       >
         {/* Text */}
         <div
           className={`relative flex flex-col w-full h-full justify-center gap-[15px]`}
         >
-          <h4 className="text-[28px] font-bold tracking-tighter leading-[120%] text-blanco">
+          <h4 className="text-[22px] font-bold tracking-tighter leading-[120%] text-blanco">
             {slide.date}
           </h4>
-          <p className="h-[46px] text-[21px] text-blanco/80 font-light leading-[120%]">
+          <p className="h-[46px] text-[18px] text-blanco/80 font-light leading-[120%]">
             {slide.description}
           </p>
 
@@ -137,8 +145,14 @@ export default function AvanceObra() {
     );
   });
 
+  const activeGroup = Math.floor(currentSlide / 4);
+  console.log(activeGroup);
+
   return (
-    <div className="flex flex-col self-center w-full max-w-[1280px] h-fit justify-center items-center px-[30px] pt-[60px] pb-[30px] gap-[30px]">
+    <section
+      id="avance-de-obra"
+      className="flex flex-col self-center w-full max-w-[1280px] h-fit justify-center items-center px-[30px] pt-[60px] pb-[30px] gap-[30px]"
+    >
       <div className="flex flex-col justify-center items-center gap-[15px]">
         <h2 className="text-[35px] font-bangla uppercase">Avance de obra</h2>
         <h3 className="text-[21px] text-center font-light leading-[130%]">
@@ -150,12 +164,49 @@ export default function AvanceObra() {
       </div>
 
       {/* progress bar */}
-      <div className="w-full bg-naranja h-[31px]" />
+      <div className="flex w-full max-w-[1120px] h-[31px]">
+        {slidesData.map((slide, index) => {
+          if (index % 4 !== 0) return null;
+
+          // progreso del segmento: 0 = no iniciado, 1 = completo
+          const groupProgress = Math.min(
+            Math.max((currentSlide - index) / 4, 0),
+            1,
+          );
+
+          return (
+            <div key={index} className="relative flex flex-1">
+              {/* linea base (fondo gris) */}
+              <div className="absolute z-0 w-full h-[2px] top-1/2 -translate-y-1/2 bg-gris" />
+
+              {/* linea progresiva (amarilla) */}
+              <motion.div
+                className="absolute z-0 w-full h-[2px] top-1/2 -translate-y-1/2 bg-amarillo origin-left"
+                initial={false}
+                animate={{ scaleX: groupProgress }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              />
+
+              {/* Circulo */}
+              <div
+                className={`relative z-10 size-[31px] rounded-full border-2 border-amarillo transition-colors ${
+                  index > activeGroup * 4 ? "bg-gris" : "bg-amarillo"
+                }`}
+              />
+            </div>
+          );
+        })}
+      </div>
 
       {/* Carousel */}
-      <div className="flex items-center w-[1120px] h-[520px] gap-[35px]">
-        <ExpandableCarousel slides={amenidades} variant="card" />
+      <div className="flex items-center w-[1120px] h-[520px] gap-[30px]">
+        <Carousel
+          slides={amenidades}
+          variant="card"
+          autoScrollOptions={{ stopOnMouseEnter: true }}
+          onSlideChange={handleSlideChange}
+        />
       </div>
-    </div>
+    </section>
   );
 }

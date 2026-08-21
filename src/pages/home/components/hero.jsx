@@ -4,7 +4,7 @@ import annaSkyLiving from "../../../assets/logos/anna-sky-living-white.svg";
 
 export default function Hero() {
   return (
-    <div className="relative w-full h-lvh flex flex-col">
+    <div id="hero" className="relative w-full h-lvh flex flex-col">
       {/* Background  */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
         <div className="relative w-full h-full">

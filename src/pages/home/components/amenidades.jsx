@@ -1,4 +1,4 @@
-import { ExpandableCarousel } from "../../../components/embla-carousel/expandable-carousel";
+import { Carousel } from "../../../components/embla-carousel/carousel";
 import { motion } from "motion/react";
 
 // icons
@@ -152,7 +152,10 @@ export default function Amenidades() {
   });
 
   return (
-    <div className="flex flex-col self-center w-full max-w-[1280px] h-fit justify-center items-center px-[30px] pt-[30px] pb-[60px] gap-[30px]">
+    <section
+      id="amenidades"
+      className="flex flex-col self-center w-full max-w-[1280px] h-fit justify-center items-center px-[30px] pt-[30px] pb-[60px] gap-[30px]"
+    >
       <div className="flex flex-col justify-center items-center gap-[10px]">
         <h2 className="text-[35px] font-bangla uppercase leading-none">
           Amenidades
@@ -164,12 +167,12 @@ export default function Amenidades() {
 
       {/* Carousel */}
       <div className="flex items-center w-[1120px] h-[710px] gap-[35px]">
-        <ExpandableCarousel
+        <Carousel
           slides={amenidades}
           variant="card"
           isAnySelected={selectedAmenidad}
         />
       </div>
-    </div>
+    </section>
   );
 }

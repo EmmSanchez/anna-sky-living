@@ -30,7 +30,10 @@ const modelos = [
 
 export default function Tipologias() {
   return (
-    <div className="w-full flex flex-col justify-center items-center py-[60px] px-[10px] gap-[30px] bg-blanco">
+    <section
+      id="modelos"
+      className="w-full flex flex-col justify-center items-center py-[60px] px-[10px] gap-[30px] bg-blanco"
+    >
       <div className="flex flex-col justify-center items-center gap-[15px] border">
         <h2 className="text-[35px] font-bangla text-negro uppercase tracking-wider">
           Tipologías
@@ -73,6 +76,6 @@ export default function Tipologias() {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }

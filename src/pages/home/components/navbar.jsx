@@ -32,21 +32,25 @@ export default function Navbar() {
     <div className="relative z-10 flex justify-center items-center w-full bg-negro">
       <div className="flex w-full max-w-[1280px] justify-around items-center p-[20px]">
         {/* Botón Logo */}
-        <button className="relative w-[94px] h-[31px]">
+        <a
+          href="#hero"
+          className="relative w-[94px] h-[31px] hover:cursor-pointer"
+        >
           <img
             src={annaWhiteLogo}
             alt="Logo Anna Sky Living"
             className="absolute inset-0 w-full h-full object-contain"
           />
-        </button>
+        </a>
         {navbarButtons.map((button) => {
           return (
-            <button
+            <a
               key={button.id}
-              className={`uppercase font-bold text-[16px] p-[16px] rounded-[5px] ${button.id === "contacto" && "bg-naranja"}`}
+              href={`#${button.id}`}
+              className={`uppercase font-bold text-[16px] p-[16px] rounded-[5px] hover:cursor-pointer ${button.id === "contacto" && "bg-naranja"}`}
             >
               {button.label}
-            </button>
+            </a>
           );
         })}
       </div>

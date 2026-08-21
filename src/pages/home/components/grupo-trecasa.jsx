@@ -27,7 +27,10 @@ const datos = [
 
 export default function GrupoTrecasa() {
   return (
-    <section className="flex self-center justify-center items-center w-full max-w-[1280px] px-[60px] pt-[60px] pb-[30px] gap-[33px]">
+    <section
+      id="nosotros"
+      className="flex self-center justify-center items-center w-full max-w-[1280px] px-[60px] pt-[60px] pb-[30px] gap-[33px]"
+    >
       {/* Left side */}
       <div className="flex flex-col gap-[30px]">
         <img
