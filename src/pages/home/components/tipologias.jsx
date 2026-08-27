@@ -50,7 +50,7 @@ export default function Tipologias() {
       id="modelos"
       className="w-full flex flex-col justify-center items-center py-[60px] px-[10px] gap-[30px] bg-blanco"
     >
-      <div className="flex flex-col justify-center items-center gap-[15px] border">
+      <div className="flex flex-col justify-center items-center gap-[15px]">
         <h2 className="text-[35px] font-bangla text-negro uppercase tracking-wider">
           Tipologías
         </h2>
