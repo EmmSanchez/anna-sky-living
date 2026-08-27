@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router";
+import { GalleryCarrousel } from "../../../../../components/embla-carousel/GalleyCarousel";
 import { NavIndicator } from "../../../../../components/nav-indicator/nav-indicator";
 
 import closeIcon from "../../../../../assets/icons/close.svg";
@@ -21,9 +22,8 @@ import puertasIcon from "../../../../../assets/icons/modelos/puertas.svg";
 // images carousel
 import vista1 from "../../../../../assets/images/modelos/vista1.jpg";
 
-import imageRender from "../../../../../assets/images/modelos/vista-tipo-a/render.png";
-import imageFrame from "../../../../../assets/images/modelos/vista-tipo-a/frame.png";
-import { GalleryCarrousel } from "../../../../../components/embla-carousel/GalleyCarousel";
+import imageRender from "../../../../../assets/images/modelos/vista-tipo-c/render.png";
+import imageFrame from "../../../../../assets/images/modelos/vista-tipo-c/frame.png";
 
 const descripcion = [
   {
@@ -91,7 +91,7 @@ const comoSeEntrega = [
   },
 ];
 
-export default function ModeloTipoA() {
+export default function ModeloTipoC() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const cerrarModal = () => {
@@ -125,7 +125,7 @@ export default function ModeloTipoA() {
         </button>
 
         <h2 className="text-[60px] font-bangla leading-none uppercase">
-          Tipo A / 81.77 M2
+          Tipo C / 82.52 M2
         </h2>
 
         {/* Imagenes */}

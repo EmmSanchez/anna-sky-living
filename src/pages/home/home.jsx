@@ -13,9 +13,15 @@ import Visitanos from "./components/visitanos";
 
 // Modelos
 import ModeloTipoA from "./components/popup/modelos/modelo-tipo-a";
+import ModeloTipoB from "./components/popup/modelos/modelo-tipo-b";
+import ModeloTipoC from "./components/popup/modelos/modelo-tipo-c";
+import ModeloTipoD from "./components/popup/modelos/modelo-tipo-d";
 
 const popupsPorModelo = {
   "tipo-a": ModeloTipoA,
+  "tipo-b": ModeloTipoB,
+  "tipo-c": ModeloTipoC,
+  "tipo-d": ModeloTipoD,
 };
 
 export default function Home() {
