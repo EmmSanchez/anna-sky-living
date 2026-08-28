@@ -29,10 +29,10 @@ export default function PermisosDeObra() {
           return (
             <div
               key={dato.id}
-              className={`flex flex-col justify-center items-center text-center w-[209px] h-[273px] py-[68px] px-[15px] gap-[15px] border-x-2 border-amarillo ${dato.id === "experiencia" ? "border-none" : ""}`}
+              className={`flex flex-col justify-center items-center text-center w-[209px] h-[209px] py-[68px] px-[15px] gap-[15px] border-x-2 border-amarillo ${dato.id === "factibilidad" ? "border-none" : ""}`}
             >
               <img src={dato.icon} alt={`Ícono de ${dato.description}`} />
-              <p className="text-[28px] font-bold leading-[110%]">
+              <p className="text-[21px] font-semibold uppercase leading-[110%]">
                 {dato.title}
               </p>
             </div>

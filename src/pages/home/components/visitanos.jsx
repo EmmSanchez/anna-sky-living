@@ -69,10 +69,10 @@ export default function Visitanos() {
               return (
                 <div
                   key={index}
-                  className={`flex flex-col w-[370px] h-[273px] p-[20px] gap-[20px] justify-start items-center ${index === 1 ? "border-none" : "border-x-2 border-amarillo"}`}
+                  className={`flex flex-col w-[370px] h-[180px] p-[20px] gap-[20px] justify-center items-center ${index === 1 ? "border-none" : "border-x-2 border-amarillo"}`}
                 >
-                  <img src={feature.icon} alt="" className="pt-[45px]" />
-                  <p className="text-[21px] text-center text-blanco font-light leading-[120%]">
+                  <img src={feature.icon} />
+                  <p className="text-[16px] text-center text-blanco font-light tracking-tight leading-[120%]">
                     {feature.title && (
                       <span className="font-bold">
                         {feature.title} <br />

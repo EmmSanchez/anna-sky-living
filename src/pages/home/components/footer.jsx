@@ -1,9 +1,13 @@
 import annaLogo from "../../../assets/logos/anna-sky-living-yellow.svg";
 
 import linkedin from "../../../assets/icons/social/linkedin.svg";
+import linkedinBlue from "../../../assets/icons/social/linkedin-blue.svg";
 import whatsapp from "../../../assets/icons/social/whatsapp.svg";
+import whatsappBlue from "../../../assets/icons/social/whatsapp-blue.svg";
 import facebook from "../../../assets/icons/social/facebook.svg";
+import facebookBlue from "../../../assets/icons/social/facebook-blue.svg";
 import instagram from "../../../assets/icons/social/instagram.svg";
+import instagramBlue from "../../../assets/icons/social/instagram-blue.svg";
 
 import desarrolladoXperience from "../../../assets/logos/desarrollado-xperience.svg";
 
@@ -34,18 +38,26 @@ const socials = [
   {
     id: "linkedin",
     icon: linkedin,
+    iconActive: linkedinBlue,
+    href: "https://www.linkedin.com/showcase/anna-sky-living/home/",
   },
   {
     id: "whatsapp",
     icon: whatsapp,
+    iconActive: whatsappBlue,
+    href: "https://wa.me/528134060015",
   },
   {
     id: "facebook",
     icon: facebook,
+    iconActive: facebookBlue,
+    href: "https://www.facebook.com/annaskyliving",
   },
   {
     id: "instagram",
     icon: instagram,
+    iconActive: instagramBlue,
+    href: "https://www.instagram.com/annaskyliving/",
   },
 ];
 
@@ -64,12 +76,13 @@ export default function Footer() {
           </button>
           {buttons.map((button) => {
             return (
-              <button
+              <a
+                href={`#${button.id}`}
                 key={button.id}
                 className="text-[16px] font-bold uppercase p-[16px]"
               >
                 {button.label}
-              </button>
+              </a>
             );
           })}
         </div>
@@ -78,12 +91,22 @@ export default function Footer() {
         <div className="self-center flex flex-wrap justify-between items-center w-full max-w-[306px]">
           {socials.map((social) => {
             return (
-              <button
+              <a
                 key={social.id}
-                className="flex size-[40px] justify-center items-center border rounded-[5px] border-naranja"
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex size-[40px] justify-center items-center rounded-[5px] bg-naranja hover:bg-gris active:bg-blanco"
               >
-                <img src={social.icon} alt="" />
-              </button>
+                <img
+                  src={social.icon}
+                  className="brightness-0 invert-100 group-active:hidden"
+                />
+                <img
+                  src={social.iconActive}
+                  className="hidden group-active:block"
+                />
+              </a>
             );
           })}
         </div>

@@ -52,7 +52,12 @@ export default function GrupoTrecasa() {
           habitan.
         </p>
 
-        <button className="flex items-center w-fit px-[36px] py-[16px] gap-[10px] rounded-[10px] bg-naranja">
+        <a
+          href="https://grupotrecasa.com.mx"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center w-fit px-[36px] py-[16px] gap-[10px] rounded-[10px] bg-naranja"
+        >
           <img
             src={clickIcon}
             alt="Ícono de click"
@@ -61,7 +66,7 @@ export default function GrupoTrecasa() {
           <span className="text-[18px] font-bold uppercase tracking-wider">
             Ver página web
           </span>
-        </button>
+        </a>
       </div>
 
       {/* Right side */}
@@ -70,11 +75,11 @@ export default function GrupoTrecasa() {
           return (
             <div
               key={dato.id}
-              className={`flex flex-col justify-center items-center text-center w-[209px] h-[273px] py-[68px] px-[15px] gap-[15px] border-x-2 border-amarillo ${dato.id === "experiencia" ? "border-none" : ""}`}
+              className={`flex flex-col justify-center items-center text-center w-[209px] h-[180px] py-[68px] px-[15px] gap-[15px] border-x-2 border-amarillo ${dato.id === "experiencia" ? "border-none" : ""}`}
             >
               <img src={dato.icon} alt={`Ícono de ${dato.description}`} />
-              <p className="text-[28px] font-bold">{dato.title}</p>
-              <p className="text-[21px] font-light">{dato.description}</p>
+              <p className="text-[25px] font-bold">{dato.title}</p>
+              <p className="text-[16px] font-light">{dato.description}</p>
             </div>
           );
         })}
