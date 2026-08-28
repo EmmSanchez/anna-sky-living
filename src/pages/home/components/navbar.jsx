@@ -47,7 +47,7 @@ export default function Navbar() {
             <a
               key={button.id}
               href={`#${button.id}`}
-              className={`uppercase font-bold text-[16px] p-[16px] rounded-[5px] hover:cursor-pointer ${button.id === "contacto" && "bg-naranja"}`}
+              className={`uppercase font-bold text-[16px] p-[16px] rounded-[5px] hover:cursor-pointer hover:bg-gris hover:text-blanco active:bg-blanco active:text-negro ${button.id === "contacto" && "bg-naranja"}`}
             >
               {button.label}
             </a>

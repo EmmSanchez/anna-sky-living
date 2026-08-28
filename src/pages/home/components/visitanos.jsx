@@ -46,7 +46,7 @@ export default function Visitanos() {
               Visita <br /> nuestro <br />
               showroom
             </h3>
-            <button className="px-[26px] py-[16px] rounded-[5px] text-[16px] text-blanco font-bold uppercase tracking-wide bg-naranja">
+            <button className="px-[26px] py-[16px] rounded-[5px] text-[16px] text-blanco font-bold uppercase tracking-wide bg-naranja hover:bg-gris active:bg-blanco active:text-azul hover:cursor-pointer">
               Contáctanos
             </button>
           </div>

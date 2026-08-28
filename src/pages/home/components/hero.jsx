@@ -24,7 +24,7 @@ export default function Hero() {
       <Navbar />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col grow w-full justify-end p-[60px] gap-[30px]">
+      <div className="self-center relative z-10 flex flex-col grow w-full max-w-[1280px] justify-end p-[60px] gap-[30px]">
         {/* Logo */}
         <div className="relative w-[367px] h-[122px]">
           <img
@@ -40,7 +40,7 @@ export default function Hero() {
         </h1>
 
         {/* Button */}
-        <button className="w-fit px-[26px] py-[16px] rounded-[5px] text-[16px] font-bold uppercase tracking-wider bg-naranja">
+        <button className="w-fit px-[26px] py-[16px] rounded-[5px] text-[16px] font-bold uppercase tracking-wider bg-naranja hover:bg-gris hover:text-blanco active:bg-blanco active:text-negro hover:cursor-pointer">
           Vive la experience
         </button>
       </div>

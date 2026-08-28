@@ -83,7 +83,7 @@ export default function ConoceElProyecto() {
           </div>
 
           {/* botón */}
-          <button className="w-fit flex items-center px-[26px] py-[16px] gap-[10px] rounded-[5px] text-[16px] font-bold uppercase tracking-wider bg-naranja">
+          <button className="w-fit flex items-center px-[26px] py-[16px] gap-[10px] rounded-[5px] text-[16px] font-bold uppercase tracking-wider bg-naranja hover:bg-gris active:bg-azul hover:cursor-pointer">
             <img
               src={descargar}
               alt="Ícono de descargar"

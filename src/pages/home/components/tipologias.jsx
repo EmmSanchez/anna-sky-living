@@ -81,7 +81,7 @@ export default function Tipologias() {
                 </h3>
                 <button
                   onClick={() => abrirModal(modelo)}
-                  className="flex px-[36px] py-[16px] gap-[10px] justify-center items-center text-[18px] font-bold tracking-wider rounded-[10px] bg-naranja uppercase hover:cursor-pointer"
+                  className="flex px-[36px] py-[16px] gap-[10px] justify-center items-center text-[18px] font-bold tracking-wider rounded-[10px] bg-naranja hover:bg-gris active:bg-azul hover:drop-shadow-xl active:drop-shadow-xl uppercase hover:cursor-pointer"
                 >
                   <img
                     src={imageIcon}

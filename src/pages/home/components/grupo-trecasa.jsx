@@ -56,7 +56,7 @@ export default function GrupoTrecasa() {
           href="https://grupotrecasa.com.mx"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center w-fit px-[36px] py-[16px] gap-[10px] rounded-[10px] bg-naranja"
+          className="group flex items-center w-fit px-[36px] py-[16px] gap-[10px] rounded-[10px] bg-naranja hover:bg-gris hover:text-blanco active:bg-azul active:text-blanco drop-shadow-2xl hover:cursor-pointer"
         >
           <img
             src={clickIcon}
