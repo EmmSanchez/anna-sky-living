@@ -30,7 +30,7 @@ export function Carousel({
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      align: "start",
+      align: "center",
       startIndex: 0,
       duration: 30,
       ...emblaOptions,

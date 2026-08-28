@@ -21,111 +21,151 @@ import avance15 from "../../../assets/images/avances/avance-15.jpg";
 import avance16 from "../../../assets/images/avances/avance-16.jpg";
 import avance17 from "../../../assets/images/avances/avance-17.jpg";
 
+// videos
+import video1 from "../../../../public/avance-de-obra/30 SEPTIEMBRE 2025.mp4";
+import video2 from "../../../../public/avance-de-obra/23 OCT 25 AVANCE.mp4";
+import video3 from "../../../../public/avance-de-obra/4 NOVIEMBRE 2025 AVANCE.mp4";
+import video4 from "../../../../public/avance-de-obra/13 NOVIEMBRE 25 AVANCE.mp4";
+import video5 from "../../../../public/avance-de-obra/16 DE DICIEMBRE 25 AVANCE.mp4";
+import video6 from "../../../../public/avance-de-obra/19 DIC 25 AVANCE.mp4";
+import video7 from "../../../../public/avance-de-obra/22 DICIEMBRE 25 AVANCE.mp4";
+import video8 from "../../../../public/avance-de-obra/12 ENERO 26.mp4";
+import video9 from "../../../../public/avance-de-obra/17 FEB 2026.mp4";
+import video10 from "../../../../public/avance-de-obra/5 MARZO.mp4";
+import video11 from "../../../../public/avance-de-obra/10 DE MARZO 26.mp4";
+import video12 from "../../../../public/avance-de-obra/12 DE MARZO 26.mp4";
+import video13 from "../../../../public/avance-de-obra/7 MAYO 2026.mp4";
+import video14 from "../../../../public/avance-de-obra/19 MAYO 26.mp4";
+import video15 from "../../../../public/avance-de-obra/1 DE JUNIO.mp4";
+import video16 from "../../../../public/avance-de-obra/11 DE JUNIO 26.mp4";
+import video17 from "../../../../public/avance-de-obra/29 DE JUNIO 2026.mp4";
+
 const slidesData = [
   {
     date: "30 SEPTIEMBRE 2025",
     description: "Colado nivel 11",
     image: avance1,
+    video: video1,
   },
   {
     date: "23 OCTUBRE 2025",
     description: "Torre 2, nivel 7",
     image: avance2,
+    video: video2,
   },
   {
     date: "4 NOVIEMBRE 2025",
     description: "Colado de nivel 14\ntorre 1",
     image: avance3,
+    video: video3,
   },
   {
     date: "13 NOVIEMBRE 2025",
     description: "Losa catorce de la\ntorre uno",
     image: avance4,
+    video: video4,
   },
   {
     date: "16 DICIEMBRE 2025",
     description: "Colado nivel 8, torre\n2",
     image: avance5,
+    video: video5,
   },
   {
     date: "19 DICIEMBRE 2025",
     description: "Nivel 16, torre 1\nNivel 8 torre 2",
     image: avance6,
+    video: video6,
   },
   {
     date: "22 DICIEMBRE 2025",
     description: "Colado de nivel 16,\ntorre 1",
     image: avance7,
+    video: video7,
   },
   {
     date: "12 ENERO 2026",
     description: "Colado de nivel 17\ntorre 1",
     image: avance8,
+    video: video8,
   },
   {
     date: "17 FEBRERO 2026",
     description: "Colado de nivel 19\ndptos. torre 2",
     image: avance9,
+    video: video9,
   },
   {
     date: "5 MARZO 2026",
     description: "Colado de 10 niveles\nde departamentos",
     image: avance10,
+    video: video10,
   },
   {
     date: "12 MARZO 2026",
     description: "Colado nivel 20",
     image: avance11,
+    video: video11,
   },
   {
     date: "12 MARZO 2026",
     description: "Nivel 22, torre 1",
     image: avance12,
+    video: video12,
   },
   {
     date: "7 MAYO 2026",
     description: "Nivel 22, torre 1",
     image: avance13,
+    video: video13,
   },
   {
     date: "19 MAYO 2026",
     description: "Avance de obra nivel\n12, torre 2",
     image: avance14,
+    video: video14,
   },
   {
     date: "1 JUNIO 2026",
     description: "Avance de obra",
     image: avance15,
+    video: video15,
   },
   {
     date: "11 JUNIO 2026",
     description: "Nivel 24, torre 1",
     image: avance16,
+    video: video16,
   },
   {
     date: "29 JUNIO 2026",
     description: "Avance de obra nivel 12, torre 2",
     image: avance17,
+    video: video17,
   },
 ];
 
 export default function AvanceObra() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const handleSlideChange = useCallback((index) => {
     setCurrentSlide(index);
   }, []);
 
-  const amenidades = slidesData.map((slide) => {
+  const amenidades = slidesData.map((slide, index) => {
+    const isActive = index === currentSlide;
+    const isHovered = index === hoveredIndex;
+    const showVideo = isActive || isHovered;
+
     return (
       <div
         key={slide.id}
-        className={`group relative flex shrink-0 flex-col w-[260px] h-[520px] p-[20px] overflow-hidden bg-azul-intenso hover:cursor-pointer transition-all duration-500 ease-out`}
+        onMouseEnter={() => setHoveredIndex(index)}
+        onMouseLeave={() => setHoveredIndex(null)}
+        className="group relative flex shrink-0 flex-col w-[260px] h-[520px] p-[20px] overflow-hidden bg-azul-intenso hover:cursor-pointer transition-all duration-500 ease-out"
       >
-        {/* Text */}
-        <div
-          className={`relative flex flex-col w-full h-full justify-center gap-[15px]`}
-        >
+        <div className="relative flex flex-col w-full h-full justify-center gap-[15px]">
           <h4 className="text-[22px] font-bold tracking-tighter leading-[120%] text-blanco">
             {slide.date}
           </h4>
@@ -137,8 +177,23 @@ export default function AvanceObra() {
             <img
               src={slide.image}
               alt={`Imagen de avance fecha ${slide.date}`}
-              className="absolute inset-0 w-full h-full object-cover object-left"
+              className={`absolute inset-0 w-full h-full object-cover object-left transition-opacity duration-300 ${
+                showVideo ? "opacity-0" : "opacity-100"
+              }`}
             />
+
+            {showVideo && (
+              <video
+                src={slide.video}
+                poster={slide.image}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-cover object-left"
+              />
+            )}
           </div>
         </div>
       </div>
