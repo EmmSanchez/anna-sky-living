@@ -29,17 +29,17 @@ export default function GrupoTrecasa() {
   return (
     <section
       id="nosotros"
-      className="flex self-center justify-center items-center w-full max-w-[1280px] px-[60px] pt-[60px] pb-[30px] gap-[33px]"
+      className="flex flex-col min-[1200px]:flex-row self-center justify-center items-center w-full max-w-[1280px] px-[44px] md:px-[50px] xl:px-[60px] pt-[60px] pb-[30px] gap-[40px] lg:gap-[33px]"
     >
       {/* Left side */}
-      <div className="flex flex-col gap-[30px]">
+      <div className="flex flex-col items-center min-[1200px]:items-start gap-[30px]">
         <img
           src={logoTrecasa}
           alt="Logo Grupo Trecasa"
           className="w-[338px] h-[73px]"
         />
 
-        <p className="w-full max-w-[500px] text-[21px] font-extralight leading-[120%]">
+        <p className="w-full max-w-[700px] paragraph text-blanco font-extralight leading-[120%]">
           Con más de tres décadas de experiencia,
           <br />
           <b className="font-bold">Grupo Trecasa</b> se ha consolidado como una
@@ -63,23 +63,23 @@ export default function GrupoTrecasa() {
             alt="Ícono de click"
             className="w-[11.59px] h-[16px]"
           />
-          <span className="text-[18px] font-bold uppercase tracking-wider">
+          <span className="button-big text-center text-blanco font-bold uppercase tracking-wider">
             Ver página web
           </span>
         </a>
       </div>
 
       {/* Right side */}
-      <div className="flex">
+      <div className="flex flex-col max-[720px]:items-center max-[720px]:w-full min-[720px]:flex-row">
         {datos.map((dato) => {
           return (
             <div
               key={dato.id}
-              className={`flex flex-col justify-center items-center text-center w-[209px] h-[180px] py-[68px] px-[15px] gap-[15px] border-x-2 border-amarillo ${dato.id === "experiencia" ? "border-none" : ""}`}
+              className={`flex flex-col justify-center items-center text-center w-full max-w-[287px] h-[125px] min-[720px]:w-[209px] min-[720px]:h-[180px] py-[68px] px-[15px] gap-[10px] min-[720px]:gap-[15px] border-x-2 border-amarillo ${dato.id === "experiencia" ? "min-[720px]:border-none" : ""}`}
             >
               <img src={dato.icon} alt={`Ícono de ${dato.description}`} />
-              <p className="text-[25px] font-bold">{dato.title}</p>
-              <p className="text-[16px] font-light">{dato.description}</p>
+              <p className="paragraph-caps font-bold uppercase">{dato.title}</p>
+              <p className="paragraph-small font-light">{dato.description}</p>
             </div>
           );
         })}
