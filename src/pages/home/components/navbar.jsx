@@ -78,7 +78,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`relative z-20 flex justify-center items-center w-full transition-colors ease-out ${isNavbarOpen ? "bg-azul" : "bg-negro"}`}
+      className={`relative z-10 flex justify-center items-center w-full transition-colors ease-out ${isNavbarOpen ? "bg-azul" : "bg-negro"}`}
     >
       {/* Menu resposinve */}
       <div
@@ -119,7 +119,7 @@ export default function Navbar() {
 
       {/* Menu mobile */}
       {isNavbarOpen && (
-        <div className="absolute z-0 top-0 left-0 flex w-full h-svh bg-black min-[820px]:hidden">
+        <div className="absolute top-0 left-0 flex w-full h-svh bg-black min-[820px]:hidden">
           {/* Sidebar decoracion */}
           <div className="shrink-0 h-full w-[99px] bg-[#264A69]" />
 

@@ -17,6 +17,8 @@ import ModeloTipoB from "./components/popup/modelos/modelo-tipo-b";
 import ModeloTipoC from "./components/popup/modelos/modelo-tipo-c";
 import ModeloTipoD from "./components/popup/modelos/modelo-tipo-d";
 
+import { whatsappInfo } from "../../data/social";
+
 const popupsPorModelo = {
   "tipo-a": ModeloTipoA,
   "tipo-b": ModeloTipoB,
@@ -32,6 +34,11 @@ export default function Home() {
 
   return (
     <main className="flex flex-col">
+      {/* Botón de whatsapp */}
+      <a className="fixed z-0 bottom-8 right-12 flex size-[42px] justify-center items-cente p-[8px] rounded-[7.5px] bg-naranja">
+        <img src={whatsappInfo.icon} alt="Ícono de whatsapp" />
+      </a>
+
       <Hero />
       {/* <GrupoTrecasa /> */}
       {/* <PermisosDeObra /> */}
