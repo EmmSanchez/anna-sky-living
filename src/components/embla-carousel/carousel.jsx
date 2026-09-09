@@ -18,7 +18,7 @@ export function Carousel({
   const autoScroll = useRef(
     AutoScroll({
       speed: 1,
-      startDelay: 1000,
+      startDelay: 1000000,
       stopOnInteraction: true,
       stopOnMouseEnter: false,
       ...autoScrollOptions,

@@ -20,6 +20,7 @@ import avance14 from "../../../assets/images/avances/avance-14.jpg";
 import avance15 from "../../../assets/images/avances/avance-15.jpg";
 import avance16 from "../../../assets/images/avances/avance-16.jpg";
 import avance17 from "../../../assets/images/avances/avance-17.jpg";
+import slideFinalImage from "../../../assets/images/avances/slide-final.jpg";
 
 // videos
 import video1 from "../../../../public/avance-de-obra/30 SEPTIEMBRE 2025.mp4";
@@ -39,6 +40,10 @@ import video14 from "../../../../public/avance-de-obra/19 MAYO 26.mp4";
 import video15 from "../../../../public/avance-de-obra/1 DE JUNIO.mp4";
 import video16 from "../../../../public/avance-de-obra/11 DE JUNIO 26.mp4";
 import video17 from "../../../../public/avance-de-obra/29 DE JUNIO 2026.mp4";
+
+// slide final content
+import annaLogoYellow from "../../../assets/logos/anna-sky-living-yellow.svg";
+import timeline from "../../../assets/images/avances/slide-final-timeline.svg";
 
 const slidesData = [
   {
@@ -143,7 +148,48 @@ const slidesData = [
     image: avance17,
     video: video17,
   },
+  {
+    date: "AGOSTO 2026",
+    description: "Avance de obra nivel 12, torre 2",
+    image: avance17,
+    video: video17,
+  },
+  {
+    date: "SEPTIEMBRE 2026",
+    description: "Avance de obra nivel 12, torre 2",
+    image: avance17,
+    video: video17,
+  },
 ];
+
+const slideFinal = (
+  <div className="group relative flex shrink-0 flex-col w-[260px] h-[520px] p-[20px] overflow-hidden bg-azul-intenso hover:cursor-pointer transition-all duration-500 ease-out">
+    {/* Overlay */}
+    <div className="absolute z-10 inset-0 w-full h-full bg-linear-to-b from-azul-intenso/60 to-azul-intenso" />
+
+    {/* Bg image */}
+    <img
+      src={slideFinalImage}
+      alt="Continuamos Avanzando..."
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+
+    {/* Content */}
+    <div className="relative z-10 flex flex-col w-full h-full justify-center items-center gap-[15px]">
+      <img
+        src={annaLogoYellow}
+        alt="Logo Anna Sky Living"
+        className="w-full max-w-[200px]"
+      />
+
+      <p className="paragraph-icon text-center font-bold">
+        Continuamos <br /> avanzando...
+      </p>
+
+      <img src={timeline} alt="Línea de tiempo" />
+    </div>
+  </div>
+);
 
 export default function AvanceObra() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -160,7 +206,7 @@ export default function AvanceObra() {
 
     return (
       <div
-        key={slide.id}
+        key={index}
         onMouseEnter={() => setHoveredIndex(index)}
         onMouseLeave={() => setHoveredIndex(null)}
         className="group relative flex shrink-0 flex-col w-[260px] h-[520px] p-[20px] overflow-hidden bg-azul-intenso hover:cursor-pointer transition-all duration-500 ease-out"
@@ -191,7 +237,7 @@ export default function AvanceObra() {
                 loop
                 playsInline
                 preload="metadata"
-                className="absolute inset-0 w-full h-full object-cover object-left"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             )}
           </div>
@@ -201,6 +247,8 @@ export default function AvanceObra() {
   });
 
   const activeGroup = Math.floor(currentSlide / 4);
+
+  const amenidadesFinal = [...amenidades, slideFinal];
 
   return (
     <section
@@ -255,7 +303,7 @@ export default function AvanceObra() {
       {/* Carousel */}
       <div className="flex items-center w-[1120px] h-[520px] gap-[30px]">
         <Carousel
-          slides={amenidades}
+          slides={amenidadesFinal}
           variant="card"
           autoScrollOptions={{ stopOnMouseEnter: true }}
           onSlideChange={handleSlideChange}

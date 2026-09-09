@@ -14,6 +14,10 @@
   --color-negro: #1d1f1e;
 }
 
+.paragraph-icon {
+  @apply text-[13px] md:text-[15px] xl:text-[18px] leading-[125%];
+}
+
 * {
   box-sizing: border-box;
 }

@@ -28,6 +28,11 @@ const modelos = [
     label: "Modelo tipo d",
     image: tipoD,
   },
+  {
+    id: "tipo-e",
+    label: "Modelo tipo e",
+    image: tipoD,
+  },
 ];
 
 export default function Tipologias() {
@@ -62,7 +67,7 @@ export default function Tipologias() {
       </div>
 
       {/* Modelos */}
-      <div className="flex flex-wrap justify-center gap-[10px]">
+      <div className="flex w-full max-w-[1200px] flex-wrap justify-center gap-[20px]">
         {modelos.map((modelo) => {
           return (
             <div
