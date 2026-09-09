@@ -1,10 +1,6 @@
+import { socials } from "../../../data/social";
+
 import annaLogo from "../../../assets/logos/anna-sky-living-yellow.svg";
-
-import facebook from "../../../assets/icons/social/facebook.svg";
-import facebookBlue from "../../../assets/icons/social/facebook-blue.svg";
-import instagram from "../../../assets/icons/social/instagram.svg";
-import instagramBlue from "../../../assets/icons/social/instagram-blue.svg";
-
 import desarrolladoXperience from "../../../assets/logos/desarrollado-xperience.svg";
 
 const buttons = [
@@ -27,21 +23,6 @@ const buttons = [
   {
     id: "avance-de-obra",
     label: "Avance de obra",
-  },
-];
-
-const socials = [
-  {
-    id: "facebook",
-    icon: facebook,
-    iconActive: facebookBlue,
-    href: "https://www.facebook.com/annaskyliving",
-  },
-  {
-    id: "instagram",
-    icon: instagram,
-    iconActive: instagramBlue,
-    href: "https://www.instagram.com/annaskyliving/",
   },
 ];
 

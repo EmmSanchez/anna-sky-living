@@ -24,9 +24,9 @@ export default function Hero() {
       <Navbar />
 
       {/* Content */}
-      <div className="self-center relative z-10 flex flex-col grow w-full max-w-[1280px] justify-end p-[60px] gap-[30px]">
+      <div className="self-center relative z-0 flex flex-col grow w-full max-w-[1280px] justify-center items-center md:items-start md:justify-end pb-[60px] px-[10px] md:p-[60px] gap-[30px]">
         {/* Logo */}
-        <div className="relative w-[367px] h-[122px]">
+        <div className="relative w-full max-w-[287px] h-[95px] md:w-[302px] md:h-[100px] xl:w-[367px] xl:h-[122px]">
           <img
             src={annaSkyLiving}
             alt="Logo Anna Sky Living"
@@ -35,12 +35,12 @@ export default function Hero() {
         </div>
 
         {/* Header 1 */}
-        <h1 className="text-[35px] uppercase font-bangla leading-none">
+        <h1 className="header-2 uppercase text-center md:text-left font-bangla leading-none">
           Vive en las alturas de un nuevo estilo de vida
         </h1>
 
         {/* Button */}
-        <button className="w-fit px-[26px] py-[16px] rounded-[5px] text-[16px] font-bold uppercase tracking-wider bg-naranja hover:bg-gris hover:text-blanco active:bg-blanco active:text-negro hover:cursor-pointer">
+        <button className="w-fit px-[26px] py-[16px] rounded-[5px] button-text font-bold uppercase tracking-wider bg-naranja hover:bg-gris hover:text-blanco active:bg-blanco active:text-negro hover:cursor-pointer">
           Vive la experience
         </button>
       </div>

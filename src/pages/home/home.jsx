@@ -33,16 +33,16 @@ export default function Home() {
   return (
     <main className="flex flex-col">
       <Hero />
-      <GrupoTrecasa />
-      <PermisosDeObra />
-      <Amenidades />
-      <Tipologias />
-      <VideoBanner />
-      <AvanceObra />
-      <ConoceElProyecto />
-      <Visitanos />
-      <Contacto />
-      <Footer />
+      {/* <GrupoTrecasa /> */}
+      {/* <PermisosDeObra /> */}
+      {/* <Amenidades /> */}
+      {/* <Tipologias /> */}
+      {/* <VideoBanner /> */}
+      {/* <AvanceObra /> */}
+      {/* <ConoceElProyecto /> */}
+      {/* <Visitanos /> */}
+      {/* <Contacto /> */}
+      {/* <Footer /> */}
 
       {ModeloPopup && <ModeloPopup />}
     </main>
