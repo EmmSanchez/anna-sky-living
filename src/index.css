@@ -17,6 +17,9 @@
 .paragraph-icon {
   @apply text-[13px] md:text-[15px] xl:text-[18px] leading-[125%];
 }
+.caption {
+  @apply text-[14px] leading-[120%];
+}
 
 * {
   box-sizing: border-box;

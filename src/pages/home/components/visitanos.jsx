@@ -6,7 +6,7 @@ import mailIcon from "../../../assets/icons/mail.svg";
 import pinIcon from "../../../assets/icons/pin.svg";
 
 // mapa
-import mapa from "../../../assets/images/mapa.svg";
+import mapa from "../../../assets/images/visitanos/mapa-anna-sky-horizontal.jpg";
 
 const features = [
   {
@@ -29,7 +29,7 @@ export default function Visitanos() {
   return (
     <div className="w-full">
       {/* Medio banner */}
-      <div className="relative flex justify-center items-center w-full h-[425px]">
+      <div className="relative flex justify-center items-center w-full min-h-[50vh]">
         {/* imagen de fondo */}
         <img
           src={bannerBg}
@@ -56,7 +56,7 @@ export default function Visitanos() {
       {/* Banner completo con mapa */}
       <div className="relative flex flex-col justify-center items-center w-full gap-[30px] pt-[60px]">
         {/* Info */}
-        <div className="flex flex-col gap-[30px]">
+        <div className="flex flex-col w-full max-w-[1280px] gap-[30px]">
           <h3 className="text-[35px] text-center text-blanco font-bangla uppercase leading-[120%]">
             Te esperamos.
             <br />
@@ -69,16 +69,18 @@ export default function Visitanos() {
               return (
                 <div
                   key={index}
-                  className={`flex flex-col w-[370px] h-[180px] p-[20px] gap-[20px] justify-center items-center ${index === 1 ? "border-none" : "border-x-2 border-amarillo"}`}
+                  className={`flex flex-col w-[370px] h-[157px] p-[20px] gap-[10px] justify-center items-center ${index === 1 ? "border-none" : "border-x-2 border-amarillo"}`}
                 >
-                  <img src={feature.icon} />
-                  <p className="text-[16px] text-center text-blanco font-light tracking-tight leading-[120%]">
+                  <img src={feature.icon} className="h-[26px]" />
+                  <p className="paragraph-icon text-center text-blanco font-light tracking-tight leading-[120%]">
                     {feature.title && (
                       <span className="font-bold">
                         {feature.title} <br />
                       </span>
                     )}
-                    {feature.description}
+                    <span className={`${index === 2 ? "" : "font-bold"}`}>
+                      {feature.description}
+                    </span>
                   </p>
                 </div>
               );
@@ -86,7 +88,12 @@ export default function Visitanos() {
           </div>
 
           {/* Map */}
-          <img src={mapa} className="relative w-full h-[700px]" />
+          <div className="relative w-full max-w-[1280px] h-[850px]">
+            <img
+              src={mapa}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </div>
