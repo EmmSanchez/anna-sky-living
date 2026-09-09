@@ -17,11 +17,23 @@
 .header-2 {
   @apply text-[24px] md:text-[30px] xl:text-[35px];
 }
+.paragraph {
+  @apply text-[15px] md:text-[17px] xl:text-[21px] leading-[125%];
+}
+.paragraph-samll {
+  @apply text-[13px] md:text-[15px] xl:text-[26px] leading-[125%];
+}
 .paragraph-icon {
   @apply text-[13px] md:text-[15px] xl:text-[18px] leading-[125%];
 }
+.paragraph-caps {
+  @apply text-[16px] md:text-[18px] xl:text-[21px] leading-[125%];
+}
 .button-text {
   @apply text-[13px] xl:text-[16px];
+}
+.button-big {
+  @apply text-[18px];
 }
 .caption {
   @apply text-[14px] leading-[120%];
