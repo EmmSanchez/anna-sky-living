@@ -18,7 +18,7 @@ export function Carousel({
   const autoScroll = useRef(
     AutoScroll({
       speed: 1,
-      startDelay: 1000000,
+      startDelay: 1000,
       stopOnInteraction: true,
       stopOnMouseEnter: false,
       ...autoScrollOptions,
@@ -30,7 +30,7 @@ export function Carousel({
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      align: "center",
+      align: "start",
       startIndex: 0,
       duration: 30,
       ...emblaOptions,
@@ -119,7 +119,7 @@ export function Carousel({
       {/* Left arrow */}
       <button
         onClick={scrollPrev}
-        className="group flex justify-center items-center absolute z-20 -translate-x-[62px] bottom-1/2 translate-y-1/2 p-[10px] rounded-[10px] bg-naranja hover:bg-gris hover:cursor-pointer active:bg-blanco hover:drop-shadow-lg drop-shadow-black/20"
+        className="group flex justify-center items-center absolute z-20 -translate-x-[44px] md:-translate-x-[62px] bottom-1/2 translate-y-1/2 p-[10px] rounded-[10px] bg-naranja hover:bg-gris hover:cursor-pointer active:bg-blanco hover:drop-shadow-lg drop-shadow-black/20"
       >
         <img
           src={arrowIcon}
@@ -132,7 +132,7 @@ export function Carousel({
       {/* Right arrow */}
       <button
         onClick={scrollNext}
-        className="group flex justify-center items-center absolute z-20 translate-x-[62px] bottom-1/2 right-0 translate-y-1/2 p-[10px] rounded-[10px] bg-naranja hover:bg-gris hover:cursor-pointer active:bg-blanco hover:drop-shadow-lg drop-shadow-black/20"
+        className="group flex justify-center items-center absolute z-20 translate-x-[44px] md:translate-x-[62px] bottom-1/2 right-0 translate-y-1/2 p-[10px] rounded-[10px] bg-naranja hover:bg-gris hover:cursor-pointer active:bg-blanco hover:drop-shadow-lg drop-shadow-black/20"
       >
         <img
           src={arrowIcon}

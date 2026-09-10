@@ -1,5 +1,7 @@
 import { Carousel } from "../../../components/embla-carousel/carousel";
 import { motion } from "motion/react";
+import useUIStore from "../../../store/useUIStore";
+import { useIsXl } from "../../../hooks/useIsXl";
 
 // icons
 import albercaIcon from "../../../assets/icons/amenidades/alberca.svg";
@@ -26,7 +28,6 @@ import salaJuegosImage from "../../../assets/images/amenidades/sala-juegos.webp"
 import teaImage from "../../../assets/images/amenidades/tearoom.webp";
 import petImage from "../../../assets/images/amenidades/pet.webp";
 import parqueImage from "../../../assets/images/amenidades/parque.webp";
-import useUIStore from "../../../store/useUIStore";
 
 const slidesData = [
   {
@@ -99,20 +100,24 @@ const slidesData = [
 
 export default function Amenidades() {
   const { selectedAmenidad, setSelectedAmenidad } = useUIStore();
+  const isXl = useIsXl();
+
+  const baseWidth = isXl ? 340 : 255;
+  const expandedWidth = isXl ? 850 : 400;
 
   const amenidades = slidesData.map((slide) => {
     return (
       <motion.div
         key={slide.id}
         animate={{
-          width: selectedAmenidad === slide.id ? 850 : 340,
+          width: selectedAmenidad === slide.id ? expandedWidth : baseWidth,
         }}
         initial={false}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         onClick={() =>
           setSelectedAmenidad(selectedAmenidad === slide.id ? null : slide.id)
         }
-        className={`group relative flex shrink-0 flex-col min-w-[340px] h-[670px] rounded-[15px] shadow-2xl overflow-hidden bg-cyan-500 shadow-[0_10.48px_18.16px_-6.98px_rgba(0,0,0,0.12),0_8.73px_15.89px_-6.98px_rgba(0,0,0,0.15)] hover:cursor-pointer transition-[outline-color,outline-width] duration-500 ease-out ${
+        className={`pointer-events-none md:pointer-events-auto group relative z-0 flex shrink-0 flex-col h-[600px] xl:h-[670px] rounded-[15px] shadow-2xl overflow-hidden bg-cyan-500 shadow-[0_10.48px_18.16px_-6.98px_rgba(0,0,0,0.12),0_8.73px_15.89px_-6.98px_rgba(0,0,0,0.15)] hover:cursor-pointer transition-[outline-color,outline-width] duration-500 ease-out ${
           selectedAmenidad === slide.id
             ? "outline-3 outline-naranja"
             : "outline-0 outline-naranja"
@@ -145,7 +150,9 @@ export default function Amenidades() {
             alt="Ícono de amenidad"
             className="h-[45px]"
           />
-          <h4 className="text-[28px] font-bold uppercase">{slide.title}</h4>
+          <h4 className="paragraph-icon text-center font-bold uppercase">
+            {slide.title}
+          </h4>
         </div>
       </motion.div>
     );
@@ -154,19 +161,20 @@ export default function Amenidades() {
   return (
     <section
       id="amenidades"
-      className="flex flex-col self-center w-full max-w-[1280px] h-fit justify-center items-center px-[30px] pt-[30px] pb-[60px] gap-[30px]"
+      className="flex flex-col self-center w-full max-w-[1280px] min-h-svh justify-center items-center px-[30px] pt-[30px] pb-[60px] gap-[30px]"
     >
-      <div className="flex flex-col justify-center items-center gap-[10px]">
-        <h2 className="text-[35px] font-bangla uppercase leading-none">
+      <div className="flex flex-col justify-center items-center gap-[35px]">
+        <h2 className="header-2 text-center font-bangla uppercase leading-none">
           Amenidades
+          <br />
         </h2>
-        <h3 className="text-[35px] font-bangla uppercase leading-none">
+        <h3 className="header-2 text-center font-bangla uppercase leading-none">
           Disfruta lo extraordinario
         </h3>
       </div>
 
       {/* Carousel */}
-      <div className="flex items-center w-[1120px] h-[710px] gap-[35px]">
+      <div className="flex items-center w-[270px] md:w-[70%] xl:w-[1120px] h-[630px] xl:h-[710px]">
         <Carousel
           slides={amenidades}
           variant="card"
