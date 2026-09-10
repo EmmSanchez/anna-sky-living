@@ -17,6 +17,9 @@
 .header-2 {
   @apply text-[24px] md:text-[30px] xl:text-[35px];
 }
+.header-model {
+  @apply text-[24px] md:text-[30px] xl:text-[30px];
+}
 .paragraph {
   @apply text-[15px] md:text-[17px] xl:text-[21px] leading-[125%];
 }

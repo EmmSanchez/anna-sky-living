@@ -43,7 +43,7 @@ export default function Home() {
       <GrupoTrecasa />
       <PermisosDeObra />
       <Amenidades />
-      {/* <Tipologias /> */}
+      <Tipologias />
       {/* <VideoBanner /> */}
       {/* <AvanceObra /> */}
       {/* <ConoceElProyecto /> */}
