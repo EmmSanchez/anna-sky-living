@@ -161,7 +161,7 @@ export default function Amenidades() {
   return (
     <section
       id="amenidades"
-      className="flex flex-col self-center w-full max-w-[1280px] min-h-svh justify-center items-center px-[30px] pt-[30px] pb-[60px] gap-[30px]"
+      className="relative flex flex-col self-center w-full max-w-[1280px] min-h-svh justify-center items-center px-[30px] pt-[30px] pb-[60px] gap-[30px]"
     >
       <div className="flex flex-col justify-center items-center gap-[35px]">
         <h2 className="header-2 text-center font-bangla uppercase leading-none">
@@ -181,6 +181,10 @@ export default function Amenidades() {
           isAnySelected={selectedAmenidad}
         />
       </div>
+
+      <p className="absolute bottom-7 caption text-blanco font-light">
+        Imagenes con fines ilustrativos*
+      </p>
     </section>
   );
 }
