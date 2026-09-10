@@ -174,17 +174,17 @@ export default function Amenidades() {
       </div>
 
       {/* Carousel */}
-      <div className="flex items-center w-[270px] md:w-[70%] xl:w-[1120px] h-[630px] xl:h-[710px]">
+      <div className="relative flex items-center w-[270px] md:w-[70%] xl:w-[1120px] h-[630px] xl:h-[710px]">
         <Carousel
           slides={amenidades}
           variant="card"
           isAnySelected={selectedAmenidad}
         />
-      </div>
 
-      <p className="absolute bottom-7 caption text-blanco font-light">
-        Imágenes con fines ilustrativos*
-      </p>
+        <p className="absolute -bottom-4 right-1/2 translate-x-[50%] caption text-blanco font-light">
+          Imágenes con fines ilustrativos*
+        </p>
+      </div>
     </section>
   );
 }

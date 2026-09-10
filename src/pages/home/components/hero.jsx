@@ -40,9 +40,12 @@ export default function Hero() {
         </h1>
 
         {/* Button */}
-        <button className="w-fit px-[26px] py-[16px] rounded-[5px] button-text font-bold uppercase tracking-wider bg-naranja hover:bg-gris hover:text-blanco active:bg-blanco active:text-azul hover:cursor-pointer">
-          Vive la experience
-        </button>
+        <a
+          href="#showroom"
+          className="w-fit px-[26px] py-[16px] rounded-[5px] button-text font-bold uppercase tracking-wider bg-naranja hover:bg-gris hover:text-blanco active:bg-blanco active:text-azul hover:cursor-pointer"
+        >
+          Visita nuestro showroom
+        </a>
       </div>
     </div>
   );

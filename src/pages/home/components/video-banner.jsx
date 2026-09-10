@@ -12,7 +12,7 @@ export default function VideoBanner() {
     <div className="relative self-center flex w-full h-svh md:h-[50svh] xl:h-svh justify-center items-center overflow-hidden">
       <AutoGalleryCarrousel images={[image1, image2, image3, image4, image5]} />
 
-      <p className="absolute bottom-4 right-4 text-[14px] text-blanco font-light">
+      <p className="absolute bottom-4 right-[1/2] text-[14px] text-blanco font-light">
         Imágenes con fines ilustrativos*
       </p>
     </div>

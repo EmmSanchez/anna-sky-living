@@ -1,3 +1,9 @@
+import {
+  mailInfo,
+  mapsInfo,
+  phoneInfo,
+  whatsappInfo,
+} from "../../../data/social";
 import bannerBg from "../../../assets/images/visitanos-background.jpg";
 
 // Icons
@@ -11,18 +17,21 @@ import mapaMobile from "../../../assets/images/visitanos/mapa-anna-sky-vertical.
 
 const features = [
   {
-    description: "81 29 10 4413",
+    description: phoneInfo.label,
     icon: phoneIcon,
+    href: phoneInfo.href,
   },
   {
-    description: "annaskyliving@gmail.com",
+    description: mailInfo.label,
     icon: mailIcon,
+    href: mailInfo.href,
   },
   {
     title: "Showroom de Ventas",
     description:
       "Plaza Vía 01. Rogelio Cantú Gómez 1000, Colinas de San Jerónimo, Monterrey, NL. local 23 y 24",
     icon: pinIcon,
+    href: mapsInfo.href,
   },
 ];
 
@@ -30,7 +39,10 @@ export default function Visitanos() {
   return (
     <div className="w-full">
       {/* Medio banner */}
-      <div className="relative flex justify-center items-center w-full min-h-[50vh]">
+      <div
+        id="showroom"
+        className="relative flex justify-center items-center w-full min-h-[50vh]"
+      >
         {/* imagen de fondo */}
         <img
           src={bannerBg}
@@ -42,14 +54,19 @@ export default function Visitanos() {
         <div className="absolute w-full h-full bg-linear-to-r from-azul/90 via-50% via-azul/40" />
 
         <div className="relative flex w-full max-w-[1280px] h-full items-center">
-          <div className="flex flex-col w-full justify-center items-center md:w-[400px] md:pl-[60px] gap-[20px]">
+          <div className="flex flex-col w-full justify-center items-center md:justify-start md:items-start md:w-[400px] md:pl-[60px] gap-[20px]">
             <h3 className="header-2 text-center md:text-left font-bangla uppercase leading-[120%]">
               Visita <br /> nuestro <br />
               showroom
             </h3>
-            <button className="w-fit px-[26px] py-[16px] rounded-[5px] button-text text-blanco font-bold uppercase tracking-wide bg-naranja hover:bg-gris active:bg-blanco active:text-azul hover:cursor-pointer">
+            <a
+              href={whatsappInfo.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-fit px-[26px] py-[16px] rounded-[5px] button-text text-blanco font-bold uppercase tracking-wide bg-naranja hover:bg-gris active:bg-blanco active:text-azul hover:cursor-pointer"
+            >
               Contáctanos
-            </button>
+            </a>
           </div>
         </div>
 
@@ -71,8 +88,11 @@ export default function Visitanos() {
           <div className="flex flex-col md:flex-row justify-center items-center px-[20px]">
             {features.map((feature, index) => {
               return (
-                <div
+                <a
                   key={index}
+                  href={feature.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`flex flex-col w-full max-w-[370px] h-[157px] p-[20px] gap-[10px] justify-center items-center ${index === 1 ? "border-x-2 border-amarillo md:border-none" : "border-x-2 border-amarillo"}`}
                 >
                   <img src={feature.icon} className="h-[26px]" />
@@ -86,13 +106,18 @@ export default function Visitanos() {
                       {feature.description}
                     </span>
                   </p>
-                </div>
+                </a>
               );
             })}
           </div>
 
           {/* Map */}
-          <div className="relative w-full max-w-[1280px] h-svh md:h-[50svh] xl:h-svh">
+          <a
+            href={mapsInfo.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative w-full max-w-[1280px] h-svh md:h-[50svh] xl:h-svh"
+          >
             <img
               src={mapa}
               className="hidden md:block absolute inset-0 w-full h-full object-cover"
@@ -101,7 +126,7 @@ export default function Visitanos() {
               src={mapaMobile}
               className="block md:hidden absolute inset-0 w-full h-full object-cover"
             />
-          </div>
+          </a>
         </div>
       </div>
     </div>

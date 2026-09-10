@@ -90,12 +90,6 @@ const slidesData = [
     image: avance17,
     video: video17,
   },
-  {
-    date: "SEPTIEMBRE 2026",
-    description: "Avance de obra nivel 12, torre 2",
-    image: avance17,
-    video: video17,
-  },
 ];
 
 const slideFinal = (

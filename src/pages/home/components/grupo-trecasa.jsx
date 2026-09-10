@@ -75,11 +75,17 @@ export default function GrupoTrecasa() {
           return (
             <div
               key={dato.id}
-              className={`flex flex-col justify-center items-center text-center w-full max-w-[287px] h-[125px] min-[720px]:w-[209px] min-[720px]:h-[180px] py-[68px] px-[15px] gap-[10px] min-[720px]:gap-[15px] border-x-2 border-amarillo ${dato.id === "experiencia" ? "min-[720px]:border-none" : ""}`}
+              className={`flex flex-col max-[720px]:justify-center max-[720px]:items-center text-center w-full max-w-[287px] h-[138px] min-[720px]:w-[209px] min-[720px]:h-[180px] py-[60px] min-[720px]:py-[26px] px-[15px] gap-[10px] min-[720px]:gap-[15px] border-x-2 border-amarillo ${dato.id === "experiencia" ? "min-[720px]:border-none" : ""}`}
             >
-              <img src={dato.icon} alt={`Ícono de ${dato.description}`} />
+              <img
+                src={dato.icon}
+                alt={`Ícono de ${dato.description}`}
+                className="h-[35px]"
+              />
               <p className="paragraph-caps font-bold uppercase">{dato.title}</p>
-              <p className="paragraph-small font-light">{dato.description}</p>
+              <p className="flex-1 paragraph-small font-light">
+                {dato.description}
+              </p>
             </div>
           );
         })}

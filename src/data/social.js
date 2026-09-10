@@ -25,3 +25,20 @@ export const whatsappInfo = {
   iconActive: whatsappIcon,
   href: "https://wa.me/528134060015",
 };
+
+export const phoneInfo = {
+  id: "phone",
+  label: "81 29 10 4413",
+  href: "tel:+528129104413",
+};
+
+export const mailInfo = {
+  id: "mail",
+  label: "annaskyliving@gmail.com",
+  href: "mailto:annaskyliving@gmail.com",
+};
+
+export const mapsInfo = {
+  id: "map",
+  href: "https://www.google.com/maps?q=ANNA+Sky+Living",
+};
