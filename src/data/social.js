@@ -23,5 +23,5 @@ export const whatsappInfo = {
   id: "whatsapp",
   icon: whatsappIcon,
   iconActive: whatsappIcon,
-  href: "#",
+  href: "https://wa.me/528134060015",
 };

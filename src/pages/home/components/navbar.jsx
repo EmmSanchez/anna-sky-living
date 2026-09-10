@@ -180,7 +180,12 @@ export default function Navbar() {
               <div className="flex flex w-full max-w-[250px] justify-between p-[20px]">
                 {socialButtons.map((button, index) => {
                   return (
-                    <a key={index}>
+                    <a
+                      key={index}
+                      href={button.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <img src={button.icon} alt="Ícono red social" />
                     </a>
                   );
