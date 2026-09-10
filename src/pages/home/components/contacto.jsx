@@ -20,12 +20,12 @@ export default function Contacto() {
 
   return (
     <section id="contacto" className="flex justify-center items-center w-full">
-      <div className="flex flex-col w-full max-w-[1280px] justify-center items-center p-[60px] gap-[30px]">
+      <div className="flex flex-col w-full max-w-[1280px] justify-center items-center p-[44px] md:p-[60px] gap-[30px]">
         <div className="flex flex-col gap-[15px]">
-          <h2 className="text-[35px] text-center font-bangla uppercase leading-[120%]">
+          <h2 className="header-2 text-center font-bangla uppercase leading-[120%]">
             Contáctanos
           </h2>
-          <p className="text-[21px] text-center leading-[120%]">
+          <p className="paragraph text-center leading-[120%]">
             Tu próximo espacio comienza con una conversación.
             <br />
             Cuéntanos qué estás buscando y encontraremos la opción ideal para
@@ -52,7 +52,7 @@ export default function Contacto() {
             name="nombre"
             required
             placeholder="*Nombre completo"
-            className="text-[21px] text-blanco leading-[120%] placeholder:text-[21px] placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
+            className="paragraph text-blanco leading-[120%] placeholder:paragraph placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
           />
 
           {/* Correo electrónico */}
@@ -61,7 +61,7 @@ export default function Contacto() {
             name="email"
             required
             placeholder="*Correo electrónico"
-            className="text-[21px] text-blanco leading-[120%] placeholder:text-[21px] placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
+            className="paragraph text-blanco leading-[120%] placeholder:paragraph placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
           />
 
           {/* Teléfono */}
@@ -70,20 +70,20 @@ export default function Contacto() {
             name="telefono"
             required
             placeholder="*Teléfono"
-            className="text-[21px] text-blanco leading-[120%] placeholder:text-[21px] placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
+            className="paragraph text-blanco leading-[120%] placeholder:paragraph placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
           />
 
           {/* Mensaje */}
           <textarea
             name="mensaje"
             placeholder="Mensaje"
-            className="h-[229px] text-[21px] text-blanco leading-[120%] placeholder:text-[21px] placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
+            className="h-[229px] paragraph text-blanco leading-[120%] placeholder:text-[21px] placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
           />
 
           <button
             type="submit"
             disabled={status === "sending"}
-            className="group flex items-center justify-center w-fit px-[106px] py-[16px] gap-[10px] rounded-[5px] text-[16px] font-bold uppercase tracking-wider bg-naranja hover:bg-gris active:bg-blanco active:text-azul hover:cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+            className="group flex items-center justify-center w-full md:w-fit md:px-[106px] py-[16px] gap-[10px] rounded-[5px] button-text font-bold uppercase tracking-wider bg-naranja hover:bg-gris active:bg-blanco active:text-azul hover:cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
           >
             <img
               src={sendIcon}

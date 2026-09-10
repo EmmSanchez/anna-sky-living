@@ -48,8 +48,8 @@ export default function Home() {
       <AvanceObra />
       <ConoceElProyecto />
       <Visitanos />
-      {/* <Contacto /> */}
-      {/* <Footer /> */}
+      <Contacto />
+      <Footer />
 
       {ModeloPopup && <ModeloPopup />}
     </main>

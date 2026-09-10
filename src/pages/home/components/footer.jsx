@@ -31,12 +31,12 @@ export default function Footer() {
     <div className="self-center flex flex-col w-full max-w-[1160px] justify-center items-center py-[30px] px-[60px] gap-[30px]">
       <div className="flex flex-col w-full gap-[20px]">
         {/* Navegación */}
-        <div className="flex w-full justify-between items-center">
+        <div className="flex w-full flex-col min-[800px]:flex-row justify-between items-center max-[800px]:gap-[5px]">
           <button>
             <img
               src={annaLogo}
               alt="Logo Anna Sky Living"
-              className="w-[143px] h-[48px]"
+              className="md:w-[87px] xl:w-[143px] xl:h-[48px]"
             />
           </button>
           {buttons.map((button) => {
@@ -44,7 +44,7 @@ export default function Footer() {
               <a
                 href={`#${button.id}`}
                 key={button.id}
-                className="text-[16px] font-bold uppercase p-[16px]"
+                className="button-text text-center font-bold uppercase p-[16px] min-[800px]:p-[10px] xl:p-[16px]"
               >
                 {button.label}
               </a>
@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
 
         {/* Social */}
-        <div className="self-center flex justify-between items-center w-full">
+        <div className="self-center flex flex-col xl:flex-row justify-between items-center w-full gap-[30px]">
           <div className="flex gap-[20px]">
             {socials.map((social) => {
               return (

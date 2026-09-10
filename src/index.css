@@ -39,7 +39,7 @@
   @apply text-[18px];
 }
 .caption {
-  @apply text-[14px] leading-[120%];
+  @apply text-[8px] md:text-[11px] xl:text-[14px] leading-[120%];
 }
 
 * {
