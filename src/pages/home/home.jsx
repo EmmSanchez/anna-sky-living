@@ -17,7 +17,9 @@ import ModeloTipoB from "./components/popup/modelos/modelo-tipo-b";
 import ModeloTipoC from "./components/popup/modelos/modelo-tipo-c";
 import ModeloTipoD from "./components/popup/modelos/modelo-tipo-d";
 
-import { whatsappInfo } from "../../data/social";
+import WhatsappButton from "../../components/whatsapp-button";
+import { useState } from "react";
+import IngresaPopup from "./components/popup/formulario/ingresa-popup";
 
 const popupsPorModelo = {
   "tipo-a": ModeloTipoA,
@@ -28,22 +30,14 @@ const popupsPorModelo = {
 
 export default function Home() {
   const [searchParams] = useSearchParams();
+  const [showInitalModal, setShowInitalModal] = useState(true);
 
   const modeloId = searchParams.get("modelo");
   const ModeloPopup = popupsPorModelo[modeloId];
 
   return (
     <main className="flex flex-col">
-      {/* Botón de whatsapp */}
-      <a
-        href={whatsappInfo.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed z-10 bottom-8 right-12 flex size-[42px] justify-center items-cente p-[8px] rounded-[7.5px] bg-naranja"
-      >
-        <img src={whatsappInfo.icon} alt="Ícono de whatsapp" />
-      </a>
-
+      <WhatsappButton />
       <Hero />
       <GrupoTrecasa />
       <PermisosDeObra />
@@ -57,6 +51,12 @@ export default function Home() {
       <Footer />
 
       {ModeloPopup && <ModeloPopup />}
+      {showInitalModal && (
+        <IngresaPopup
+          isOpen={showInitalModal}
+          setShowInitalModal={setShowInitalModal}
+        />
+      )}
     </main>
   );
 }
