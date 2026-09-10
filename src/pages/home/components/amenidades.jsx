@@ -183,7 +183,7 @@ export default function Amenidades() {
       </div>
 
       <p className="absolute bottom-7 caption text-blanco font-light">
-        Imagenes con fines ilustrativos*
+        Imágenes con fines ilustrativos*
       </p>
     </section>
   );

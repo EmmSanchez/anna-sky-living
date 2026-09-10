@@ -44,8 +44,8 @@ export default function Home() {
       <PermisosDeObra />
       <Amenidades />
       <Tipologias />
-      {/* <VideoBanner /> */}
-      {/* <AvanceObra /> */}
+      <VideoBanner />
+      <AvanceObra />
       {/* <ConoceElProyecto /> */}
       {/* <Visitanos /> */}
       {/* <Contacto /> */}
