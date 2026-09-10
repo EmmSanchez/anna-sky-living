@@ -47,7 +47,7 @@ export default function Home() {
       <VideoBanner />
       <AvanceObra />
       <ConoceElProyecto />
-      {/* <Visitanos /> */}
+      <Visitanos />
       {/* <Contacto /> */}
       {/* <Footer /> */}
 
