@@ -9,8 +9,12 @@ import image5 from "../../../assets/images/carousel-banner/lobby-5.jpg";
 
 export default function VideoBanner() {
   return (
-    <div className="self-center flex w-full h-[622px] justify-center items-center bg-zinc-950 overflow-hidden">
+    <div className="relative self-center flex w-full h-svh md:h-[50svh] xl:h-svh justify-center items-center overflow-hidden">
       <AutoGalleryCarrousel images={[image1, image2, image3, image4, image5]} />
+
+      <p className="absolute bottom-4 right-4 text-[14px] text-blanco font-light">
+        Imágenes con fines ilustrativos*
+      </p>
     </div>
   );
 }
