@@ -12,6 +12,7 @@ import avance9 from "../../../assets/images/avances/avance-9.jpg";
 import avance12 from "../../../assets/images/avances/avance-12.jpg";
 import avance14 from "../../../assets/images/avances/avance-14.jpg";
 import avance17 from "../../../assets/images/avances/avance-17.jpg";
+import avance18 from "../../../assets/images/avances/avance-18.jpg";
 import slideFinalImage from "../../../assets/images/avances/slide-final.jpg";
 
 // videos
@@ -24,6 +25,7 @@ import video9 from "../../../../public/avance-de-obra/17 FEB 2026.mp4";
 import video12 from "../../../../public/avance-de-obra/12 DE MARZO 26.mp4";
 import video14 from "../../../../public/avance-de-obra/19 MAYO 26.mp4";
 import video17 from "../../../../public/avance-de-obra/29 DE JUNIO 2026.mp4";
+import video18 from "../../../../public/avance-de-obra/AGOSTO_2026.mp4";
 
 // slide final content
 import annaLogoYellow from "../../../assets/logos/anna-sky-living-yellow.svg";
@@ -87,8 +89,8 @@ const slidesData = [
   {
     date: "AGOSTO 2026",
     description: "Avance de obra nivel 12, torre 2",
-    image: avance17,
-    video: video17,
+    image: avance18,
+    video: video18,
   },
 ];
 
