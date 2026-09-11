@@ -77,7 +77,7 @@ export default function Contacto() {
           <textarea
             name="mensaje"
             placeholder="Mensaje"
-            className="h-[229px] paragraph text-blanco leading-[120%] placeholder:text-[21px] placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
+            className="resize-none h-[229px] paragraph text-blanco leading-[120%] placeholder:text-[21px] placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
           />
 
           <button
