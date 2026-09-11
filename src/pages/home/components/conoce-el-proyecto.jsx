@@ -1,4 +1,5 @@
 import conoceImage from "../../../assets/images/conoce-proyecto.jpg";
+import { usePopupStore } from "../../../store/usePopupStore";
 
 // icons
 import ubicacionIcon from "../../../assets/icons/pin.svg";
@@ -29,6 +30,8 @@ const caracteristicas = [
 ];
 
 export default function ConoceElProyecto() {
+  const openPopup = usePopupStore((state) => state.openPopup);
+
   return (
     <section
       id="conoce-proyecto"
@@ -83,7 +86,10 @@ export default function ConoceElProyecto() {
           </div>
 
           {/* botón */}
-          <button className="max-xl:self-center w-fit flex items-center px-[26px] py-[16px] gap-[10px] rounded-[5px] button-text font-bold uppercase tracking-wider bg-naranja hover:bg-gris active:bg-azul hover:cursor-pointer">
+          <button
+            onClick={() => openPopup("brochure-comercial")}
+            className="max-xl:self-center w-fit flex items-center px-[26px] py-[16px] gap-[10px] rounded-[5px] button-text font-bold uppercase tracking-wider bg-naranja hover:bg-gris active:bg-azul hover:cursor-pointer"
+          >
             <img
               src={descargar}
               alt="Ícono de descargar"

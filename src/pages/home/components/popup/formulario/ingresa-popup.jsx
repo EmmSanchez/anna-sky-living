@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { usePopupStore } from "../../../../../store/usePopupStore";
 
 import heroImage from "../../../../../assets/images/popup-bg-hero.jpg";
 import modeloTrecasa from "../../../../../assets/images/popup-registro-modelo.png";
@@ -8,6 +9,9 @@ import grupoTrecasaLogo from "../../../../../assets/logos/grupo-trecasa.png";
 import closeIcon from "../../../../../assets/icons/close.svg";
 import sendIcon from "../../../../../assets/icons/send.svg";
 import closeIconActive from "../../../../../assets/icons/close-blue.svg";
+import userIcon from "../../../../../assets/icons/popup/user.svg";
+import mailIcon from "../../../../../assets/icons/popup/mail.svg";
+import phoneIcon from "../../../../../assets/icons/popup/phone.svg";
 import camaIcon from "../../../../../assets/icons/modelos/cama.svg";
 import carroIcon from "../../../../../assets/icons/modelos/estacionamiento.svg";
 import pinIcon from "../../../../../assets/icons/pin-orange.svg";
@@ -28,8 +32,10 @@ const features = [
 
 const ENDPOINT_URL = "https://tu-api.com/leads";
 
-export default function IngresaPopup({ isOpen, setShowInitalModal }) {
-  const [submitState, setSubmitState] = useState("idle");
+export default function IngresaPopup({ isOpen }) {
+  const [, setSubmitState] = useState("idle");
+  const closePopup = usePopupStore((state) => state.closePopup);
+
   const {
     register,
     handleSubmit,
@@ -64,7 +70,7 @@ export default function IngresaPopup({ isOpen, setShowInitalModal }) {
 
       setSubmitState("success");
       reset();
-      setShowInitalModal(false);
+      closePopup();
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
       setSubmitState("error");
@@ -76,7 +82,7 @@ export default function IngresaPopup({ isOpen, setShowInitalModal }) {
       <div className="flex flex-col w-full max-w-[1280px] max-h-svh xl:h-[850px] bg-azul shadow-2xl relative overflow-y-auto">
         {/* Botón cerrar */}
         <button
-          onClick={() => setShowInitalModal(false)}
+          onClick={closePopup}
           aria-label="Cerrar"
           className="group absolute top-3 right-4 z-10 size-[42px] p-[8px] rounded-[7.5px] bg-naranja flex items-center justify-center transition-colors hover:bg-gris active:bg-blanco"
         >
@@ -193,6 +199,11 @@ export default function IngresaPopup({ isOpen, setShowInitalModal }) {
                 className="flex flex-col gap-5"
               >
                 <label className="flex items-center h-[70px] gap-2.5 border border-naranja rounded-[5px] focus-within:border-orange-500 px-[20px] py-[10px]">
+                  <img
+                    src={userIcon}
+                    alt="Ícono de usuario"
+                    className="size-[25px]"
+                  />
                   <input
                     {...register("name", {
                       required: "Tu nombre es requerido",
@@ -214,6 +225,11 @@ export default function IngresaPopup({ isOpen, setShowInitalModal }) {
                 </label>
 
                 <label className="flex items-center h-[70px] gap-2.5 border border-naranja rounded-[5px] focus-within:border-orange-500 px-[20px] py-[10px]">
+                  <img
+                    src={mailIcon}
+                    alt="Ícono de usuario"
+                    className="size-[25px]"
+                  />
                   <input
                     {...register("mail", {
                       required: "Tu correo es requerido",
@@ -235,6 +251,11 @@ export default function IngresaPopup({ isOpen, setShowInitalModal }) {
                 </label>
 
                 <label className="flex items-center h-[70px] gap-2.5 border border-naranja rounded-[5px] focus-within:border-orange-500 px-[20px] py-[10px]">
+                  <img
+                    src={phoneIcon}
+                    alt="Ícono de usuario"
+                    className="size-[25px]"
+                  />
                   <input
                     {...register("phone", {
                       required: "Tu teléfono es requerido",

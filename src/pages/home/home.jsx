@@ -1,4 +1,10 @@
 import { useSearchParams } from "react-router";
+import { usePopupStore } from "../../store/usePopupStore";
+
+import IngresaPopup from "./components/popup/formulario/ingresa-popup";
+import BrochureComercialPopup from "./components/popup/formulario/brochure-comercial";
+import WhatsappButton from "../../components/whatsapp-button";
+
 import Amenidades from "./components/amenidades";
 import AvanceObra from "./components/avance-obra";
 import ConoceElProyecto from "./components/conoce-el-proyecto";
@@ -17,10 +23,6 @@ import ModeloTipoB from "./components/popup/modelos/modelo-tipo-b";
 import ModeloTipoC from "./components/popup/modelos/modelo-tipo-c";
 import ModeloTipoD from "./components/popup/modelos/modelo-tipo-d";
 
-import WhatsappButton from "../../components/whatsapp-button";
-import { useState } from "react";
-import IngresaPopup from "./components/popup/formulario/ingresa-popup";
-
 const popupsPorModelo = {
   "tipo-a": ModeloTipoA,
   "tipo-b": ModeloTipoB,
@@ -30,7 +32,7 @@ const popupsPorModelo = {
 
 export default function Home() {
   const [searchParams] = useSearchParams();
-  const [showInitalModal, setShowInitalModal] = useState(true);
+  const activePopup = usePopupStore((state) => state.activePopup);
 
   const modeloId = searchParams.get("modelo");
   const ModeloPopup = popupsPorModelo[modeloId];
@@ -51,11 +53,11 @@ export default function Home() {
       <Footer />
 
       {ModeloPopup && <ModeloPopup />}
-      {showInitalModal && (
-        <IngresaPopup
-          isOpen={showInitalModal}
-          setShowInitalModal={setShowInitalModal}
-        />
+      {activePopup === "register" && (
+        <IngresaPopup isOpen={activePopup === "register"} />
+      )}
+      {activePopup === "brochure-comercial" && (
+        <BrochureComercialPopup isOpen={activePopup === "brochure-comercial"} />
       )}
     </main>
   );

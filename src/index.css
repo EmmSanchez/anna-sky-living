@@ -27,7 +27,7 @@
   @apply text-[15px] md:text-[17px] xl:text-[21px] leading-[125%];
 }
 .paragraph-small {
-  @apply text-[13px] md:text-[15px] xl:text-[26px] leading-[125%];
+  @apply text-[13px] md:text-[15px] xl:text-[16px] leading-[125%];
 }
 .paragraph-icon {
   @apply text-[13px] md:text-[15px] xl:text-[18px] leading-[125%];
