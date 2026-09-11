@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+
 import heroImage from "../../../../../assets/images/popup-bg-hero.jpg";
 import modeloTrecasa from "../../../../../assets/images/popup-registro-modelo.png";
 import grupoTrecasaLogo from "../../../../../assets/logos/grupo-trecasa.png";
@@ -24,7 +26,18 @@ const features = [
   },
 ];
 
+const ENDPOINT_URL = "https://tu-api.com/leads";
+
 export default function IngresaPopup({ isOpen, setShowInitalModal }) {
+  const [submitState, setSubmitState] = useState("idle");
+  const {
+    register,
+    handleSubmit,
+    reset,
+
+    formState: { errors, isSubmitting },
+  } = useForm({ mode: "onBlur" });
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -36,8 +49,30 @@ export default function IngresaPopup({ isOpen, setShowInitalModal }) {
     };
   }, [isOpen]);
 
+  const onSubmit = async (data) => {
+    setSubmitState("idle");
+    try {
+      const response = await fetch(ENDPOINT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}`);
+      }
+
+      setSubmitState("success");
+      reset();
+      setShowInitalModal(false);
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      setSubmitState("error");
+    }
+  };
+
   return (
-    <div className="fixed inset-0 z-20 overflow-y-auto bg-black/20 flex items-center justify-center">
+    <div className="fixed inset-0 z-20 bg-black/20 flex items-center justify-center">
       <div className="flex flex-col w-full max-w-[1280px] max-h-svh xl:h-[850px] bg-azul shadow-2xl relative overflow-y-auto">
         {/* Botón cerrar */}
         <button
@@ -60,7 +95,7 @@ export default function IngresaPopup({ isOpen, setShowInitalModal }) {
         </button>
 
         {/* ===== HERO ===== */}
-        <div className="relative shrink-0 h-[60svh] md:h-[200px] w-full overflow-hidden">
+        <div className="relative shrink-0 h-[30svh] md:h-[200px] w-full overflow-hidden">
           <img
             src={heroImage}
             alt="Anna Sky Living Vista Lateral"
@@ -153,41 +188,78 @@ export default function IngresaPopup({ isOpen, setShowInitalModal }) {
                 </p>
               </div>
 
-              <form className="flex flex-col gap-5">
+              <form
+                onSubmit={() => handleSubmit(onSubmit)}
+                className="flex flex-col gap-5"
+              >
                 <label className="flex items-center h-[70px] gap-2.5 border border-naranja rounded-[5px] focus-within:border-orange-500 px-[20px] py-[10px]">
                   <input
+                    {...register("name", {
+                      required: "Tu nombre es requerido",
+                      pattern: {
+                        value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]{2,60}$/,
+                        message: "Ingresa un nombre válido",
+                      },
+                    })}
                     type="text"
                     name="name"
                     placeholder="*Nombre completo"
-                    required
                     className="flex-1 outline-none paragraph text-blanco placeholder:text-blanco/80 font-extralight placeholder:paragraph"
                   />
+                  {errors.name && (
+                    <span className="text-red-400 text-xs px-1">
+                      {errors.name.message}
+                    </span>
+                  )}
                 </label>
 
                 <label className="flex items-center h-[70px] gap-2.5 border border-naranja rounded-[5px] focus-within:border-orange-500 px-[20px] py-[10px]">
                   <input
+                    {...register("mail", {
+                      required: "Tu correo es requerido",
+                      pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Ingresa un correo válido",
+                      },
+                    })}
                     type="email"
                     name="mail"
                     placeholder="*Correo electrónico"
-                    required
                     className="flex-1 outline-none paragraph text-blanco placeholder:text-blanco/80 font-extralight placeholder:paragraph"
                   />
+                  {errors.mail && (
+                    <span className="text-red-400 text-xs px-1">
+                      {errors.mail.message}
+                    </span>
+                  )}
                 </label>
 
                 <label className="flex items-center h-[70px] gap-2.5 border border-naranja rounded-[5px] focus-within:border-orange-500 px-[20px] py-[10px]">
                   <input
+                    {...register("phone", {
+                      required: "Tu teléfono es requerido",
+                      pattern: {
+                        value: /^[0-9]{8,15}$/,
+                        message: "Ingresa 10 dígitos sin espacios",
+                      },
+                    })}
                     type="tel"
                     name="phone"
                     placeholder="*Teléfono"
-                    required
                     className="flex-1 outline-none paragraph text-blanco placeholder:text-blanco/80 font-extralight placeholder:paragraph"
                   />
+                  {errors.phone && (
+                    <span className="text-red-400 text-xs px-1">
+                      {errors.phone.message}
+                    </span>
+                  )}
                 </label>
 
                 <div className="flex justify-center gap-[10px] mt-[20px]">
                   <button
                     type="submit"
-                    className="group flex justify-center items-center w-full max-w-[300px] items-center gap-[10px] rounded-[5px] bg-orange-500 p-[16px] hover:bg-gris active:bg-blanco"
+                    disabled={isSubmitting}
+                    className="group flex justify-center items-center w-full max-w-[300px] items-center gap-[10px] rounded-[5px] bg-orange-500 p-[16px] hover:bg-gris active:bg-blanco disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     <img
                       src={sendIcon}
@@ -195,7 +267,7 @@ export default function IngresaPopup({ isOpen, setShowInitalModal }) {
                       className="size-[16px] group-active:brightness-0"
                     />
                     <span className="button-text text-blanco font-bold tracking-wide group-hover:opacity-80 group-active:text-azul">
-                      ENVIAR
+                      {isSubmitting ? "ENVIANDO..." : "ENVIAR"}
                     </span>
                   </button>
                 </div>

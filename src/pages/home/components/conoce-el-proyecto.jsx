@@ -99,6 +99,9 @@ export default function ConoceElProyecto() {
             alt="Anna Sky Living"
             className="absolute inset-0 w-full h-full object-cover object-bottom"
           />
+          <p className="absolute bottom-4 right-1/2 translate-x-[50%] caption text-blanco font-light">
+            Imágenes con fines ilustrativos*
+          </p>
         </div>
       </div>
     </section>
