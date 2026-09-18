@@ -11,10 +11,10 @@ import gymIcon from "../../../assets/icons/amenidades/gym.svg";
 import lobbyIcon from "../../../assets/icons/amenidades/lobby.svg";
 import salaIcon from "../../../assets/icons/amenidades/sala-espera.svg";
 import sportbarIcon from "../../../assets/icons/amenidades/sportbar.svg";
-import barIcon from "../../../assets/icons/amenidades/bar.svg";
 import teaIcon from "../../../assets/icons/amenidades/tea.svg";
-import petIcon from "../../../assets/icons/amenidades/pet.svg";
 import parqueIcon from "../../../assets/icons/amenidades/parque.svg";
+import salonEventosIcon from "../../../assets/icons/amenidades/salon-eventos.svg";
+import ludotecaIcon from "../../../assets/icons/amenidades/ludoteca.svg";
 
 // images
 import albercaImage from "../../../assets/images/amenidades/alberca.webp";
@@ -23,37 +23,14 @@ import juegosImage from "../../../assets/images/amenidades/juegos.webp";
 import gymImage from "../../../assets/images/amenidades/gym.webp";
 import lobbyImage from "../../../assets/images/amenidades/lobby.webp";
 import salaImage from "../../../assets/images/amenidades/sala.webp";
-import sportbarImage from "../../../assets/images/amenidades/sportbar.webp";
-import salaJuegosImage from "../../../assets/images/amenidades/sala-juegos.webp";
+import sportbarImage from "../../../assets/images/amenidades/sport-bar.webp";
 import teaImage from "../../../assets/images/amenidades/tearoom.webp";
-import petImage from "../../../assets/images/amenidades/pet.webp";
 import parqueImage from "../../../assets/images/amenidades/parque.webp";
+import salonEventosImage from "../../../assets/images/amenidades/salon-eventos.webp";
+import ludotecaImage from "../../../assets/images/amenidades/ludoteca.webp";
+import padelImage from "../../../assets/images/amenidades/cancha-de-padel.webp";
 
 const slidesData = [
-  {
-    id: "alberca",
-    title: "Alberca",
-    icon: albercaIcon,
-    image: albercaImage,
-  },
-  {
-    id: "asadores",
-    title: "Asadores",
-    icon: asadoresIcon,
-    image: asadoresImage,
-  },
-  {
-    id: "juegos",
-    title: "Juegos",
-    icon: juegosIcon,
-    image: juegosImage,
-  },
-  {
-    id: "gym",
-    title: "Gym",
-    icon: gymIcon,
-    image: gymImage,
-  },
   {
     id: "lobby",
     title: "Lobby",
@@ -67,16 +44,16 @@ const slidesData = [
     image: salaImage,
   },
   {
+    id: "salon-eventos",
+    title: "Salón de Eventos",
+    icon: salonEventosIcon,
+    image: salonEventosImage,
+  },
+  {
     id: "sport-bar",
     title: "Sport bar",
     icon: sportbarIcon,
     image: sportbarImage,
-  },
-  {
-    id: "salon-juegos",
-    title: "Salón de juegos",
-    icon: barIcon,
-    image: salaJuegosImage,
   },
   {
     id: "tea-room",
@@ -85,14 +62,50 @@ const slidesData = [
     image: teaImage,
   },
   {
-    id: "zona-friendly",
-    title: "Zona friendly",
-    icon: petIcon,
-    image: petImage,
+    id: "gym",
+    title: "Gym",
+    icon: gymIcon,
+    image: gymImage,
   },
   {
-    id: "parque",
-    title: "Parque lineal",
+    id: "ludoteca",
+    title: "Ludoteca",
+    icon: ludotecaIcon,
+    image: ludotecaImage,
+  },
+  {
+    id: "alberca",
+    title: "Alberca",
+    icon: albercaIcon,
+    image: albercaImage,
+  },
+  {
+    id: "padel",
+    title: "Cancha de Pádel",
+    icon: albercaIcon, // ------ decirle a carla que no hay icono
+    image: padelImage,
+  },
+  {
+    id: "juegos",
+    title: "Juegos Infantiles",
+    icon: juegosIcon,
+    image: juegosImage,
+  },
+  {
+    id: "asadores",
+    title: "Asadores",
+    icon: asadoresIcon,
+    image: asadoresImage,
+  },
+  {
+    id: "fire-pits",
+    title: "Fire pits",
+    icon: asadoresIcon, // ------ cambiar icono
+    image: asadoresImage, // ------ cambiar imagen
+  },
+  {
+    id: "corredor",
+    title: "Corredor verde",
     icon: parqueIcon,
     image: parqueImage,
   },
