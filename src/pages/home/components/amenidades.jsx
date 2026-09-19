@@ -15,6 +15,8 @@ import teaIcon from "../../../assets/icons/amenidades/tea.svg";
 import parqueIcon from "../../../assets/icons/amenidades/parque.svg";
 import salonEventosIcon from "../../../assets/icons/amenidades/salon-eventos.svg";
 import ludotecaIcon from "../../../assets/icons/amenidades/ludoteca.svg";
+import firePitsIcon from "../../../assets/icons/amenidades/fire-pits.svg";
+import padelIcon from "../../../assets/icons/amenidades/padel.svg";
 
 // images
 import albercaImage from "../../../assets/images/amenidades/alberca.webp";
@@ -29,6 +31,7 @@ import parqueImage from "../../../assets/images/amenidades/parque.webp";
 import salonEventosImage from "../../../assets/images/amenidades/salon-eventos.webp";
 import ludotecaImage from "../../../assets/images/amenidades/ludoteca.webp";
 import padelImage from "../../../assets/images/amenidades/cancha-de-padel.webp";
+import firePitsImage from "../../../assets/images/amenidades/firepits.webp";
 
 const slidesData = [
   {
@@ -82,7 +85,7 @@ const slidesData = [
   {
     id: "padel",
     title: "Cancha de Pádel",
-    icon: albercaIcon, // ------ decirle a carla que no hay icono
+    icon: padelIcon,
     image: padelImage,
   },
   {
@@ -100,8 +103,8 @@ const slidesData = [
   {
     id: "fire-pits",
     title: "Fire pits",
-    icon: asadoresIcon, // ------ cambiar icono
-    image: asadoresImage, // ------ cambiar imagen
+    icon: firePitsIcon,
+    image: firePitsImage,
   },
   {
     id: "corredor",

@@ -17,25 +17,15 @@ import Tipologias from "./components/tipologias";
 import VideoBanner from "./components/video-banner";
 import Visitanos from "./components/visitanos";
 
-// Modelos
-import ModeloTipoA from "./components/popup/modelos/modelo-tipo-a";
-import ModeloTipoB from "./components/popup/modelos/modelo-tipo-b";
-import ModeloTipoC from "./components/popup/modelos/modelo-tipo-c";
-import ModeloTipoD from "./components/popup/modelos/modelo-tipo-d";
-
-const popupsPorModelo = {
-  "tipo-a": ModeloTipoA,
-  "tipo-b": ModeloTipoB,
-  "tipo-c": ModeloTipoC,
-  "tipo-d": ModeloTipoD,
-};
+import { ModeloModal } from "./components/popup/modelos/modelo-modal";
+import { MODELOS } from "../../data/modelos";
 
 export default function Home() {
   const [searchParams] = useSearchParams();
   const activePopup = usePopupStore((state) => state.activePopup);
 
   const modeloId = searchParams.get("modelo");
-  const ModeloPopup = popupsPorModelo[modeloId];
+  const modeloData = MODELOS[modeloId];
 
   return (
     <main className="flex flex-col">
@@ -52,7 +42,7 @@ export default function Home() {
       <Contacto />
       <Footer />
 
-      {ModeloPopup && <ModeloPopup />}
+      {modeloData && <ModeloModal {...modeloData} />}
       {activePopup === "register" && (
         <IngresaPopup isOpen={activePopup === "register"} />
       )}

@@ -20,7 +20,8 @@ import accesoriosBanoIcon from "../../../../../assets/icons/modelos/accesorios-b
 import puertasIcon from "../../../../../assets/icons/modelos/puertas.svg";
 
 // images carousel
-import vista1 from "../../../../../assets/images/modelos/vista1.jpg";
+import vista1 from "../../../../../assets/images/modelos/interiores/INTERIORES-7.webp";
+import vista2 from "../../../../../assets/images/modelos/interiores/INTERIORES-1.webp";
 
 import imageRender from "../../../../../assets/images/modelos/vista-tipo-d/render.png";
 import imageFrame from "../../../../../assets/images/modelos/vista-tipo-d/frame.png";
@@ -196,7 +197,7 @@ export default function ModeloTipoD() {
         <div className="absolute z-10 inset-0 w-full h-full bg-linear-to-b from-azul to-[37%] to-azul/0 pointer-events-none" />
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <GalleryCarrousel
-            images={[vista1, vista1]}
+            images={[vista1, vista2]}
             navIndicator={NavIndicator}
           />
         </div>

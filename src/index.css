@@ -20,6 +20,9 @@
 .header-2 {
   @apply text-[24px] md:text-[30px] xl:text-[35px];
 }
+.header-3 {
+  @apply text-[32px] md:text-[48px] xl:text-[60px];
+}
 .header-model {
   @apply text-[24px] md:text-[30px] xl:text-[30px];
 }

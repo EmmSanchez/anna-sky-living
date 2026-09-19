@@ -19,9 +19,8 @@ import accesoriosBanoIcon from "../../../../../assets/icons/modelos/accesorios-b
 import puertasIcon from "../../../../../assets/icons/modelos/puertas.svg";
 
 // images carousel
-import vista1 from "../../../../../assets/images/modelos/vista-tipo-a/interiores/INTERIORES-1.jpg";
-import vista2 from "../../../../../assets/images/modelos/vista-tipo-a/interiores/INTERIORES-3.jpg";
-import vista3 from "../../../../../assets/images/modelos/vista-tipo-a/interiores/INTERIORES-6.jpg";
+import vista1 from "../../../../../assets/images/modelos/interiores/INTERIORES-1.webp";
+import vista2 from "../../../../../assets/images/modelos/interiores/INTERIORES-2.webp";
 
 import imageRender from "../../../../../assets/images/modelos/vista-tipo-a/render.png";
 import imageFrame from "../../../../../assets/images/modelos/vista-tipo-a/frame.png";
@@ -113,11 +112,11 @@ export default function ModeloTipoA() {
 
   return (
     <div className="fixed top-0 z-50 w-full h-full bg-azul overflow-y-auto">
-      <div className="relative w-full flex flex-col items-center p-[60px] gap-[20px]">
+      <div className="relative w-full flex flex-col items-center px-[44px] pt-[100px] pb-[60px] md:p-[60px] gap-[40px] xl:gap-[20px]">
         {/* Botón de cerrar */}
         <button
           onClick={cerrarModal}
-          className="absolute flex size-[56px] right-[60px] justify-center items-center rounded-[10px] bg-naranja hover:cursor-pointer"
+          className="absolute flex size-[42px] xl:size-[56px] right-[20px] top-[20px] px-[8px] justify-center items-center rounded-[10px] bg-naranja hover:cursor-pointer"
         >
           <img
             src={closeIcon}
@@ -126,12 +125,12 @@ export default function ModeloTipoA() {
           />
         </button>
 
-        <h2 className="text-[60px] font-bangla leading-none uppercase">
+        <h2 className="header-3 font-bangla leading-none uppercase">
           Tipo A / 81.77 M2
         </h2>
 
         {/* Imagenes */}
-        <div className="flex shrink-0 justify-between items-center gap-[17px] w-full max-w-[1160px] h-[573px]">
+        <div className="flex flex-col xl:flex-row shrink-0 justify-between items-center xl:gap-[17px] w-full max-w-[1160px] xl:h-[573px]">
           <img
             src={imageRender}
             alt="Render modelo tipo A"
@@ -140,28 +139,28 @@ export default function ModeloTipoA() {
           <img
             src={imageFrame}
             alt="Frame modelo tipo A"
-            className="flex shrink-0 h-[364px]"
+            className="flex shrink-0 xl:h-[364px]"
           />
         </div>
 
         {/* Descripción */}
-        <div className="flex flex-row justify-center items-center w-full gap-[30px]">
+        <div className="flex flex-col xl:flex-row xl:justify-center xl:items-center w-full gap-[30px]">
           {/* Lista 1 */}
           <div className="flex flex-1 flex-col gap-[20px]">
-            <h3 className="text-[35px] font-bangla uppercase">Descripción</h3>
+            <h3 className="header-2 font-bangla uppercase">Descripción</h3>
 
             {/* lista */}
             <div className="flex flex-col gap-[20px]">
               {descripcion.map((item) => (
                 <div key={item.id} className="flex items-center gap-[20px]">
-                  <div className="flex justify-center items-center w-[66px] h-[50px] border border-naranja rounded-[4px]">
+                  <div className="flex shrink-0 justify-center items-center w-[66px] h-[50px] border border-naranja rounded-[4px]">
                     <img
                       src={item.icon}
                       alt={item.label}
                       className="size-[35px]"
                     />
                   </div>
-                  <span className="text-[21px] font-bold uppercase text-blanco">
+                  <span className="paragraph font-bold uppercase text-blanco">
                     {item.label}
                   </span>
                 </div>
@@ -170,21 +169,19 @@ export default function ModeloTipoA() {
           </div>
           {/* Lista 2 "Como se entrega" */}
           <div className="flex flex-1 flex-col gap-[20px]">
-            <h3 className="text-[35px] font-bangla uppercase">
-              Como se entrega
-            </h3>
+            <h3 className="header-2 font-bangla uppercase">Como se entrega</h3>
 
             {/* lista */}
             {comoSeEntrega.map((item) => (
               <div key={item.id} className="flex items-center gap-[20px]">
-                <div className="flex justify-center items-center w-[66px] h-[50px] border border-naranja rounded-[4px]">
+                <div className="flex shrink-0 justify-center items-center w-[66px] h-[50px] border border-naranja rounded-[4px]">
                   <img
                     src={item.icon}
                     alt={item.label}
                     className="size-[35px]"
                   />
                 </div>
-                <span className="text-[21px] font-bold uppercase text-blanco">
+                <span className="paragraph font-bold uppercase text-blanco">
                   {item.label}
                 </span>
               </div>
@@ -198,7 +195,7 @@ export default function ModeloTipoA() {
         <div className="absolute z-10 inset-0 w-full h-full bg-linear-to-b from-azul to-[37%] to-azul/0 pointer-events-none" />
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <GalleryCarrousel
-            images={[vista1, vista2, vista3]}
+            images={[vista1, vista2]}
             navIndicator={NavIndicator}
           />
         </div>

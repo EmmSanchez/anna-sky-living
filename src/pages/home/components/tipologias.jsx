@@ -4,6 +4,9 @@ import tipoA from "../../../assets/images/tipologias/tipo-a.png";
 import tipoB from "../../../assets/images/tipologias/tipo-b.png";
 import tipoC from "../../../assets/images/tipologias/tipo-c.png";
 import tipoD from "../../../assets/images/tipologias/tipo-d.png";
+import tipoE from "../../../assets/images/tipologias/tipo-e.png";
+import tipoF from "../../../assets/images/tipologias/tipo-f.png";
+import tipoLO from "../../../assets/images/tipologias/tipo-lock-off.png";
 
 import imageIcon from "../../../assets/icons/imagen.svg";
 
@@ -31,7 +34,12 @@ const modelos = [
   {
     id: "tipo-e",
     label: "Modelo tipo e",
-    image: tipoD,
+    image: tipoE,
+  },
+  {
+    id: "tipo-f",
+    label: "Modelo tipo f",
+    image: tipoF,
   },
 ];
 
@@ -63,21 +71,23 @@ export default function Tipologias() {
           return (
             <div
               key={modelo.id}
-              className="flex flex-col justify-between w-full max-w-[300px] h-[495px] px-[24px] py-[30px] gap-[32px] border border-naranja rounded-[15px] shadow-md"
+              className="flex flex-col justify-between items-center w-full max-w-[374px] h-[313px] p-[20px] gap-[15px] border border-naranja rounded-[15px] shadow-md"
             >
-              <img
-                src={modelo.image}
-                alt={`Imagen ${modelo.label}`}
-                className="w-[255px] h-[303px]"
-              />
+              <div className="relative w-full max-w-[244px] h-[174px]">
+                <img
+                  src={modelo.image}
+                  alt={`Imagen ${modelo.label}`}
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
 
               <div className="flex flex-col items-center shrink-0 gap-[10px]">
-                <h3 className="header-model text-center font-bangla uppercase text-negro">
+                <h3 className="header-model text-center font-bangla leading-none uppercase text-negro">
                   {modelo.label}
                 </h3>
                 <button
                   onClick={() => abrirModal(modelo)}
-                  className="flex w-fit px-[36px] py-[16px] gap-[10px] justify-center items-center button-big font-bold tracking-wide rounded-[10px] bg-naranja hover:bg-gris active:bg-azul hover:drop-shadow-xl active:drop-shadow-xl uppercase hover:cursor-pointer"
+                  className="flex w-fit px-[36px] py-[16px] gap-[10px] justify-center items-center button-big font-bold tracking-wide leading-none rounded-[10px] bg-naranja hover:bg-gris active:bg-azul hover:drop-shadow-xl active:drop-shadow-xl uppercase hover:cursor-pointer"
                 >
                   <img
                     src={imageIcon}
@@ -90,6 +100,40 @@ export default function Tipologias() {
             </div>
           );
         })}
+
+        <div className="flex flex-col min-[808px]:flex-row justify-center items-center w-full max-w-[375px] min-[808px]:max-w-[768px] min-[1202px]:max-w-[1166px] h-[410px] min-[808px]:h-[313px] p-[20px] gap-[15px] border border-naranja rounded-[15px] shadow-md">
+          {/* image */}
+          <div className="relative w-[421px] h-[284px]">
+            <img
+              src={tipoLO}
+              alt="Modelo Lock Off"
+              className="absolute inset-0 w-full h-full object-contain"
+            />
+          </div>
+
+          {/* Texto */}
+          <div className="flex flex-col w-full max-w-[631px] justify-between items-center text-center gap-[20px]">
+            <h3 className="header-2 font-bangla uppercase text-negro">
+              Modelo Lock off
+            </h3>
+            <p className="paragraph-icon font-bold text-negro">
+              Distribución de 2 departamentos con 2 recamaras
+              <br />
+              abajo de la planta arquitectónica
+            </p>
+            <button
+              onClick={() =>
+                abrirModal({
+                  id: "lock-off",
+                })
+              }
+              className="flex w-fit px-[36px] py-[16px] gap-[10px] justify-center items-center button-big font-bold tracking-wide leading-none rounded-[10px] bg-naranja hover:bg-gris active:bg-azul hover:drop-shadow-xl active:drop-shadow-xl uppercase hover:cursor-pointer"
+            >
+              <img src={imageIcon} alt="Ícono de imagen" className="w-[18px]" />
+              Ver modelo
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

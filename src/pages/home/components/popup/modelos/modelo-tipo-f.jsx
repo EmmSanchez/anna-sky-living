@@ -20,16 +20,21 @@ import accesoriosBanoIcon from "../../../../../assets/icons/modelos/accesorios-b
 import puertasIcon from "../../../../../assets/icons/modelos/puertas.svg";
 
 // images carousel
-import vista1 from "../../../../../assets/images/modelos/interiores/INTERIORES-5.webp";
-import vista2 from "../../../../../assets/images/modelos/interiores/INTERIORES-6.webp";
+import vista1 from "../../../../../assets/images/modelos/interiores/INTERIORES-2.webp";
+import vista2 from "../../../../../assets/images/modelos/interiores/INTERIORES-3.webp";
 
-import imageRender from "../../../../../assets/images/modelos/vista-tipo-c/render.png";
-import imageFrame from "../../../../../assets/images/modelos/vista-tipo-c/frame.png";
+import imageRender from "../../../../../assets/images/modelos/vista-tipo-f/render.png";
+import imageFrame from "../../../../../assets/images/modelos/vista-tipo-f/frame.png";
 
 const descripcion = [
   {
     id: "recamaras",
-    label: "2 recámaras",
+    label: "3 recámaras",
+    icon: camaIcon,
+  },
+  {
+    id: "cuarto-servicio",
+    label: "1 cuarto de servicio",
     icon: camaIcon,
   },
   {
@@ -39,7 +44,7 @@ const descripcion = [
   },
   {
     id: "banos",
-    label: "2 baños",
+    label: "4 baños",
     icon: banoIcon,
   },
   {
@@ -92,7 +97,7 @@ const comoSeEntrega = [
   },
 ];
 
-export default function ModeloTipoC() {
+export default function ModeloTipoF() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const cerrarModal = () => {
@@ -126,16 +131,12 @@ export default function ModeloTipoC() {
         </button>
 
         <h2 className="text-[60px] font-bangla leading-none uppercase">
-          Tipo C / 82.52 M2
+          Tipo F / 164.09 M2
         </h2>
 
         {/* Imagenes */}
         <div className="flex shrink-0 justify-between items-center gap-[17px] w-full max-w-[1160px] h-[573px]">
-          <img
-            src={imageRender}
-            alt="Render modelo tipo A"
-            className="flex shrink-0"
-          />
+          <img src={imageRender} alt="Render modelo tipo F" className="flex" />
           <img
             src={imageFrame}
             alt="Frame modelo tipo A"

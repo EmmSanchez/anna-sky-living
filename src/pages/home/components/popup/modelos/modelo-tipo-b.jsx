@@ -20,7 +20,8 @@ import accesoriosBanoIcon from "../../../../../assets/icons/modelos/accesorios-b
 import puertasIcon from "../../../../../assets/icons/modelos/puertas.svg";
 
 // images carousel
-import vista1 from "../../../../../assets/images/modelos/vista1.jpg";
+import vista1 from "../../../../../assets/images/modelos/interiores/INTERIORES-3.webp";
+import vista2 from "../../../../../assets/images/modelos/interiores/INTERIORES-4.webp";
 
 import imageRender from "../../../../../assets/images/modelos/vista-tipo-b/render.png";
 import imageFrame from "../../../../../assets/images/modelos/vista-tipo-b/frame.png";
@@ -111,7 +112,7 @@ export default function ModeloTipoB() {
 
   return (
     <div className="fixed top-0 z-50 w-full h-full bg-azul overflow-y-auto">
-      <div className="relative w-full flex flex-col items-center p-[60px] gap-[20px]">
+      <div className="relative w-full flex flex-col items-center px-[44px] pt-[100px] pb-[60px] md:p-[60px] gap-[40px] xl:gap-[20px]">
         {/* Botón de cerrar */}
         <button
           onClick={cerrarModal}
@@ -196,7 +197,7 @@ export default function ModeloTipoB() {
         <div className="absolute z-10 inset-0 w-full h-full bg-linear-to-b from-azul to-[37%] to-azul/0 pointer-events-none" />
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <GalleryCarrousel
-            images={[vista1, vista1]}
+            images={[vista1, vista2]}
             navIndicator={NavIndicator}
           />
         </div>
