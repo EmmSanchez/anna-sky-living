@@ -116,31 +116,40 @@ export function Carousel({
         </div>
       </div>
 
-      {/* Left arrow */}
-      <button
-        onClick={scrollPrev}
-        className="group flex justify-center items-center absolute z-20 -translate-x-[44px] md:-translate-x-[62px] bottom-1/2 translate-y-1/2 p-[10px] rounded-[10px] bg-naranja hover:bg-gris hover:cursor-pointer active:bg-blanco hover:drop-shadow-lg drop-shadow-black/20"
-      >
-        <img
-          src={arrowIcon}
-          draggable={false}
-          alt="Flecha deslizar izquierda"
-          className="w-[20.4px] h-[32px] group-active:brightness-0 rotate-180"
-        />
-      </button>
+      {/* Wrapper: fila centrada en <375px, "contents" en >=375px */}
+      <div className="flex justify-center gap-4 mt-4 min-[375px]:contents">
+        {/* Left arrow */}
+        <button
+          onClick={scrollPrev}
+          aria-label="Anterior"
+          className="group flex justify-center items-center z-20 p-[10px] rounded-[10px] bg-naranja hover:bg-gris hover:cursor-pointer active:bg-blanco hover:drop-shadow-lg drop-shadow-black/20
+        relative
+        min-[375px]:absolute min-[375px]:bottom-1/2 min-[375px]:translate-y-1/2 min-[375px]:-translate-x-[48px] md:-translate-x-[62px]"
+        >
+          <img
+            src={arrowIcon}
+            draggable={false}
+            alt=""
+            className="w-[20.4px] h-[32px] group-active:brightness-0 rotate-180"
+          />
+        </button>
 
-      {/* Right arrow */}
-      <button
-        onClick={scrollNext}
-        className="group flex justify-center items-center absolute z-20 translate-x-[44px] md:translate-x-[62px] bottom-1/2 right-0 translate-y-1/2 p-[10px] rounded-[10px] bg-naranja hover:bg-gris hover:cursor-pointer active:bg-blanco hover:drop-shadow-lg drop-shadow-black/20"
-      >
-        <img
-          src={arrowIcon}
-          draggable={false}
-          alt="Flecha deslizar izquierda"
-          className="w-[20.4px] h-[32px] group-active:brightness-0"
-        />
-      </button>
+        {/* Right arrow */}
+        <button
+          onClick={scrollNext}
+          aria-label="Siguiente"
+          className="group flex justify-center items-center z-20 p-[10px] rounded-[10px] bg-naranja hover:bg-gris hover:cursor-pointer active:bg-blanco hover:drop-shadow-lg drop-shadow-black/20
+        relative
+        min-[375px]:absolute min-[375px]:bottom-1/2 min-[375px]:right-0 min-[375px]:translate-y-1/2 min-[375px]:translate-x-[48px] md:translate-x-[62px]"
+        >
+          <img
+            src={arrowIcon}
+            draggable={false}
+            alt=""
+            className="w-[20.4px] h-[32px] group-active:brightness-0"
+          />
+        </button>
+      </div>
     </div>
   );
 }
