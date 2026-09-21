@@ -103,7 +103,7 @@ export default function Tipologias() {
 
         <div className="flex flex-col min-[808px]:flex-row justify-center items-center w-full max-w-[375px] min-[808px]:max-w-[768px] min-[1202px]:max-w-[1166px] h-[410px] min-[808px]:h-[313px] p-[20px] gap-[15px] border border-naranja rounded-[15px] shadow-md">
           {/* image */}
-          <div className="relative w-[421px] h-[284px]">
+          <div className="relative w-full max-w-[421px] h-[284px]">
             <img
               src={tipoLO}
               alt="Modelo Lock Off"
