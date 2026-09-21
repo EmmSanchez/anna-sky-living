@@ -52,11 +52,13 @@ import vistaE1 from "../assets/images/modelos/interiores/INTERIORES-2.webp";
 import vistaE2 from "../assets/images/modelos/interiores/INTERIORES-3.webp";
 
 import renderTipoF from "../assets/images/modelos/vista-tipo-f/render.png";
+import renderTipoFVertical from "../assets/images/modelos/vista-tipo-f/render-vertical.png";
 import frameTipoF from "../assets/images/modelos/vista-tipo-f/frame.png";
 import vistaF1 from "../assets/images/modelos/interiores/INTERIORES-4.webp";
 import vistaF2 from "../assets/images/modelos/interiores/INTERIORES-5.webp";
 
 import renderTipoLO from "../assets/images/modelos/vista-lock-off/render.png";
+import renderTipoLOVertical from "../assets/images/modelos/vista-lock-off/render-vertical.png";
 import frameTipoLO from "../assets/images/modelos/vista-lock-off/frame.png";
 import vistaLO1 from "../assets/images/modelos/interiores/INTERIORES-6.webp";
 import vistaLO2 from "../assets/images/modelos/interiores/INTERIORES-7.webp";
@@ -260,6 +262,7 @@ export const MODELOS = {
   "tipo-f": {
     titulo: "Tipo F / 164.09 M2",
     imageRender: renderTipoF,
+    imageRenderVertical: renderTipoFVertical,
     imageFrame: frameTipoF,
     carouselImages: [vistaF1, vistaF2],
     descripcion: [
@@ -305,6 +308,7 @@ export const MODELOS = {
     subtitulo:
       "Distribución de 2 departamentos con 2 recamaras abajo de la planta arquitectonica",
     imageRender: renderTipoLO,
+    imageRenderVertical: renderTipoLOVertical,
     imageFrame: frameTipoLO,
     carouselImages: [vistaLO1, vistaLO2],
     descripcion: [

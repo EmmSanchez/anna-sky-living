@@ -14,6 +14,7 @@ import closeIcon from "../../../../../assets/icons/close.svg";
  * @param {string} props.titulo - Ej. "Tipo A / 81.77 M2"
  * @param {string} [props.subtitulo] - opcional, ej. lock-off tiene un párrafo descriptivo debajo del título
  * @param {string} props.imageRender - src de la imagen "render"
+ *  * @param {string} [props.imageRenderVertical] - opcional, versión vertical del render para pantallas < xl (ej. tipo-f, lock-off)
  * @param {string} props.imageFrame - src de la imagen "frame"
  * @param {{ id: string, label: string, icon: string }[]} props.descripcion
  * @param {{ id: string, label: string, icon: string }[]} [props.comoSeEntrega] - opcional (ej. lock-off puede no tenerlo)
@@ -24,6 +25,7 @@ export function ModeloModal({
   titulo,
   subtitulo,
   imageRender,
+  imageRenderVertical,
   imageFrame,
   descripcion,
   comoSeEntrega,
@@ -69,16 +71,26 @@ export function ModeloModal({
         </div>
 
         {/* Imagenes */}
-        <div className="flex flex-col xl:flex-row shrink-0 justify-between items-center xl:gap-[17px] w-full max-w-[1160px] xl:h-[573px]">
-          <img
-            src={imageRender}
-            alt={`Render modelo ${titulo}`}
-            className="flex shrink-0"
-          />
+        <div
+          className={`flex flex-col xl:flex-row shrink-0 justify-between items-center xl:gap-[17px] w-full max-w-[1160px] xl:h-[573px] ${id === "tipo-f" || id === "lock-off" ? "gap-[40px]" : "gap-[20px]"}`}
+        >
+          {/* imagen de render */}
+          <picture className="flex shrink-0">
+            {imageRenderVertical && (
+              <source media="(min-width: 1280px)" srcSet={imageRender} />
+            )}
+            <img
+              src={imageRenderVertical ?? imageRender}
+              alt={`Render modelo ${titulo}`}
+              className={`flex shrink-0`}
+            />
+          </picture>
+
+          {/* imagen de frame */}
           <img
             src={imageFrame}
             alt={`Frame modelo ${titulo}`}
-            className={`flex shrink-0 ${id === "tipo-f" || id === "lock-off" ? "h-[235px]" : "xl:h-[364px] "}`}
+            className={`flex shrink-0 ${id === "tipo-f" || id === "lock-off" ? "max-[440px]:w-[60%] min-[440px]:h-[215px] md:h-[253px] xl:h-[235px]" : "max-[440px]:w-[60%] min-[440px]:h-[215px] md:h-[304px] xl:h-[364px] "}`}
           />
         </div>
 
