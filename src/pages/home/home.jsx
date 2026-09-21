@@ -42,7 +42,7 @@ export default function Home() {
       <Contacto />
       <Footer />
 
-      {modeloData && <ModeloModal {...modeloData} />}
+      {modeloData && <ModeloModal id={modeloId} {...modeloData} />}
       {activePopup === "register" && (
         <IngresaPopup isOpen={activePopup === "register"} />
       )}

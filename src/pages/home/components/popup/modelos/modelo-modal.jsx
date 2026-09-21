@@ -10,6 +10,7 @@ import closeIcon from "../../../../../assets/icons/close.svg";
  * Recibe toda la data como props; no importa nada específico de un modelo.
  *
  * @param {Object} props
+ * @param {string} props.id - Ej. "tipo-a"
  * @param {string} props.titulo - Ej. "Tipo A / 81.77 M2"
  * @param {string} [props.subtitulo] - opcional, ej. lock-off tiene un párrafo descriptivo debajo del título
  * @param {string} props.imageRender - src de la imagen "render"
@@ -19,6 +20,7 @@ import closeIcon from "../../../../../assets/icons/close.svg";
  * @param {string[]} props.carouselImages - imágenes del carrusel inferior
  */
 export function ModeloModal({
+  id,
   titulo,
   subtitulo,
   imageRender,
@@ -76,7 +78,7 @@ export function ModeloModal({
           <img
             src={imageFrame}
             alt={`Frame modelo ${titulo}`}
-            className="flex shrink-0 xl:h-[364px]"
+            className={`flex shrink-0 ${id === "tipo-f" || id === "lock-off" ? "h-[235px]" : "xl:h-[364px] "}`}
           />
         </div>
 
