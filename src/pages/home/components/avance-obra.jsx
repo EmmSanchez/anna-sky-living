@@ -232,7 +232,7 @@ export default function AvanceObra() {
       </div>
 
       {/* Carousel */}
-      <div className="flex items-center w-[270px] md:w-[70%] xl:w-[1120px] h-[560px]">
+      <div className="flex items-center w-[270px] md:w-[70%] xl:w-[1120px] h-fit min-[375px]:h-[560px]">
         <Carousel
           slides={amenidadesFinal}
           variant="card"
