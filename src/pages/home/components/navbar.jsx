@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, MotionConfig } from "motion/react";
 import { socials, whatsappInfo } from "../../../data/social";
 
 // Logo & icons
@@ -63,6 +64,33 @@ const socialButtons = [
   },
 ];
 
+// ANIMACIONES
+// Curva tipo "easeOutExpo": arranca rápido, frena suave
+const ease = [0.22, 1, 0.36, 1];
+
+const sidebarVariants = {
+  hidden: { x: "-100%" },
+  show: { x: 0, transition: { duration: 0.45, ease } },
+};
+
+const panelVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+      delayChildren: 0.12,
+      staggerChildren: 0.04,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease } },
+};
+
 export default function Navbar() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
@@ -80,7 +108,7 @@ export default function Navbar() {
     <div
       className={`relative z-10 flex justify-center items-center w-full transition-colors ease-out ${isNavbarOpen ? "bg-azul" : "bg-negro"}`}
     >
-      {/* Menu resposinve */}
+      {/* Menu desktop resposinve */}
       <div
         className={`relative flex z-100 w-full max-w-[1280px] justify-between min-[820px]:justify-around items-center p-[20px] ${isNavbarOpen ? "hidden" : ""}`}
       >
@@ -119,85 +147,106 @@ export default function Navbar() {
 
       {/* Menu mobile */}
       {isNavbarOpen && (
-        <div className="absolute top-0 left-0 flex w-full h-svh bg-black min-[820px]:hidden">
-          {/* Sidebar decoracion */}
-          <div className="shrink-0 h-full w-[99px] bg-[#264A69]" />
+        <MotionConfig reducedMotion="user">
+          <motion.div
+            initial="hidden"
+            animate="show"
+            className="absolute top-0 left-0 flex w-full h-svh min-[820px]:hidden"
+          >
+            {/* Sidebar decoracion */}
+            <motion.div
+              variants={sidebarVariants}
+              className="shrink-0 h-full w-[25%] bg-azul/60 backdrop-blur-sm"
+            />
 
-          {/* Content */}
-          <div className="flex flex-col w-full p-[20px] bg-azul">
-            {/* Navbar */}
-            <div className="flex w-full items-center justify-between">
-              {/* Botón Logo */}
-              <a
-                href="#hero"
-                className="relative w-[94px] h-[31px] hover:cursor-pointer"
-              >
-                <img
-                  src={annaWhiteLogo}
-                  alt="Logo Anna Sky Living"
-                  className="absolute inset-0 w-full h-full object-contain"
-                />
-              </a>
+            {/* Content */}
+            <motion.div
+              variants={panelVariants}
+              className="flex flex-col w-full p-[20px] bg-azul"
+            >
+              {/* Navbar */}
+              <div className="flex w-full items-center justify-between">
+                {/* Botón Logo */}
+                <a
+                  href="#hero"
+                  className="relative w-[94px] h-[31px] hover:cursor-pointer"
+                >
+                  <img
+                    src={annaWhiteLogo}
+                    alt="Logo Anna Sky Living"
+                    className="absolute inset-0 w-full h-full object-contain"
+                  />
+                </a>
 
-              {/* Close button */}
-              <button
-                onClick={() => setIsNavbarOpen(!isNavbarOpen)}
-                className={`flex min-[820px]:hidden size-[56px] justify-center items-center rounded-[10px] p-[10px] transition-colors shadow-2xl shadow-black ${isNavbarOpen ? "bg-blanco" : "bg-naranja"}`}
-              >
-                <img
-                  src={isNavbarOpen ? closeIcon : menuIcon}
-                  alt="Ícono de Menu"
-                />
-              </button>
-            </div>
+                {/* Close button */}
+                <button
+                  onClick={() => setIsNavbarOpen(!isNavbarOpen)}
+                  className={`flex min-[820px]:hidden size-[56px] justify-center items-center rounded-[10px] p-[10px] transition-colors shadow-2xl shadow-black ${isNavbarOpen ? "bg-blanco" : "bg-naranja"}`}
+                >
+                  <img
+                    src={isNavbarOpen ? closeIcon : menuIcon}
+                    alt="Ícono de Menu"
+                  />
+                </button>
+              </div>
 
-            {/* Botonees, redes y caption */}
-            <div className="flex flex-col py-[50px] gap-[35px]">
-              {/* Botones */}
-              <div className="flex flex-col w-full grow max-h-[510px] gap-[35px]">
-                <div className="flex flex-col gap-[35px]">
-                  {navbarButtons.map((button, index) => {
+              {/* Botonees, redes y caption */}
+              <div className="flex flex-col py-[50px] gap-[35px]">
+                {/* Botones */}
+                <div className="flex flex-col w-full grow max-h-[510px] gap-[35px]">
+                  <div className="flex flex-col gap-[35px]">
+                    {navbarButtons.map((button, index) => {
+                      return (
+                        <motion.a
+                          key={index}
+                          href={`#${button.id}`}
+                          onClick={() => setIsNavbarOpen(false)}
+                          variants={itemVariants}
+                          className="group w-fit flex items-center font-bold text-left gap-[10px] p-[16px] rounded-[10px] transition-colors transition-shadow hover:bg-gris hover:cursor-pointer hover:shadow-[0px_13px_6px_-4px_rgba(0,0,0,0.2)] hover:shadow-black/20 active:bg-blanco"
+                        >
+                          <img
+                            src={button.icon}
+                            alt={`Ícono de ${button.id}`}
+                            className="h-[16px] group-active:brightness-0 active:invert-100"
+                          />
+                          <span className="button-text text-blanco uppercase group-hover:opacity-80 group-active:text-azul">
+                            {button.label}
+                          </span>
+                        </motion.a>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Social icons */}
+                <motion.div
+                  variants={itemVariants}
+                  className="flex flex w-full max-w-[250px] justify-between p-[20px]"
+                >
+                  {socialButtons.map((button, index) => {
                     return (
-                      <button
+                      <a
                         key={index}
-                        className="group w-fit flex items-center font-bold text-left gap-[10px] p-[16px] rounded-[10px] transition-colors transition-shadow hover:bg-gris hover:cursor-pointer hover:shadow-[0px_13px_6px_-4px_rgba(0,0,0,0.2)] hover:shadow-black/20 active:bg-blanco"
+                        href={button.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        <img
-                          src={button.icon}
-                          alt={`Ícono de ${button.id}`}
-                          className="h-[16px] group-active:brightness-0 active:invert-100"
-                        />
-                        <span className="button-text text-blanco uppercase group-hover:opacity-80 group-active:text-azul">
-                          {button.label}
-                        </span>
-                      </button>
+                        <img src={button.icon} alt="Ícono red social" />
+                      </a>
                     );
                   })}
-                </div>
-              </div>
+                </motion.div>
 
-              {/* Social icons */}
-              <div className="flex flex w-full max-w-[250px] justify-between p-[20px]">
-                {socialButtons.map((button, index) => {
-                  return (
-                    <a
-                      key={index}
-                      href={button.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img src={button.icon} alt="Ícono red social" />
-                    </a>
-                  );
-                })}
+                <motion.p
+                  variants={itemVariants}
+                  className="caption w-full max-w-[250px]"
+                >
+                  © 2026 ANNA SKY LIVING. Todos los derechos reservados.
+                </motion.p>
               </div>
-
-              <p className="caption w-full max-w-[250px]">
-                © 2026 ANNA SKY LIVING. Todos los derechos reservados.
-              </p>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </MotionConfig>
       )}
     </div>
   );
