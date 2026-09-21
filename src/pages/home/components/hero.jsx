@@ -42,7 +42,7 @@ export default function Hero() {
         {/* Button */}
         <a
           href="#showroom"
-          className="w-fit px-[26px] py-[16px] rounded-[5px] button-text font-bold uppercase tracking-wider bg-naranja hover:bg-gris hover:text-blanco active:bg-blanco active:text-azul hover:cursor-pointer"
+          className="w-fit px-[26px] py-[16px] rounded-[5px] text-center button-text font-bold uppercase tracking-wider bg-naranja hover:bg-gris hover:text-blanco active:bg-blanco active:text-azul hover:cursor-pointer"
         >
           Visita nuestro showroom
         </a>

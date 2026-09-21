@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <p className="caption">
+      <p className="caption text-center">
         © 2026 ANNA SKY LIVING. Todos los derechos reservados.
       </p>
     </div>
