@@ -26,42 +26,42 @@ const ICONOS = {
   puertas: puertasIcon,
 };
 
-import renderTipoA from "../assets/images/modelos/vista-tipo-a/render.png";
-import frameTipoA from "../assets/images/modelos/vista-tipo-a/frame.png";
-import vistaA1 from "../assets/images/modelos/interiores/INTERIORES-1.webp";
-import vistaA2 from "../assets/images/modelos/interiores/INTERIORES-2.webp";
+const renderTipoA = "/foto/modelos/vista-tipo-a/render.png";
+const frameTipoA = "/foto/modelos/vista-tipo-a/frame.png";
+const vistaA1 = "/foto/modelos/interiores/INTERIORES-1.webp";
+const vistaA2 = "/foto/modelos/interiores/INTERIORES-2.webp";
 
-import renderTipoB from "../assets/images/modelos/vista-tipo-b/render.png";
-import frameTipoB from "../assets/images/modelos/vista-tipo-b/frame.png";
-import vistaB1 from "../assets/images/modelos/interiores/INTERIORES-3.webp";
-import vistaB2 from "../assets/images/modelos/interiores/INTERIORES-4.webp";
+const renderTipoB = "/foto/modelos/vista-tipo-b/render.png";
+const frameTipoB = "/foto/modelos/vista-tipo-b/frame.png";
+const vistaB1 = "/foto/modelos/interiores/INTERIORES-3.webp";
+const vistaB2 = "/foto/modelos/interiores/INTERIORES-4.webp";
 
-import renderTipoC from "../assets/images/modelos/vista-tipo-c/render.png";
-import frameTipoC from "../assets/images/modelos/vista-tipo-c/frame.png";
-import vistaC1 from "../assets/images/modelos/interiores/INTERIORES-5.webp";
-import vistaC2 from "../assets/images/modelos/interiores/INTERIORES-6.webp";
+const renderTipoC = "/foto/modelos/vista-tipo-c/render.png";
+const frameTipoC = "/foto/modelos/vista-tipo-c/frame.png";
+const vistaC1 = "/foto/modelos/interiores/INTERIORES-5.webp";
+const vistaC2 = "/foto/modelos/interiores/INTERIORES-6.webp";
 
-import renderTipoD from "../assets/images/modelos/vista-tipo-d/render.png";
-import frameTipoD from "../assets/images/modelos/vista-tipo-d/frame.png";
-import vistaD1 from "../assets/images/modelos/interiores/INTERIORES-7.webp";
-import vistaD2 from "../assets/images/modelos/interiores/INTERIORES-1.webp";
+const renderTipoD = "/foto/modelos/vista-tipo-d/render.png";
+const frameTipoD = "/foto/modelos/vista-tipo-d/frame.png";
+const vistaD1 = "/foto/modelos/interiores/INTERIORES-7.webp";
+const vistaD2 = "/foto/modelos/interiores/INTERIORES-1.webp";
 
-import renderTipoE from "../assets/images/modelos/vista-tipo-e/render.png";
-import frameTipoE from "../assets/images/modelos/vista-tipo-e/frame.png";
-import vistaE1 from "../assets/images/modelos/interiores/INTERIORES-2.webp";
-import vistaE2 from "../assets/images/modelos/interiores/INTERIORES-3.webp";
+const renderTipoE = "/foto/modelos/vista-tipo-e/render.png";
+const frameTipoE = "/foto/modelos/vista-tipo-e/frame.png";
+const vistaE1 = "/foto/modelos/interiores/INTERIORES-2.webp";
+const vistaE2 = "/foto/modelos/interiores/INTERIORES-3.webp";
 
-import renderTipoF from "../assets/images/modelos/vista-tipo-f/render.png";
-import renderTipoFVertical from "../assets/images/modelos/vista-tipo-f/render-vertical.png";
-import frameTipoF from "../assets/images/modelos/vista-tipo-f/frame.png";
-import vistaF1 from "../assets/images/modelos/interiores/INTERIORES-4.webp";
-import vistaF2 from "../assets/images/modelos/interiores/INTERIORES-5.webp";
+const renderTipoF = "/foto/modelos/vista-tipo-f/render.png";
+const renderTipoFVertical = "/foto/modelos/vista-tipo-f/render-vertical.png";
+const frameTipoF = "/foto/modelos/vista-tipo-f/frame.png";
+const vistaF1 = "/foto/modelos/interiores/INTERIORES-4.webp";
+const vistaF2 = "/foto/modelos/interiores/INTERIORES-5.webp";
 
-import renderTipoLO from "../assets/images/modelos/vista-lock-off/render.png";
-import renderTipoLOVertical from "../assets/images/modelos/vista-lock-off/render-vertical.png";
-import frameTipoLO from "../assets/images/modelos/vista-lock-off/frame.png";
-import vistaLO1 from "../assets/images/modelos/interiores/INTERIORES-6.webp";
-import vistaLO2 from "../assets/images/modelos/interiores/INTERIORES-7.webp";
+const renderTipoLO = "/foto/modelos/vista-lock-off/render.png";
+const renderTipoLOVertical = "/foto/modelos/vista-lock-off/render-vertical.png";
+const frameTipoLO = "/foto/modelos/vista-lock-off/frame.png";
+const vistaLO1 = "/foto/modelos/interiores/INTERIORES-6.webp";
+const vistaLO2 = "/foto/modelos/interiores/INTERIORES-7.webp";
 
 export const MODELOS = {
   "tipo-a": {

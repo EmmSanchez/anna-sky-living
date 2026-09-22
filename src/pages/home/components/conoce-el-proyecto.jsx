@@ -1,4 +1,4 @@
-import conoceImage from "../../../assets/images/conoce-proyecto.jpg";
+const conoceImage = "/foto/conoce-proyecto.jpg";
 import { usePopupStore } from "../../../store/usePopupStore";
 
 // icons

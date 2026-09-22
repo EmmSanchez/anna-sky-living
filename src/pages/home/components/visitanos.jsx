@@ -4,7 +4,7 @@ import {
   phoneInfo,
   whatsappInfo,
 } from "../../../data/social";
-import bannerBg from "../../../assets/images/visitanos-background.jpg";
+const bannerBg = "/foto/visitanos-background.jpg";
 
 // Icons
 import phoneIcon from "../../../assets/icons/phone.svg";
@@ -12,8 +12,8 @@ import mailIcon from "../../../assets/icons/mail.svg";
 import pinIcon from "../../../assets/icons/pin.svg";
 
 // mapa
-import mapa from "../../../assets/images/visitanos/mapa-anna-sky-horizontal.jpg";
-import mapaMobile from "../../../assets/images/visitanos/mapa-anna-sky-vertical.jpg";
+const mapa = "/foto/visitanos/mapa-anna-sky-horizontal.jpg";
+const mapaMobile = "/foto/visitanos/mapa-anna-sky-vertical.jpg";
 
 const features = [
   {
