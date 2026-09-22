@@ -1,12 +1,12 @@
 import { useSearchParams } from "react-router";
 
-import tipoA from "../../../assets/images/tipologias/tipo-a.png";
-import tipoB from "../../../assets/images/tipologias/tipo-b.png";
-import tipoC from "../../../assets/images/tipologias/tipo-c.png";
-import tipoD from "../../../assets/images/tipologias/tipo-d.png";
-import tipoE from "../../../assets/images/tipologias/tipo-e.png";
-import tipoF from "../../../assets/images/tipologias/tipo-f.png";
-import tipoLO from "../../../assets/images/tipologias/tipo-lock-off.png";
+const tipoA = "/foto/tipologias/tipo-a.png";
+const tipoB = "/foto/tipologias/tipo-b.png";
+const tipoC = "/foto/tipologias/tipo-c.png";
+const tipoD = "/foto/tipologias/tipo-d.png";
+const tipoE = "/foto/tipologias/tipo-e.png";
+const tipoF = "/foto/tipologias/tipo-f.png";
+const tipoLO = "/foto/tipologias/tipo-lock-off.png";
 
 import imageIcon from "../../../assets/icons/imagen.svg";
 

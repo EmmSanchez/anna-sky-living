@@ -19,19 +19,19 @@ import firePitsIcon from "../../../assets/icons/amenidades/fire-pits.svg";
 import padelIcon from "../../../assets/icons/amenidades/padel.svg";
 
 // images
-import albercaImage from "../../../assets/images/amenidades/alberca.webp";
-import asadoresImage from "../../../assets/images/amenidades/asadores.webp";
-import juegosImage from "../../../assets/images/amenidades/juegos.webp";
-import gymImage from "../../../assets/images/amenidades/gym.webp";
-import lobbyImage from "../../../assets/images/amenidades/lobby.webp";
-import salaImage from "../../../assets/images/amenidades/sala.webp";
-import sportbarImage from "../../../assets/images/amenidades/sport-bar.webp";
-import teaImage from "../../../assets/images/amenidades/tearoom.webp";
-import parqueImage from "../../../assets/images/amenidades/parque.webp";
-import salonEventosImage from "../../../assets/images/amenidades/salon-eventos.webp";
-import ludotecaImage from "../../../assets/images/amenidades/ludoteca.webp";
-import padelImage from "../../../assets/images/amenidades/cancha-de-padel.webp";
-import firePitsImage from "../../../assets/images/amenidades/firepits.webp";
+const albercaImage = "/foto/amenidades/alberca.webp";
+const asadoresImage = "/foto/amenidades/asadores.webp";
+const padelImage = "/foto/amenidades/cancha-de-padel.webp";
+const firePitsImage = "/foto/amenidades/firepits.webp";
+const gymImage = "/foto/amenidades/gym.webp";
+const juegosImage = "/foto/amenidades/juegos.webp";
+const lobbyImage = "/foto/amenidades/lobby.webp";
+const ludotecaImage = "/foto/amenidades/ludoteca.webp";
+const parqueImage = "/foto/amenidades/parque.webp";
+const salaImage = "/foto/amenidades/sala.webp";
+const salonEventosImage = "/foto/amenidades/salon-eventos.webp";
+const sportbarImage = "/foto/amenidades/sport-bar.webp";
+const teaImage = "/foto/amenidades/tearoom.webp";
 
 const slidesData = [
   {

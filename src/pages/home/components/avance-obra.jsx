@@ -3,29 +3,31 @@ import { Carousel } from "../../../components/embla-carousel/carousel";
 import { motion } from "motion/react";
 
 // images
-import avance1 from "../../../assets/images/avances/avance-1.jpg";
-import avance2 from "../../../assets/images/avances/avance-2.jpg";
-import avance4 from "../../../assets/images/avances/avance-4.jpg";
-import avance7 from "../../../assets/images/avances/avance-7.jpg";
-import avance8 from "../../../assets/images/avances/avance-8.jpg";
-import avance9 from "../../../assets/images/avances/avance-9.jpg";
-import avance12 from "../../../assets/images/avances/avance-12.jpg";
-import avance14 from "../../../assets/images/avances/avance-14.jpg";
-import avance17 from "../../../assets/images/avances/avance-17.jpg";
-import avance18 from "../../../assets/images/avances/avance-18.jpg";
-import slideFinalImage from "../../../assets/images/avances/slide-final.jpg";
+const avance1 = "/foto/avances/avance-1.jpg";
+const avance2 = "/foto/avances/avance-2.jpg";
+const avance4 = "/foto/avances/avance-4.jpg";
+const avance7 = "/foto/avances/avance-7.jpg";
+const avance8 = "/foto/avances/avance-8.jpg";
+const avance9 = "/foto/avances/avance-9.jpg";
+const avance12 = "/foto/avances/avance-12.jpg";
+const avance14 = "/foto/avances/avance-14.jpg";
+const avance17 = "/foto/avances/avance-17.jpg";
+const avance18 = "/foto/avances/avance-18.jpg";
+const slideFinalImage = "/foto/avances/slide-final.jpg";
 
-// videos
-import video1 from "../../../../public/avance-de-obra/30 SEPTIEMBRE 2025.mp4";
-import video2 from "../../../../public/avance-de-obra/23 OCT 25 AVANCE.mp4";
-import video4 from "../../../../public/avance-de-obra/13 NOVIEMBRE 25 AVANCE.mp4";
-import video7 from "../../../../public/avance-de-obra/22 DICIEMBRE 25 AVANCE.mp4";
-import video8 from "../../../../public/avance-de-obra/12 ENERO 26.mp4";
-import video9 from "../../../../public/avance-de-obra/17 FEB 2026.mp4";
-import video12 from "../../../../public/avance-de-obra/12 DE MARZO 26.mp4";
-import video14 from "../../../../public/avance-de-obra/19 MAYO 26.mp4";
-import video17 from "../../../../public/avance-de-obra/29 DE JUNIO 2026.mp4";
-import video18 from "../../../../public/avance-de-obra/AGOSTO_2026.mp4";
+// videos 2025
+const video1 = "/video/2025/2025-09.mp4";
+const video2 = "/video/2025/2025-10.mp4";
+const video4 = "/video/2025/2025-11.mp4";
+const video7 = "/video/2025/2025-12.mp4";
+
+// videos 2026
+const video8 = "/video/2026/2026-01.mp4";
+const video9 = "/video/2026/2026-02.mp4";
+const video12 = "/video/2026/2026-03.mp4";
+const video14 = "/video/2026/2026-05.mp4";
+const video17 = "/video/2026/2026-06.mp4";
+const video18 = "/video/2026/2026-08.mp4";
 
 // slide final content
 import annaLogoYellow from "../../../assets/logos/anna-sky-living-yellow.svg";

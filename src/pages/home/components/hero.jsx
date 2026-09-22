@@ -1,5 +1,4 @@
 import Navbar from "./navbar";
-import heroBackground from "../../../assets/images/hero-background.jpg";
 import annaSkyLiving from "../../../assets/logos/anna-sky-living-white.svg";
 
 export default function Hero() {
@@ -10,7 +9,7 @@ export default function Hero() {
         <div className="relative w-full h-full">
           {/* Image */}
           <img
-            src={heroBackground}
+            src="/foto/hero-background.jpg"
             alt="Render Anna Sky Living"
             className="absolute w-full h-full inset-0 object-cover"
           />
