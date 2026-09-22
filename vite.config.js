@@ -10,4 +10,18 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
   ],
+  server: {
+    proxy: {
+      "/video": {
+        target: "https://xperience.realestate/trecasa",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/video/, "/anna/onepager/video"),
+      },
+      "/foto": {
+        target: "https://xperience.realestate/trecasa",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/foto/, "/anna/onepager/foto"),
+      },
+    },
+  },
 });
