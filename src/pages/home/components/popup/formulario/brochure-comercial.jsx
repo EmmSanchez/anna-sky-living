@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { usePopupStore } from "../../../../../store/usePopupStore";
 
-// EDITA AQUI: reemplaza por tus assets reales
-import brochureImage from "../../../../../assets/images/popup-bg-brochure.jpg";
+const brochureImage = "/foto/popup-bg-brochure.jpg";
 import annaLogo from "../../../../../assets/logos/anna-sky-living-white.svg";
 
 import closeIcon from "../../../../../assets/icons/close.svg";

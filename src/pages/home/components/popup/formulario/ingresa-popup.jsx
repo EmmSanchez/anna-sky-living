@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { usePopupStore } from "../../../../../store/usePopupStore";
 
-import heroImage from "../../../../../assets/images/popup-bg-hero.jpg";
-import modeloTrecasa from "../../../../../assets/images/popup-registro-modelo.png";
+const heroImage = "/foto/popup-bg-hero.jpg";
+const modeloTrecasa = "/foto/popup-registro-modelo.png";
 import grupoTrecasaLogo from "../../../../../assets/logos/grupo-trecasa.png";
 
 import closeIcon from "../../../../../assets/icons/close.svg";
