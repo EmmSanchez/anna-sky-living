@@ -18,6 +18,7 @@ import closeIcon from "../../../../../assets/icons/close.svg";
  * @param {string} props.imageFrame - src de la imagen "frame"
  * @param {{ id: string, label: string, icon: string }[]} props.descripcion
  * @param {{ id: string, label: string, icon: string }[]} [props.comoSeEntrega] - opcional (ej. lock-off puede no tenerlo)
+ * @param {{ id: string, label: string, icon: string }[]} [props.departamento2] - opcional (ej. lock-off puede no tenerlo)
  * @param {string[]} props.carouselImages - imágenes del carrusel inferior
  */
 export function ModeloModal({
@@ -29,6 +30,7 @@ export function ModeloModal({
   imageFrame,
   descripcion,
   comoSeEntrega,
+  departamento2,
   carouselImages,
 }) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -67,7 +69,11 @@ export function ModeloModal({
           <h2 className="header-3 font-bangla leading-none uppercase">
             {titulo}
           </h2>
-          {subtitulo && <p className="paragraph text-blanco">{subtitulo}</p>}
+          {subtitulo && (
+            <p className="paragraph w-full max-w-[954px] text-blanco">
+              {subtitulo}
+            </p>
+          )}
         </div>
 
         {/* Imagenes */}
@@ -95,13 +101,20 @@ export function ModeloModal({
         </div>
 
         {/* Descripción */}
-        <div className="flex flex-col xl:flex-row xl:justify-center xl:items-center w-full gap-[30px]">
+        <div
+          className={`flex flex-col xl:flex-row xl:justify-center w-full gap-[30px] ${id === "lock-off" ? "xl:items-start" : "xl:items-center"}`}
+        >
           {/* Lista 1 */}
           <ModeloListaItems titulo="Descripción" items={descripcion} />
 
           {/* Lista 2 "Como se entrega" (opcional) */}
           {comoSeEntrega?.length > 0 && (
             <ModeloListaItems titulo="Como se entrega" items={comoSeEntrega} />
+          )}
+
+          {/* Lista Lock Off */}
+          {departamento2?.length > 0 && (
+            <ModeloListaItems titulo="Departamento 2" items={departamento2} />
           )}
         </div>
       </div>
@@ -133,7 +146,7 @@ function ModeloListaItems({ titulo, items }) {
             <div className="flex shrink-0 justify-center items-center w-[66px] h-[50px] border border-naranja rounded-[4px]">
               <img src={item.icon} alt={item.label} className="size-[35px]" />
             </div>
-            <span className="paragraph font-bold uppercase text-blanco">
+            <span className="paragraph font-bold uppercase text-blanco whitespace-pre-line">
               {item.label}
             </span>
           </div>

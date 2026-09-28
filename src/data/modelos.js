@@ -10,6 +10,7 @@ import estacionamientoIcon from "../assets/icons/modelos/estacionamiento.svg";
 import pisoIcon from "../assets/icons/modelos/piso.svg";
 import accesoriosBanoIcon from "../assets/icons/modelos/accesorios-bano.svg";
 import puertasIcon from "../assets/icons/modelos/puertas.svg";
+import balconIcon from "../assets/icons/modelos/balcon.svg";
 
 const ICONOS = {
   cama: camaIcon,
@@ -24,6 +25,7 @@ const ICONOS = {
   piso: pisoIcon,
   accesoriosBano: accesoriosBanoIcon,
   puertas: puertasIcon,
+  balcon: balconIcon,
 };
 
 const renderTipoA = "/foto/modelos/vista-tipo-a/render.png";
@@ -306,47 +308,43 @@ export const MODELOS = {
   "lock-off": {
     titulo: "Lock Off / 164.09 M2",
     subtitulo:
-      "Distribución de 2 departamentos con 2 recamaras abajo de la planta arquitectonica",
+      "165 m² totales, distribuidos en dos departamentos completamente independientes, cada uno con entrada propia y 2 cajones de estacionamiento.",
     imageRender: renderTipoLO,
     imageRenderVertical: renderTipoLOVertical,
     imageFrame: frameTipoLO,
     carouselImages: [vistaLO1, vistaLO2],
     descripcion: [
-      { id: "recamaras", label: "3 recámaras", icon: ICONOS.cama },
-      {
-        id: "cuarto-servicio",
-        label: "1 cuarto de servicio",
-        icon: ICONOS.cama,
-      },
+      { id: "recamaras", label: "2 recámaras", icon: ICONOS.cama },
       {
         id: "walk-in-closet",
         label: "Walk-in closet (recámara principal)",
         icon: ICONOS.closet,
       },
-      { id: "banos", label: "4 baños", icon: ICONOS.bano },
       { id: "sala", label: "Sala", icon: ICONOS.sala },
       { id: "comedor", label: "Comedor", icon: ICONOS.comedor },
       { id: "cocina", label: "Cocina", icon: ICONOS.cocina },
-      { id: "terraza", label: "Terraza", icon: ICONOS.terraza },
       {
         id: "centro-lavado",
-        label: "Centro de lavado",
+        label: "Área de lavado compartida\n en el mismo piso",
         icon: ICONOS.lavado,
       },
-      {
-        id: "cajones-estacionamiento",
-        label: "2 cajones de estacionamiento",
-        icon: ICONOS.estacionamiento,
-      },
     ],
-    comoSeEntrega: [
-      { id: "piso", label: "Piso", icon: ICONOS.piso },
+    departamento2: [
+      { id: "recamaras", label: "2 recámaras", icon: ICONOS.cama },
       {
-        id: "accesorios-bano",
-        label: "Accesorios de baño",
-        icon: ICONOS.accesoriosBano,
+        id: "walk-in-closet",
+        label: "Walk-in closet (recámara principal)",
+        icon: ICONOS.closet,
       },
-      { id: "puertas", label: "Puertas", icon: ICONOS.puertas },
+      { id: "balcon", label: "Balcón", icon: ICONOS.balcon },
+      { id: "sala", label: "Sala", icon: ICONOS.sala },
+      { id: "comedor", label: "Comedor", icon: ICONOS.comedor },
+      { id: "cocina", label: "Cocina", icon: ICONOS.cocina },
+      {
+        id: "centro-lavado",
+        label: "Área de lavado compartida\n en el mismo piso",
+        icon: ICONOS.lavado,
+      },
     ],
   },
 };
