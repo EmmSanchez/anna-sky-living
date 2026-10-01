@@ -118,18 +118,6 @@ export function ModeloModal({
           )}
         </div>
       </div>
-
-      {/* imagen */}
-      <div className="relative w-full h-[800px]">
-        {/* overlay */}
-        <div className="absolute z-10 inset-0 w-full h-full bg-linear-to-b from-azul to-[37%] to-azul/0 pointer-events-none" />
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <GalleryCarrousel
-            images={carouselImages}
-            navIndicator={NavIndicator}
-          />
-        </div>
-      </div>
     </div>
   );
 }
