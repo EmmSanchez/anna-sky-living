@@ -1,7 +1,7 @@
 import { AutoGalleryCarrousel } from "../../../components/embla-carousel/auto-gallery-carousel";
 
 // images
-const image1 = "/foto/carousel-banner/juego-alberca-1.jpg";
+const image1 = "/foto/carousel-banner/gym-1.png";
 const image2 = "/foto/carousel-banner/asador-2.jpg";
 const image3 = "/foto/carousel-banner/alberca-3.jpg";
 const image4 = "/foto/carousel-banner/sportbar-4.jpg";
