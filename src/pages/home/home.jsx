@@ -19,6 +19,7 @@ import Visitanos from "./components/visitanos";
 
 import { ModeloModal } from "./components/popup/modelos/modelo-modal";
 import { MODELOS } from "../../data/modelos";
+import Vista360 from "./components/vista-360";
 
 export default function Home() {
   const [searchParams] = useSearchParams();
@@ -35,6 +36,7 @@ export default function Home() {
       <PermisosDeObra />
       <Amenidades />
       <Tipologias />
+      <Vista360 />
       <VideoBanner />
       <AvanceObra />
       <ConoceElProyecto />
