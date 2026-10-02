@@ -44,6 +44,15 @@ const levels = heights.reduce((acc, h, i) => {
   return acc;
 }, []);
 
+const first = levels[0];
+const last = levels[levels.length - 1];
+const span = last.y - first.y;
+
+const sweep = {
+  y: levels.map((l) => l.y),
+  height: levels.map((l) => l.h),
+};
+
 const AUTOPLAY_MS = 1000; // tiempo entre niveles
 const SWEEP_S = 28; // segundos que tarda en recorrer toda la torre
 
@@ -62,15 +71,6 @@ export default function Vista360({ onSelectLevel }) {
   const handleVolver = () => {
     setOpenLevel(null);
     setAutoplay(true); // retoma el recorrido automático
-  };
-
-  const first = levels[0];
-  const last = levels[levels.length - 1];
-  const span = last.y - first.y;
-
-  const sweep = {
-    y: levels.map((l) => l.y),
-    height: levels.map((l) => l.h),
   };
 
   const times = levels.map((l) => (l.y - first.y) / span);
@@ -213,7 +213,7 @@ export default function Vista360({ onSelectLevel }) {
               x={TOWER_X}
               y={0}
               width={TOWER_W}
-              initial={false}
+              initial={{ y: first.y, height: first.h }}
               animate={autoplay ? sweep : { y: current.y, height: current.h }}
               transition={
                 autoplay
