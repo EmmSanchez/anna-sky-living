@@ -88,9 +88,9 @@ export default function Vista360({ onSelectLevel }) {
   const current = levels.find((l) => l.id === selected);
 
   return (
-    <div className="self-center flex flex-col md:flex-row w-full h-full min-h-svh">
+    <div className="self-center flex flex-col xl:flex-row w-full h-full min-h-svh">
       {/* Columna izquierda: texto */}
-      <div className="w-full h-full min-h-[480px] md:min-h-svh bg-azul flex items-center pl-[60px]">
+      <div className="w-full flex items-center justify-center xl:justify-start xl:pl-[60px] pt-[40px]">
         <AnimatePresence mode="wait">
           {openLevel === null ? (
             <motion.div
@@ -99,7 +99,7 @@ export default function Vista360({ onSelectLevel }) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="flex flex-col gap-[20px]"
+              className="xl:mx-auto flex flex-col gap-[20px] pb-[40px]"
             >
               <h2 className="font-bangla font-light header-3 tracking-wide leading-none text-blanco">
                 VISTAS 360°
@@ -155,7 +155,7 @@ export default function Vista360({ onSelectLevel }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="w-full h-full min-h-[480px] md:min-h-svh flex items-center pr-[40px]"
+              className="xl:mx-auto min-h-[480px] xl:min-h-svh flex items-center min-[592px]:pb-[40px] xl:pr-[40px]"
             >
               <VistasNivel
                 nivel={nivelesInfo[openLevel]}
@@ -167,7 +167,7 @@ export default function Vista360({ onSelectLevel }) {
       </div>
 
       {/* Columna derecha: torre */}
-      <div className="relative w-full h-full min-h-svh overflow-hidden bg-[#06284d]">
+      <div className="relative w-full max-[680px]:max-w-[687px] max-xl:w-full mx-auto aspect-[631/810] xl:mx-0 xl:aspect-auto xl:h-auto overflow-hidden">
         <svg
           viewBox={`0 0 ${IMG_W} ${IMG_H}`}
           preserveAspectRatio="xMidYMid slice"
@@ -175,36 +175,12 @@ export default function Vista360({ onSelectLevel }) {
           role="group"
           aria-label="Torre con vistas 360° desde cada nivel"
         >
-          <defs>
-            <linearGradient id="fade-azul" x1="0" y1="0" x2="1" y2="0">
-              <stop
-                offset="0%"
-                style={{ stopColor: "#00294e", stopOpacity: 1 }}
-              />
-              <stop
-                offset="6%"
-                style={{ stopColor: "#00294e", stopOpacity: 1 }}
-              />
-              <stop
-                offset="30%"
-                style={{ stopColor: "#00294e", stopOpacity: 0 }}
-              />
-            </linearGradient>
-          </defs>
-
           <image
             href={towerImage}
             width={IMG_W}
             height={IMG_H}
             preserveAspectRatio="xMidYMid slice"
             draggable={false}
-          />
-
-          <rect
-            width={IMG_W}
-            height={IMG_H}
-            fill="url(#fade-azul)"
-            className="pointer-events-none"
           />
 
           {/* Rectángulo naranja único: es el que se desplaza */}
@@ -268,7 +244,10 @@ export default function Vista360({ onSelectLevel }) {
           ))}
         </svg>
 
-        <p className="absolute bottom-3 left-1/2 -translate-x-1/2 text-caption font-light text-blanco">
+        {/* linear gradient */}
+        <div className="pointer-events-none absolute w-full h-full inset-0 bg-linear-to-r from-azul via-15% via-azul/10 to-transparent"></div>
+
+        <p className="absolute bottom-3 left-1/2 -translate-x-1/2 caption text-center font-light text-blanco">
           Imágenes con fines ilustrativos*
         </p>
       </div>
