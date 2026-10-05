@@ -6,23 +6,8 @@ import imagenIcon from "../../../assets/icons/vista-360/imagen.svg";
 import clickIcon from "../../../assets/icons/vista-360/click.svg";
 
 // vistas
-import vista1 from "../../../assets/images/temporal/vistas/1-vista-nivel-16-torre1.jpg";
-import vista2 from "../../../assets/images/temporal/vistas/2-vista-nivel-16-torre1.jpg";
-import vista3 from "../../../assets/images/temporal/vistas/3-vista-nivel-16-torre1.jpg";
-import vista4 from "../../../assets/images/temporal/vistas/4-vista-nivel-16-torre1.jpg";
 import { VistasNivel } from "./vista-360/VistasNivel";
-
-const IMAGENES_BASE = [vista1, vista2, vista3, vista4];
-
-const nivelesInfo = Object.fromEntries(
-  Array.from({ length: 18 }, (_, i) => {
-    const id = i + 1;
-    return [
-      id,
-      { id, torre: 1, titulo: `NIVEL ${id}, TORRE 1`, imagenes: IMAGENES_BASE },
-    ];
-  }),
-);
+import { nivelesInfo } from "../../../data/vista-360/niveles";
 
 // Ajusta estos valores a tu render de la torre
 const IMG_W = 631;
