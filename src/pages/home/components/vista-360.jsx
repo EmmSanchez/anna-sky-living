@@ -88,7 +88,8 @@ export default function Vista360({ onSelectLevel }) {
   const current = levels.find((l) => l.id === selected);
 
   return (
-    <div className="self-center flex flex-col xl:flex-row w-full h-full min-h-svh">
+    // min-h-[1150px] para que la imagen no se estire y se vean todos los niveles de arriba
+    <div className="self-center flex flex-col xl:flex-row w-full h-full xl:min-h-[1150px]">
       {/* Columna izquierda: texto */}
       <div className="w-full flex items-center justify-center xl:justify-start xl:pl-[60px] pt-[40px]">
         <AnimatePresence mode="wait">
