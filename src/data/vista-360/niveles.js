@@ -3,6 +3,10 @@ import vista2 from "../../assets/images/temporal/vistas/2-vista-nivel-16-torre1.
 import vista3 from "../../assets/images/temporal/vistas/3-vista-nivel-16-torre1.jpg";
 import vista4 from "../../assets/images/temporal/vistas/4-vista-nivel-16-torre1.jpg";
 
+const video1 = "/video/vistas-360/nivel-7-8-9.mp4";
+const video2 = "/video/vistas-360/nivel-18.mp4";
+const video3 = "/video/vistas-360/nivel-16-17-18.mp4";
+
 export const nivelesInfo = {
   1: {
     id: 1,
@@ -45,18 +49,21 @@ export const nivelesInfo = {
     torre: 1,
     titulo: "NIVEL 7, TORRE 1",
     imagenes: [vista1, vista2, vista3, vista4],
+    video: video1,
   },
   8: {
     id: 8,
     torre: 1,
     titulo: "NIVEL 8, TORRE 1",
     imagenes: [vista1, vista2, vista3, vista4],
+    video: video1,
   },
   9: {
     id: 9,
     torre: 1,
     titulo: "NIVEL 9, TORRE 1",
     imagenes: [vista1, vista2, vista3, vista4],
+    video: video1,
   },
   10: {
     id: 10,
@@ -99,17 +106,20 @@ export const nivelesInfo = {
     torre: 1,
     titulo: "NIVEL 16, TORRE 1",
     imagenes: [vista1, vista2, vista3, vista4],
+    video: video3,
   },
   17: {
     id: 17,
     torre: 1,
     titulo: "NIVEL 17, TORRE 1",
     imagenes: [vista1, vista2, vista3, vista4],
+    video: video3,
   },
   18: {
     id: 18,
     torre: 1,
     titulo: "NIVEL 18, TORRE 1",
     imagenes: [vista1, vista2, vista3, vista4],
+    video: video2,
   },
 };
