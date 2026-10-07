@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import towerImage from "../../../assets/images/temporal/vista-360.jpg";
 import imagenIcon from "../../../assets/icons/vista-360/imagen.svg";
 import clickIcon from "../../../assets/icons/vista-360/click.svg";
+import chevronIcon from "../../../assets/icons/arrow.svg";
 
 // vistas
 import { VistasNivel } from "./vista-360/VistasNivel";
@@ -260,6 +261,18 @@ export default function Vista360({ onSelectLevel }) {
         <p className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 caption text-center font-light text-blanco">
           Imágenes con fines ilustrativos*
         </p>
+      </div>
+
+      {/* botón volver < 800px ancho viewport */}
+      <div className="md:hidden flex w-full justify-center items-center pt-[30px] pb-[55px] px-[40px]">
+        <button
+          type="button"
+          onClick={handleVolver}
+          className="flex items-center justify-center w-full max-w-[295px] px-[20px] py-[15px] gap-[10px] rounded-[10px] button-big font-bold bg-naranja text-blanco uppercase cursor-pointer"
+        >
+          <img src={chevronIcon} alt="" className="rotate-180 h-[16px] w-fit" />
+          <span>Volver</span>
+        </button>
       </div>
     </div>
   );

@@ -21,11 +21,11 @@ export function VistasNivel({ nivel, onVolver }) {
   return (
     <div className="self-center flex flex-col gap-[30px] xl:gap-[20px] w-full min-w-0 max-w-[592px]">
       {/* Volver: arriba en pantallas chicas */}
-      <div className="max-md:pl-[10px]">
+      <div className="max-md:hidden flex xl:hidden max-md:pl-[10px]">
         <button
           type="button"
           onClick={onVolver}
-          className="flex xl:hidden items-center w-fit px-[20px] py-[15px] gap-[10px] rounded-[10px] button-big font-bold bg-naranja text-blanco uppercase cursor-pointer"
+          className="flex items-center w-fit px-[20px] py-[15px] gap-[10px] rounded-[10px] button-big font-bold bg-naranja text-blanco uppercase cursor-pointer"
         >
           <img src={chevronIcon} alt="" className="rotate-180 h-[16px] w-fit" />
           <span>Volver</span>
