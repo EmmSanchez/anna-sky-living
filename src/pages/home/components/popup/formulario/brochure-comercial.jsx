@@ -195,7 +195,7 @@ export default function BrochureComercialPopup({ isOpen }) {
                     {...register("phone", {
                       required: "Tu teléfono es requerido",
                       pattern: {
-                        value: /^[0-9]{10}$/,
+                        value: /^[0-9]{8,15}$/,
                         message: "Ingresa 10 dígitos sin espacios",
                       },
                     })}
