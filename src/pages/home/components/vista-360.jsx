@@ -93,13 +93,13 @@ export default function Vista360({ onSelectLevel }) {
 
   const current = levels.find((l) => l.id === selected);
 
-  const rootRef = useRef(null);
-  const photoRef = useRef(null);
-
   // linea que enlaza nivel e imagen
-  const { d, measure } = useElbowPath({
+  const rootRef = useRef(null);
+  const [photoEl, setPhotoEl] = useState(null);
+
+  const path = useElbowPath({
     rootRef,
-    photoRef,
+    photoEl,
     levelId: openLevel,
     enabled: isXl,
   });
@@ -179,7 +179,7 @@ export default function Vista360({ onSelectLevel }) {
               className="xl:mx-auto min-h-[480px] xl:min-h-svh flex items-center min-[592px]:pb-[40px] xl:pr-[40px]"
             >
               <VistasNivel
-                photoRef={photoRef}
+                photoRef={setPhotoEl}
                 nivel={nivelesInfo[openLevel]}
                 onVolver={handleVolver}
               />
@@ -292,20 +292,27 @@ export default function Vista360({ onSelectLevel }) {
         </button>
       </div>
 
-      {isXl && d && (
+      {isXl && (
         <svg
           aria-hidden
           className="pointer-events-none absolute inset-0 size-full overflow-visible"
         >
-          <motion.path
-            initial={{ d, pathLength: 0 }}
-            animate={{ d, pathLength: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            fill="none"
-            strokeWidth={2}
-            strokeLinejoin="round"
-            className="stroke-naranja"
-          />
+          <AnimatePresence mode="wait">
+            {path && (
+              <motion.path
+                key={path.id}
+                d={path.d}
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                fill="none"
+                strokeWidth={2}
+                strokeLinejoin="round"
+                className="stroke-naranja"
+              />
+            )}
+          </AnimatePresence>
         </svg>
       )}
     </div>

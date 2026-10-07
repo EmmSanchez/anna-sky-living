@@ -2,18 +2,16 @@ import { useCallback, useLayoutEffect, useState } from "react";
 
 const ANCHOR_Y = 0.15; // fracción del alto de la foto por donde sale la línea
 
-export function useElbowPath({ rootRef, photoRef, levelId, enabled }) {
-  const [d, setD] = useState(null);
+export function useElbowPath({ rootRef, photoEl, levelId, enabled }) {
+  const [path, setPath] = useState(null); // { id, d }
 
   const measure = useCallback(() => {
     const root = rootRef.current;
-    const photo = photoRef.current;
     const level = root?.querySelector(`[data-level="${levelId}"]`);
-    if (!root || !photo || !level) return;
+    if (!root || !photoEl || !level) return;
 
-    // Todo relativo al contenedor, así el scroll no afecta
     const o = root.getBoundingClientRect();
-    const p = photo.getBoundingClientRect();
+    const p = photoEl.getBoundingClientRect();
     const l = level.getBoundingClientRect();
 
     const x1 = p.right - o.left;
@@ -22,19 +20,21 @@ export function useElbowPath({ rootRef, photoRef, levelId, enabled }) {
     const y2 = l.top - o.top + l.height / 2;
     const xm = (x1 + x2) / 2;
 
-    setD(`M ${x1} ${y1} H ${xm} V ${y2} H ${x2}`);
-  }, [rootRef, photoRef, levelId]);
+    // guardamos el id junto al path: sirve como key para la animación
+    setPath({ id: levelId, d: `M ${x1} ${y1} H ${xm} V ${y2} H ${x2}` });
+  }, [rootRef, photoEl, levelId]);
 
   useLayoutEffect(() => {
     if (!enabled || levelId == null) {
-      setD(null);
+      setPath(null);
       return;
     }
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(rootRef.current);
+    if (photoEl) ro.observe(photoEl);
     return () => ro.disconnect();
-  }, [enabled, levelId, measure, rootRef]);
+  }, [enabled, levelId, photoEl, measure, rootRef]);
 
-  return { d, measure };
+  return path;
 }
