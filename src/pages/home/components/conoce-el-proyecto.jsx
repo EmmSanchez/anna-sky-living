@@ -18,7 +18,7 @@ const caracteristicas = [
   {
     label: "Diseño",
     description:
-      "Arquitectura contemporánea con acabados de lujo, diseñada por Luis Azcuñaga Arquitectos.",
+      "Arquitectura contemporánea con acabados de lujo, diseñada por Luis Azcunaga Arquitectos.",
     icon: disenoIcon,
   },
   {
@@ -51,7 +51,7 @@ export default function ConoceElProyecto() {
               Un proyecto que combina diseño, funcionalidad y experiencias en un
               entorno pensado para elevar la vida cotidiana. Su arquitectura
               contemporánea desarrollada por el despacho de arquitectos Luis
-              Azcuñaga, y sus espacios cuidadosamente planeados crean un
+              Azcunaga, y sus espacios cuidadosamente planeados crean un
               equilibrio entre privacidad, bienestar y convivencia.
               <br />
               <br />
