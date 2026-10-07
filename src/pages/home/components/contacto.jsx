@@ -1,21 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import sendIcon from "../../../assets/icons/send.svg";
 
+const ENDPOINT_URL = "https://tu-api.com/contacto";
+
+// Clases base del input; el borde cambia a rojo cuando hay error
+const fieldClass = (error) =>
+  `outline-none paragraph text-blanco leading-[120%] placeholder:paragraph placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b ${
+    error ? "border-red-400" : "border-amarillo"
+  }`;
+
 export default function Contacto() {
-  const [status, setStatus] = useState("idle"); // idle | sending | success
+  const [status, setStatus] = useState("idle"); // idle | success | error
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStatus("sending");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({ mode: "onBlur" });
 
-    // Simulación de envío (reemplazar por tu lógica real de envío)
-    setTimeout(() => {
+  // Oculta la alerta (éxito o error) después de unos segundos
+  useEffect(() => {
+    if (status === "idle") return;
+    const timer = setTimeout(() => setStatus("idle"), 4000);
+    return () => clearTimeout(timer);
+  }, [status]);
+
+  const onSubmit = async (data) => {
+    setStatus("idle");
+    try {
+      const response = await fetch(ENDPOINT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...data,
+          message: data.message?.trim() || null,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}`);
+      }
+
+      reset();
       setStatus("success");
-      e.target.reset();
-
-      // Oculta el mensaje de éxito después de unos segundos
-      setTimeout(() => setStatus("idle"), 4000);
-    }, 1200);
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      setStatus("error");
+    }
   };
 
   return (
@@ -35,54 +68,123 @@ export default function Contacto() {
 
         {/* Alerta de éxito */}
         {status === "success" && (
-          <div className="w-full max-w-[600px] px-[24px] py-[16px] rounded-[5px] bg-[#1f7a3d]/10 border border-[#1f7a3d] text-[16px] text-[#1f7a3d] text-center">
+          <div
+            role="status"
+            className="w-full max-w-[600px] px-[24px] py-[16px] rounded-[5px] bg-[#1f7a3d]/10 border border-[#1f7a3d] text-[16px] text-[#1f7a3d] text-center"
+          >
             ¡Tu mensaje fue enviado con éxito! Nos pondremos en contacto contigo
             pronto.
           </div>
         )}
 
+        {/* Alerta de error */}
+        {status === "error" && (
+          <div
+            role="alert"
+            className="w-full max-w-[600px] px-[24px] py-[16px] rounded-[5px] bg-red-500/10 border border-red-400 text-[16px] text-red-400 text-center"
+          >
+            No pudimos enviar tu mensaje. Inténtalo de nuevo en unos minutos.
+          </div>
+        )}
+
         {/* formulario */}
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
           className="flex flex-col w-full gap-[30px]"
         >
           {/* Nombre */}
-          <input
-            type="text"
-            name="nombre"
-            required
-            placeholder="*Nombre completo"
-            className="paragraph text-blanco leading-[120%] placeholder:paragraph placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
-          />
+          <div className="flex flex-col gap-1">
+            <input
+              type="text"
+              autoComplete="name"
+              placeholder="*Nombre completo"
+              aria-invalid={errors.name ? "true" : "false"}
+              className={fieldClass(errors.name)}
+              {...register("name", {
+                required: "Tu nombre es requerido",
+                pattern: {
+                  value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]{2,60}$/,
+                  message: "Ingresa un nombre válido",
+                },
+              })}
+            />
+            {errors.name && (
+              <span className="text-red-400 text-xs px-[30px]">
+                {errors.name.message}
+              </span>
+            )}
+          </div>
 
           {/* Correo electrónico */}
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="*Correo electrónico"
-            className="paragraph text-blanco leading-[120%] placeholder:paragraph placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
-          />
+          <div className="flex flex-col gap-1">
+            <input
+              type="email"
+              autoComplete="email"
+              placeholder="*Correo electrónico"
+              aria-invalid={errors.mail ? "true" : "false"}
+              className={fieldClass(errors.mail)}
+              {...register("mail", {
+                required: "Tu correo es requerido",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Ingresa un correo válido",
+                },
+              })}
+            />
+            {errors.mail && (
+              <span className="text-red-400 text-xs px-[30px]">
+                {errors.mail.message}
+              </span>
+            )}
+          </div>
 
           {/* Teléfono */}
-          <input
-            type="tel"
-            name="telefono"
-            required
-            placeholder="*Teléfono"
-            className="paragraph text-blanco leading-[120%] placeholder:paragraph placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
-          />
+          <div className="flex flex-col gap-1">
+            <input
+              type="tel"
+              autoComplete="tel"
+              placeholder="*Teléfono"
+              aria-invalid={errors.phone ? "true" : "false"}
+              className={fieldClass(errors.phone)}
+              {...register("phone", {
+                required: "Tu teléfono es requerido",
+                pattern: {
+                  value: /^[0-9]{10}$/,
+                  message: "Ingresa 10 dígitos sin espacios",
+                },
+              })}
+            />
+            {errors.phone && (
+              <span className="text-red-400 text-xs px-[30px]">
+                {errors.phone.message}
+              </span>
+            )}
+          </div>
 
-          {/* Mensaje */}
-          <textarea
-            name="mensaje"
-            placeholder="Mensaje"
-            className="resize-none h-[229px] paragraph text-blanco leading-[120%] placeholder:text-[21px] placeholder:text-blanco placeholder:font-light placeholder:leading-[120%] px-[30px] py-[20px] border-b border-amarillo"
-          />
+          {/* Mensaje (opcional) */}
+          <div className="flex flex-col gap-1">
+            <textarea
+              placeholder="Mensaje"
+              aria-invalid={errors.message ? "true" : "false"}
+              className={`resize-none h-[229px] ${fieldClass(errors.message)} placeholder:text-[21px]`}
+              {...register("message", {
+                maxLength: {
+                  value: 200,
+                  message: "El mensaje no puede pasar de 200 caracteres",
+                },
+              })}
+            />
+            {errors.message && (
+              <span className="text-red-400 text-xs px-[30px]">
+                {errors.message.message}
+              </span>
+            )}
+          </div>
 
           <button
             type="submit"
-            disabled={status === "sending"}
+            disabled={isSubmitting}
             className="group flex items-center justify-center w-full md:w-fit md:px-[106px] py-[16px] gap-[10px] rounded-[5px] button-text font-bold uppercase tracking-wider bg-naranja hover:bg-gris active:bg-blanco active:text-azul hover:cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
           >
             <img
@@ -90,7 +192,7 @@ export default function Contacto() {
               alt="Ícono de enviar"
               className="size-[16px] group-active:invert-100"
             />
-            {status === "sending" ? "Enviando..." : "Enviar"}
+            {isSubmitting ? "Enviando..." : "Enviar"}
           </button>
         </form>
       </div>
