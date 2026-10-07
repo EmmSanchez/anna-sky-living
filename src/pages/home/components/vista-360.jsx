@@ -258,13 +258,13 @@ export default function Vista360({ onSelectLevel }) {
               />
 
               <text
-                x={TOWER_X - 16} // a la derecha de la torre, con 16px de separación
-                y={y + h / 2} // centrado verticalmente en el nivel
+                x={TOWER_X + TOWER_W / 2} // centro horizontal del nivel
+                y={y + (h - LEVEL_GAP) / 2} // centro vertical del nivel
                 dominantBaseline="middle"
-                textAnchor="end"
-                fontSize={12} // en unidades del viewBox
+                textAnchor="middle"
+                fontSize={12}
                 aria-hidden
-                className={`hidden group-hover:block pointer-events-none select-none transition-colors duration-200 font-bold fill-naranja `}
+                className="hidden group-hover:block pointer-events-none select-none font-bold fill-blanco"
               >
                 NIV. {id}
               </text>
