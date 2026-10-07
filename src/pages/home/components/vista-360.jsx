@@ -12,17 +12,31 @@ import { nivelesInfo } from "../../../data/vista-360/niveles";
 // Ajusta estos valores a tu render de la torre
 const IMG_W = 631;
 const IMG_H = 810;
-const TOWER_X = 175; // x donde empieza la torre en la imagen
-const TOWER_W = 310; // ancho de la torre
-const FIRST_Y = 21; // y del primer nivel
+const TOWER_X = 190; // x donde empieza la torre en la imagen
+const TOWER_W = 270; // ancho de la torre
+const FIRST_Y = 18; // y del primer nivel
 const heights = [
-  41, 41, 44, 44, 39, 43, 38, 41, 39, 46, 33, 40, 39, 48, 37, 43, 41, 38,
+  60 /*nivel 28*/, 34 /*nivel 27*/, 36.5 /*nivel 26*/, 37 /*nivel 25*/,
+  34 /*nivel 24*/, 37 /*nivel 23*/, 36.5 /*nivel 22*/, 34 /*nivel 21*/,
+  35 /*nivel 20*/, 32.5 /*nivel 19*/, 34 /*nivel 18*/, 33 /*nivel 17*/,
+  33 /*nivel 16*/, 40 /*nivel 15*/, 34 /*nivel 14*/, 32 /*nivel 12*/,
+  34.5 /*nivel 11*/, 34 /*nivel 10*/, 35.5 /*nivel 9*/,
 ];
+
+const LEVEL_GAP = 0;
+const FIRST_LEVEL = 9;
+const SKIPPED_LEVELS = [13]; // niveles que no existen en la torre
+
+// Números reales de nivel, de abajo hacia arriba: 9, 10, 11, 12, 14, 15...
+const levelNumbers = [];
+for (let n = FIRST_LEVEL; levelNumbers.length < heights.length; n++) {
+  if (!SKIPPED_LEVELS.includes(n)) levelNumbers.push(n);
+}
 
 const levels = heights.reduce((acc, h, i) => {
   const y = i === 0 ? FIRST_Y : acc[i - 1].y + acc[i - 1].h;
   acc.push({
-    id: heights.length - i, // el de arriba es el último nivel, el de abajo es el 1
+    id: levelNumbers[heights.length - 1 - i], // el de arriba es el número más alto
     y,
     h,
   });
@@ -153,7 +167,7 @@ export default function Vista360({ onSelectLevel }) {
       </div>
 
       {/* Columna derecha: torre */}
-      <div className="relative w-full max-[680px]:max-w-[687px] max-xl:w-full mx-auto aspect-[631/810] xl:mx-0 xl:aspect-auto xl:h-auto overflow-hidden">
+      <div className="relative w-full max-[680px]:max-w-[687px] max-xl:w-full xl:max-w-[655px] mx-auto aspect-[631/810] xl:mx-0 xl:aspect-auto xl:h-auto overflow-hidden">
         <svg
           viewBox={`0 0 ${IMG_W} ${IMG_H}`}
           preserveAspectRatio="xMidYMid slice"
@@ -165,7 +179,7 @@ export default function Vista360({ onSelectLevel }) {
             href={towerImage}
             width={IMG_W}
             height={IMG_H}
-            preserveAspectRatio="xMidYMid slice"
+            preserveAspectRatio="xMidYMid"
             draggable={false}
           />
 
@@ -175,8 +189,12 @@ export default function Vista360({ onSelectLevel }) {
               x={TOWER_X}
               y={0}
               width={TOWER_W}
-              initial={{ y: first.y, height: first.h }}
-              animate={autoplay ? sweep : { y: current.y, height: current.h }}
+              initial={{ y: first.y, height: first.h - LEVEL_GAP }}
+              animate={
+                autoplay
+                  ? sweep
+                  : { y: current.y, height: current.h - LEVEL_GAP }
+              }
               transition={
                 autoplay
                   ? {
@@ -201,7 +219,7 @@ export default function Vista360({ onSelectLevel }) {
                 x={TOWER_X}
                 y={y}
                 width={TOWER_W}
-                height={h}
+                height={h - LEVEL_GAP}
                 role="button"
                 tabIndex={0}
                 aria-label={`Nivel ${id}`}
