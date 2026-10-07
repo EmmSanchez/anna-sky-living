@@ -4,6 +4,7 @@ import { NavIndicator } from "../../../../../components/nav-indicator/nav-indica
 import { GalleryCarrousel } from "../../../../../components/embla-carousel/GalleyCarousel";
 
 import closeIcon from "../../../../../assets/icons/close.svg";
+import closeIconActive from "../../../../../assets/icons/close-blue.svg";
 
 /**
  * Modal universal para todas las fichas de modelo (tipo-a, tipo-b, ..., lock-off).
@@ -56,12 +57,17 @@ export function ModeloModal({
         {/* Botón de cerrar */}
         <button
           onClick={cerrarModal}
-          className="absolute flex size-[42px] xl:size-[56px] right-[20px] top-[20px] px-[8px] justify-center items-center rounded-[10px] bg-naranja hover:cursor-pointer"
+          className="group absolute flex size-[42px] xl:size-[56px] right-[20px] top-[20px] px-[8px] justify-center items-center rounded-[10px] bg-naranja hover:bg-gris active:bg-blanco hover:cursor-pointer"
         >
           <img
             src={closeIcon}
             alt="Ícono de cerrar"
-            className="size-[34.5px]"
+            className="size-[34.5px] block group-active:hidden"
+          />
+          <img
+            src={closeIconActive}
+            alt="Ícono de cerrar"
+            className="size-[34.5px] hidden group-active:block"
           />
         </button>
 

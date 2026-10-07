@@ -268,7 +268,7 @@ export default function Vista360({ onSelectLevel }) {
         <button
           type="button"
           onClick={handleVolver}
-          className="flex items-center justify-center w-full max-w-[295px] px-[20px] py-[15px] gap-[10px] rounded-[10px] button-big font-bold bg-naranja text-blanco uppercase cursor-pointer"
+          className="group flex items-center justify-center w-full max-w-[295px] px-[20px] py-[15px] gap-[10px] rounded-[10px] button-big font-bold bg-naranja hover:bg-gris text-blanco uppercase cursor-pointer"
         >
           <img src={chevronIcon} alt="" className="rotate-180 h-[16px] w-fit" />
           <span>Volver</span>

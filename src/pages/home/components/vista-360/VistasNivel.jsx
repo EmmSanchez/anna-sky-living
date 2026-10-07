@@ -83,9 +83,13 @@ export function VistasNivel({ nivel, onVolver }) {
             type="button"
             onClick={() => ir(-1)}
             aria-label="Anterior"
-            className="flex shrink-0 justify-center items-center w-[24px] p-[6px] bg-naranja rounded-[5.7px] cursor-pointer"
+            className="group flex shrink-0 justify-center items-center w-[24px] p-[6px] bg-naranja hover:bg-gris active:bg-azul active:shadow-dropshadow rounded-[5.7px] cursor-pointer"
           >
-            <img src={chevronIcon} alt="" className="w-full rotate-180" />
+            <img
+              src={chevronIcon}
+              alt=""
+              className="w-full rotate-180 group-hover:opacity-80 group-active:opacity-80"
+            />
           </button>
 
           <ul className="flex flex-1 min-w-0 gap-[8px] sm:gap-[14px]">
@@ -136,9 +140,13 @@ export function VistasNivel({ nivel, onVolver }) {
             type="button"
             onClick={() => ir(1)}
             aria-label="Siguiente"
-            className="flex shrink-0 justify-center items-center w-[24px] p-[6px] bg-naranja rounded-[5.7px] cursor-pointer"
+            className="group flex shrink-0 justify-center items-center w-[24px] p-[6px] bg-naranja hover:bg-gris active:bg-azul active:shadow-dropshadow rounded-[5.7px] cursor-pointer"
           >
-            <img src={chevronIcon} alt="" className="w-full" />
+            <img
+              src={chevronIcon}
+              alt=""
+              className="w-full group-hover:opacity-80 group-active:opacity-80"
+            />
           </button>
         </div>
       </div>
@@ -147,7 +155,7 @@ export function VistasNivel({ nivel, onVolver }) {
       <button
         type="button"
         onClick={onVolver}
-        className="hidden xl:flex items-center w-fit px-[20px] py-[15px] gap-[10px] rounded-[10px] button-big font-bold bg-naranja text-blanco uppercase cursor-pointer"
+        className="hidden xl:flex items-center w-fit px-[20px] py-[15px] gap-[10px] rounded-[10px] button-big font-bold bg-naranja hover:bg-gris active:bg-azul active:shadow-dropshadow text-blanco hover:text-blanco/80 active:text-blanco/80 uppercase cursor-pointer"
       >
         <img src={chevronIcon} alt="" className="rotate-180 h-[16px] w-fit" />
         <span>Volver</span>

@@ -12,6 +12,8 @@
   --color-gris: #75797c;
   --color-blanco: #f6f1ea;
   --color-negro: #1d1f1e;
+
+  --shadow-dropshadow: 0 13px 6px -4px rgb(0 0 0 / 0.2);
 }
 
 .header-1 {
@@ -62,6 +64,11 @@ body {
   color: white;
   font-family: var(--font-inter);
   text-wrap: pretty;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 button {
