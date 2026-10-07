@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { supabase } from "../../../../../lib/supabase";
 import { usePopupStore } from "../../../../../store/usePopupStore";
 
 const brochureImage = "/foto/popup-bg-brochure.jpg";
@@ -10,8 +11,6 @@ import closeIconActive from "../../../../../assets/icons/close-blue.svg";
 import userIcon from "../../../../../assets/icons/popup/user.svg";
 import mailIcon from "../../../../../assets/icons/popup/mail.svg";
 import phoneIcon from "../../../../../assets/icons/popup/phone.svg";
-
-const ENDPOINT_URL = "https://tu-api.com/brochure";
 
 export default function BrochureComercialPopup({ isOpen }) {
   const [, setSubmitState] = useState("idle");
@@ -38,16 +37,20 @@ export default function BrochureComercialPopup({ isOpen }) {
   const onSubmit = async (data) => {
     setSubmitState("idle");
     try {
-      const response = await fetch(ENDPOINT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error ${response.status}`);
+      const payload = {
+        name: data.name,
+        mail: data.mail,
+        phone: data.phone,
+        message: null,
+        consent: data.consent ?? null,
+        origin: "brochure",
+      };
+      const { error } = await supabase
+        .from("annasky_living_cx_form")
+        .insert(payload);
+      if (error) {
+        throw error;
       }
-
       setSubmitState("success");
       reset();
     } catch (error) {

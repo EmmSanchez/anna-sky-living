@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { usePopupStore } from "../../../../../store/usePopupStore";
+import { supabase } from "../../../../../lib/supabase";
 
 const heroImage = "/foto/popup-bg-hero.jpg";
 const modeloTrecasa = "/foto/popup-registro-modelo.png";
@@ -30,8 +31,6 @@ const features = [
   },
 ];
 
-const ENDPOINT_URL = "https://tu-api.com/leads";
-
 export default function IngresaPopup({ isOpen }) {
   const [, setSubmitState] = useState("idle");
   const closePopup = usePopupStore((state) => state.closePopup);
@@ -58,16 +57,20 @@ export default function IngresaPopup({ isOpen }) {
   const onSubmit = async (data) => {
     setSubmitState("idle");
     try {
-      const response = await fetch(ENDPOINT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error ${response.status}`);
+      const payload = {
+        name: data.name,
+        mail: data.mail,
+        phone: data.phone,
+        message: null,
+        consent: null,
+        origin: "popup-inicial",
+      };
+      const { error } = await supabase
+        .from("annasky_living_cx_form")
+        .insert(payload);
+      if (error) {
+        throw error;
       }
-
       setSubmitState("success");
       reset();
       closePopup();

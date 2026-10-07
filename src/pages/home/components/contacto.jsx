@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import sendIcon from "../../../assets/icons/send.svg";
+import { supabase } from "../../../lib/supabase";
 
-const ENDPOINT_URL = "https://tu-api.com/contacto";
+import sendIcon from "../../../assets/icons/send.svg";
 
 // Clases base del input; el borde cambia a rojo cuando hay error
 const fieldClass = (error) =>
@@ -30,17 +30,20 @@ export default function Contacto() {
   const onSubmit = async (data) => {
     setStatus("idle");
     try {
-      const response = await fetch(ENDPOINT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...data,
-          message: data.message?.trim() || null,
-        }),
-      });
+      const payload = {
+        name: data.name,
+        mail: data.mail,
+        phone: data.phone,
+        message: data.message || null,
+        consent: null,
+        origin: "contacto",
+      };
 
-      if (!response.ok) {
-        throw new Error(`Error ${response.status}`);
+      const { error } = await supabase
+        .from("annasky_living_cx_form")
+        .insert(payload);
+      if (error) {
+        throw error;
       }
 
       reset();
