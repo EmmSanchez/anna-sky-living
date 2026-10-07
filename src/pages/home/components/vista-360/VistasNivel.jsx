@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 import chevronIcon from "../../../../assets/icons/arrow.svg";
 
-export function VistasNivel({ nivel, onVolver }) {
+export function VistasNivel({ nivel, onVolver, photoRef }) {
   const [activa, setActiva] = useState(0);
 
   // Lista unificada: si hay video, va primero y ocupa el lugar de la 1.ª imagen
@@ -42,7 +42,10 @@ export function VistasNivel({ nivel, onVolver }) {
       {/* Carrusel de imágenes y videos */}
       <div className="flex flex-col-reverse xl:flex-col gap-[30px] xl:gap-[20px] min-w-0">
         {/* Medio principal con crossfade */}
-        <div className="relative w-full aspect-[592/408] overflow-hidden border-2 border-naranja bg-azul">
+        <div
+          ref={photoRef}
+          className="relative w-full aspect-[592/408] overflow-hidden border-2 border-naranja bg-azul"
+        >
           <AnimatePresence initial={false}>
             {medio.tipo === "video" ? (
               <motion.video

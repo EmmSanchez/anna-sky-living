@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 import towerImage from "../../../assets/images/temporal/vista-360.jpg";
@@ -10,6 +10,7 @@ import chevronIcon from "../../../assets/icons/arrow.svg";
 import { VistasNivel } from "./vista-360/VistasNivel";
 import { nivelesInfo } from "../../../data/vista-360/niveles";
 import { useIsXl } from "../../../hooks/useIsXl";
+import { useElbowPath } from "../../../hooks/useElbowPath";
 
 // Ajusta estos valores a tu render de la torre
 const IMG_W = 631;
@@ -60,7 +61,7 @@ const AUTOPLAY_MS = 1000; // tiempo entre niveles
 const SWEEP_S = 28; // segundos que tarda en recorrer toda la torre
 
 export default function Vista360({ onSelectLevel }) {
-  const [selected, setSelected] = useState(1); // empieza en el primer nivel
+  const [selected, setSelected] = useState(FIRST_LEVEL); // empieza en el primer nivel
   const [autoplay, setAutoplay] = useState(true);
   const [openLevel, setOpenLevel] = useState(null);
 
@@ -92,9 +93,23 @@ export default function Vista360({ onSelectLevel }) {
 
   const current = levels.find((l) => l.id === selected);
 
+  const rootRef = useRef(null);
+  const photoRef = useRef(null);
+
+  // linea que enlaza nivel e imagen
+  const { d, measure } = useElbowPath({
+    rootRef,
+    photoRef,
+    levelId: openLevel,
+    enabled: isXl,
+  });
+
   return (
     // min-h-[1150px] para que la imagen no se estire y se vean todos los niveles de arriba
-    <div className="self-center flex flex-col xl:flex-row w-full h-full xl:min-h-[1150px]">
+    <div
+      ref={rootRef}
+      className="relative self-center flex flex-col xl:flex-row w-full h-full xl:min-h-[1150px]"
+    >
       {/* Columna izquierda: texto */}
       <div className="w-full flex items-center justify-center xl:justify-start xl:pl-[60px] pt-[40px]">
         <AnimatePresence mode="wait">
@@ -164,6 +179,7 @@ export default function Vista360({ onSelectLevel }) {
               className="xl:mx-auto min-h-[480px] xl:min-h-svh flex items-center min-[592px]:pb-[40px] xl:pr-[40px]"
             >
               <VistasNivel
+                photoRef={photoRef}
                 nivel={nivelesInfo[openLevel]}
                 onVolver={handleVolver}
               />
@@ -177,7 +193,7 @@ export default function Vista360({ onSelectLevel }) {
         <svg
           viewBox={`0 0 ${IMG_W} ${IMG_H}`}
           preserveAspectRatio="xMidYMid slice"
-          className="absolute inset-0 size-full bg-red-500"
+          className="absolute inset-0 size-full"
           role="group"
           aria-label="Torre con vistas 360° desde cada nivel"
         >
@@ -223,6 +239,7 @@ export default function Vista360({ onSelectLevel }) {
           {levels.map(({ id, y, h }) => (
             <g key={id} className="group">
               <rect
+                data-level={id}
                 x={TOWER_X}
                 y={y}
                 width={TOWER_W}
@@ -274,6 +291,23 @@ export default function Vista360({ onSelectLevel }) {
           <span>Volver</span>
         </button>
       </div>
+
+      {isXl && d && (
+        <svg
+          aria-hidden
+          className="pointer-events-none absolute inset-0 size-full overflow-visible"
+        >
+          <motion.path
+            initial={{ d, pathLength: 0 }}
+            animate={{ d, pathLength: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            fill="none"
+            strokeWidth={2}
+            strokeLinejoin="round"
+            className="stroke-naranja"
+          />
+        </svg>
+      )}
     </div>
   );
 }
