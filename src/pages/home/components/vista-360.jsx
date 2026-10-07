@@ -8,12 +8,15 @@ import clickIcon from "../../../assets/icons/vista-360/click.svg";
 // vistas
 import { VistasNivel } from "./vista-360/VistasNivel";
 import { nivelesInfo } from "../../../data/vista-360/niveles";
+import { useIsXl } from "../../../hooks/useIsXl";
 
 // Ajusta estos valores a tu render de la torre
 const IMG_W = 631;
 const IMG_H = 810;
-const TOWER_X = 190; // x donde empieza la torre en la imagen
-const TOWER_W = 270; // ancho de la torre
+const TOWER = {
+  xl: { x: 190, w: 270 }, // ≥ 1280px, image con xMidYMid
+  base: { x: 165, w: 320 }, // < 1280px, image con none (mídelas)
+};
 const FIRST_Y = 18; // y del primer nivel
 const heights = [
   60 /*nivel 28*/, 34 /*nivel 27*/, 36.5 /*nivel 26*/, 37 /*nivel 25*/,
@@ -60,6 +63,8 @@ export default function Vista360({ onSelectLevel }) {
   const [autoplay, setAutoplay] = useState(true);
   const [openLevel, setOpenLevel] = useState(null);
 
+  const isXl = useIsXl();
+  const { x: TOWER_X, w: TOWER_W } = isXl ? TOWER.xl : TOWER.base;
   const handleSelect = (id) => {
     setAutoplay(false);
     setSelected(id);
@@ -171,15 +176,16 @@ export default function Vista360({ onSelectLevel }) {
         <svg
           viewBox={`0 0 ${IMG_W} ${IMG_H}`}
           preserveAspectRatio="xMidYMid slice"
-          className="absolute inset-0 size-full"
+          className="absolute inset-0 size-full bg-red-500"
           role="group"
           aria-label="Torre con vistas 360° desde cada nivel"
         >
+          {/* Menos de 1280px: estirada para llenar la caja, más de 1280px: mantiene ratio fijo */}
           <image
             href={towerImage}
             width={IMG_W}
             height={IMG_H}
-            preserveAspectRatio="xMidYMid"
+            preserveAspectRatio={isXl ? "xMidYMid" : "none"}
             draggable={false}
           />
 
@@ -249,9 +255,9 @@ export default function Vista360({ onSelectLevel }) {
         </svg>
 
         {/* linear gradient */}
-        <div className="pointer-events-none absolute w-full h-full inset-0 bg-linear-to-r from-azul via-15% via-azul/10 to-transparent"></div>
+        <div className="pointer-events-none absolute w-full h-full inset-0 bg-linear-to-r from-azul via-15% via-azul/10 to-azul/30"></div>
 
-        <p className="absolute bottom-3 left-1/2 -translate-x-1/2 caption text-center font-light text-blanco">
+        <p className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 caption text-center font-light text-blanco">
           Imágenes con fines ilustrativos*
         </p>
       </div>
