@@ -39,7 +39,6 @@ export default function IngresaPopup({ isOpen }) {
     register,
     handleSubmit,
     reset,
-
     formState: { errors, isSubmitting },
   } = useForm({ mode: "onBlur" });
 
@@ -198,7 +197,7 @@ export default function IngresaPopup({ isOpen }) {
               </div>
 
               <form
-                onSubmit={() => handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col gap-5"
               >
                 <label className="flex items-center h-[70px] gap-2.5 border border-naranja rounded-[5px] focus-within:border-orange-500 px-[20px] py-[10px]">
