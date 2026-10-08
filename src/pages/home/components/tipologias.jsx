@@ -9,6 +9,7 @@ const tipoF = "/foto/tipologias/tipo-f.png";
 const tipoLO = "/foto/tipologias/tipo-lock-off.png";
 
 import imageIcon from "../../../assets/icons/imagen.svg";
+import Reveal from "../../../components/animations/reveal";
 
 const modelos = [
   {
@@ -56,13 +57,18 @@ export default function Tipologias() {
       className="w-full flex flex-col justify-center items-center py-[45px] md:py-[60px] px-[20px] gap-[30px] bg-blanco"
     >
       <div className="flex flex-col justify-center items-center gap-[15px]">
-        <h2 className="header-2 font-bangla text-negro uppercase tracking-wider">
-          Tipologías
-        </h2>
-        <p className="paragraph text-center font-light w-full max-w-[632px] lg:max-w-[1100px] text-negro">
-          Cuatro modelos diseñados para diferentes estilos de visa, con
-          distribuciones funcionales y acabados de primera
-        </p>
+        <Reveal>
+          <h2 className="header-2 font-bangla text-negro uppercase tracking-wider">
+            Tipologías
+          </h2>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <p className="paragraph text-center font-light w-full max-w-[632px] lg:max-w-[1100px] text-negro">
+            Cuatro modelos diseñados para diferentes estilos de visa, con
+            distribuciones funcionales y acabados de primera
+          </p>
+        </Reveal>
       </div>
 
       {/* Modelos */}

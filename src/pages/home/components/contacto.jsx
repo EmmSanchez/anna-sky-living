@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { supabase } from "../../../lib/supabase";
 
 import sendIcon from "../../../assets/icons/send.svg";
+import Reveal from "../../../components/animations/reveal";
 
 // Clases base del input; el borde cambia a rojo cuando hay error
 const fieldClass = (error) =>
@@ -58,15 +59,19 @@ export default function Contacto() {
     <section id="contacto" className="flex justify-center items-center w-full">
       <div className="flex flex-col w-full max-w-[1280px] justify-center items-center p-[44px] md:p-[60px] gap-[30px]">
         <div className="flex flex-col gap-[15px]">
-          <h2 className="header-2 text-center font-bangla uppercase leading-[120%]">
-            Contáctanos
-          </h2>
-          <p className="paragraph text-center leading-[120%]">
-            Tu próximo espacio comienza con una conversación.
-            <br />
-            Cuéntanos qué estás buscando y encontraremos la opción ideal para
-            ti.
-          </p>
+          <Reveal>
+            <h2 className="header-2 text-center font-bangla uppercase leading-[120%]">
+              Contáctanos
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="paragraph text-center leading-[120%]">
+              Tu próximo espacio comienza con una conversación.
+              <br />
+              Cuéntanos qué estás buscando y encontraremos la opción ideal para
+              ti.
+            </p>
+          </Reveal>
         </div>
 
         {/* Alerta de éxito */}
@@ -97,93 +102,101 @@ export default function Contacto() {
           className="flex flex-col w-full gap-[30px]"
         >
           {/* Nombre */}
-          <div className="flex flex-col gap-1">
-            <input
-              type="text"
-              autoComplete="name"
-              placeholder="*Nombre completo"
-              aria-invalid={errors.name ? "true" : "false"}
-              className={fieldClass(errors.name)}
-              {...register("name", {
-                required: "Tu nombre es requerido",
-                pattern: {
-                  value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]{2,60}$/,
-                  message: "Ingresa un nombre válido",
-                },
-              })}
-            />
-            {errors.name && (
-              <span className="text-red-400 text-xs px-[30px]">
-                {errors.name.message}
-              </span>
-            )}
-          </div>
+          <Reveal amount={0.6}>
+            <div className="flex flex-col gap-1">
+              <input
+                type="text"
+                autoComplete="name"
+                placeholder="*Nombre completo"
+                aria-invalid={errors.name ? "true" : "false"}
+                className={fieldClass(errors.name)}
+                {...register("name", {
+                  required: "Tu nombre es requerido",
+                  pattern: {
+                    value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]{2,60}$/,
+                    message: "Ingresa un nombre válido",
+                  },
+                })}
+              />
+              {errors.name && (
+                <span className="text-red-400 text-xs px-[30px]">
+                  {errors.name.message}
+                </span>
+              )}
+            </div>
+          </Reveal>
 
           {/* Correo electrónico */}
-          <div className="flex flex-col gap-1">
-            <input
-              type="email"
-              autoComplete="email"
-              placeholder="*Correo electrónico"
-              aria-invalid={errors.mail ? "true" : "false"}
-              className={fieldClass(errors.mail)}
-              {...register("mail", {
-                required: "Tu correo es requerido",
-                pattern: {
-                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: "Ingresa un correo válido",
-                },
-              })}
-            />
-            {errors.mail && (
-              <span className="text-red-400 text-xs px-[30px]">
-                {errors.mail.message}
-              </span>
-            )}
-          </div>
+          <Reveal amount={0.6}>
+            <div className="flex flex-col gap-1">
+              <input
+                type="email"
+                autoComplete="email"
+                placeholder="*Correo electrónico"
+                aria-invalid={errors.mail ? "true" : "false"}
+                className={fieldClass(errors.mail)}
+                {...register("mail", {
+                  required: "Tu correo es requerido",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Ingresa un correo válido",
+                  },
+                })}
+              />
+              {errors.mail && (
+                <span className="text-red-400 text-xs px-[30px]">
+                  {errors.mail.message}
+                </span>
+              )}
+            </div>
+          </Reveal>
 
           {/* Teléfono */}
-          <div className="flex flex-col gap-1">
-            <input
-              type="tel"
-              autoComplete="tel"
-              placeholder="*Teléfono"
-              aria-invalid={errors.phone ? "true" : "false"}
-              className={fieldClass(errors.phone)}
-              {...register("phone", {
-                required: "Tu teléfono es requerido",
-                pattern: {
-                  value: /^[0-9]{8,15}$/,
-                  message: "Ingresa 10 dígitos sin espacios",
-                },
-              })}
-            />
-            {errors.phone && (
-              <span className="text-red-400 text-xs px-[30px]">
-                {errors.phone.message}
-              </span>
-            )}
-          </div>
+          <Reveal amount={0.6}>
+            <div className="flex flex-col gap-1">
+              <input
+                type="tel"
+                autoComplete="tel"
+                placeholder="*Teléfono"
+                aria-invalid={errors.phone ? "true" : "false"}
+                className={fieldClass(errors.phone)}
+                {...register("phone", {
+                  required: "Tu teléfono es requerido",
+                  pattern: {
+                    value: /^[0-9]{8,15}$/,
+                    message: "Ingresa 10 dígitos sin espacios",
+                  },
+                })}
+              />
+              {errors.phone && (
+                <span className="text-red-400 text-xs px-[30px]">
+                  {errors.phone.message}
+                </span>
+              )}
+            </div>
+          </Reveal>
 
           {/* Mensaje (opcional) */}
-          <div className="flex flex-col gap-1">
-            <textarea
-              placeholder="Mensaje"
-              aria-invalid={errors.message ? "true" : "false"}
-              className={`resize-none h-[229px] ${fieldClass(errors.message)} placeholder:text-[21px]`}
-              {...register("message", {
-                maxLength: {
-                  value: 200,
-                  message: "El mensaje no puede pasar de 200 caracteres",
-                },
-              })}
-            />
-            {errors.message && (
-              <span className="text-red-400 text-xs px-[30px]">
-                {errors.message.message}
-              </span>
-            )}
-          </div>
+          <Reveal amount={0.6}>
+            <div className="flex flex-col gap-1">
+              <textarea
+                placeholder="Mensaje"
+                aria-invalid={errors.message ? "true" : "false"}
+                className={`resize-none h-[229px] ${fieldClass(errors.message)} placeholder:text-[21px]`}
+                {...register("message", {
+                  maxLength: {
+                    value: 200,
+                    message: "El mensaje no puede pasar de 200 caracteres",
+                  },
+                })}
+              />
+              {errors.message && (
+                <span className="text-red-400 text-xs px-[30px]">
+                  {errors.message.message}
+                </span>
+              )}
+            </div>
+          </Reveal>
 
           <button
             type="submit"

@@ -17,6 +17,7 @@ import salonEventosIcon from "../../../assets/icons/amenidades/salon-eventos.svg
 import ludotecaIcon from "../../../assets/icons/amenidades/ludoteca.svg";
 import firePitsIcon from "../../../assets/icons/amenidades/fire-pits.svg";
 import padelIcon from "../../../assets/icons/amenidades/padel.svg";
+import Reveal from "../../../components/animations/reveal";
 
 // images
 const albercaImage = "/foto/amenidades/alberca.webp";
@@ -180,13 +181,18 @@ export default function Amenidades() {
       className="relative flex flex-col self-center w-full max-w-[1280px] min-h-svh justify-center items-center px-[30px] pt-[30px] pb-[60px] gap-[30px]"
     >
       <div className="flex flex-col justify-center items-center gap-[35px]">
-        <h2 className="header-2 text-center font-bangla uppercase leading-none">
-          Amenidades
-          <br />
-        </h2>
-        <h3 className="header-2 text-center font-bangla uppercase leading-none">
-          Disfruta lo extraordinario
-        </h3>
+        <Reveal>
+          <h2 className="header-2 text-center font-bangla uppercase leading-none">
+            Amenidades
+            <br />
+          </h2>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <h3 className="header-2 text-center font-bangla uppercase leading-none">
+            Disfruta lo extraordinario
+          </h3>
+        </Reveal>
       </div>
 
       {/* Carousel */}

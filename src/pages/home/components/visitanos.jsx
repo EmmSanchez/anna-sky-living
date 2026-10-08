@@ -10,6 +10,7 @@ const bannerBg = "/foto/visitanos-background.jpg";
 import phoneIcon from "../../../assets/icons/phone.svg";
 import mailIcon from "../../../assets/icons/mail.svg";
 import pinIcon from "../../../assets/icons/pin.svg";
+import Reveal from "../../../components/animations/reveal";
 
 // mapa
 const mapa = "/foto/visitanos/mapa-anna-sky-horizontal.jpg";
@@ -56,17 +57,29 @@ export default function Visitanos() {
         <div className="relative flex w-full max-w-[1280px] h-full items-center">
           <div className="flex flex-col w-full justify-center items-center md:justify-start md:items-start md:w-[400px] md:pl-[60px] gap-[20px]">
             <h3 className="header-2 text-center md:text-left font-bangla uppercase leading-[120%]">
-              Visita <br /> nuestro <br />
-              showroom
+              <Reveal delay={0}>
+                <span className="block">Visita</span>
+              </Reveal>
+
+              <Reveal delay={0.1}>
+                <span className="block">nuestro</span>
+              </Reveal>
+
+              <Reveal delay={0.18}>
+                <span className="block">showroom</span>
+              </Reveal>
             </h3>
-            <a
-              href={whatsappInfo.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-fit px-[26px] py-[16px] rounded-[5px] button-text text-blanco font-bold uppercase tracking-wide bg-naranja hover:bg-gris active:bg-blanco active:text-azul hover:cursor-pointer"
-            >
-              Contáctanos
-            </a>
+
+            <Reveal delay={0.1}>
+              <a
+                href={whatsappInfo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-fit px-[26px] py-[16px] rounded-[5px] button-text text-blanco font-bold uppercase tracking-wide bg-naranja hover:bg-gris active:bg-blanco active:text-azul hover:cursor-pointer"
+              >
+                Contáctanos
+              </a>
+            </Reveal>
           </div>
         </div>
 
@@ -79,34 +92,42 @@ export default function Visitanos() {
       <div className="relative flex flex-col justify-center items-center w-full gap-[30px] pt-[60px]">
         {/* Info */}
         <div className="flex flex-col w-full max-w-[1280px] gap-[30px]">
-          <h3 className="header-2 text-center text-blanco font-bangla uppercase px-[20px]">
-            Te esperamos.
-            <br /> Visítanos y descubre tu próximo hogar.
-          </h3>
+          <Reveal delay={0}>
+            <h3 className="header-2 text-center text-blanco font-bangla uppercase px-[20px]">
+              Te esperamos.
+              <br /> Visítanos y descubre tu próximo hogar.
+            </h3>
+          </Reveal>
 
           {/* features */}
           <div className="flex flex-col md:flex-row justify-center items-center px-[20px]">
             {features.map((feature, index) => {
               return (
-                <a
+                <Reveal
                   key={index}
-                  href={feature.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex flex-col w-full max-w-[370px] h-[157px] p-[20px] gap-[10px] justify-center items-center ${index === 1 ? "border-x-2 border-amarillo md:border-none" : "border-x-2 border-amarillo"}`}
+                  delay={0.1 + index * 0.08}
+                  y={20}
+                  className="w-full max-w-[370px]"
                 >
-                  <img src={feature.icon} className="h-[26px]" />
-                  <p className="paragraph-icon text-center text-blanco font-light tracking-tight leading-[120%]">
-                    {feature.title && (
-                      <span className="font-bold">
-                        {feature.title} <br />
+                  <a
+                    href={feature.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex flex-col w-full max-w-[370px] h-[157px] p-[20px] gap-[10px] justify-center items-center ${index === 1 ? "border-x-2 border-amarillo md:border-none" : "border-x-2 border-amarillo"}`}
+                  >
+                    <img src={feature.icon} className="h-[26px]" />
+                    <p className="paragraph-icon text-center text-blanco font-light tracking-tight leading-[120%]">
+                      {feature.title && (
+                        <span className="font-bold">
+                          {feature.title} <br />
+                        </span>
+                      )}
+                      <span className={`${index === 2 ? "" : "font-bold"}`}>
+                        {feature.description}
                       </span>
-                    )}
-                    <span className={`${index === 2 ? "" : "font-bold"}`}>
-                      {feature.description}
-                    </span>
-                  </p>
-                </a>
+                    </p>
+                  </a>
+                </Reveal>
               );
             })}
           </div>

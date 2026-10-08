@@ -32,6 +32,7 @@ const video18 = "/video/2026/2026-08.mp4";
 // slide final content
 import annaLogoYellow from "../../../assets/logos/anna-sky-living-yellow.svg";
 import timeline from "../../../assets/images/avances/slide-final-timeline.svg";
+import Reveal from "../../../components/animations/reveal";
 
 const slidesData = [
   {
@@ -190,13 +191,18 @@ export default function AvanceObra() {
       className="flex flex-col self-center w-full max-w-[1280px] h-fit justify-center items-center px-[30px] pt-[60px] pb-[30px] gap-[30px]"
     >
       <div className="flex flex-col justify-center items-center gap-[15px]">
-        <h2 className="header-2 font-bangla uppercase">Avance de obra</h2>
-        <h3 className="paragraph text-center font-light leading-[130%]">
-          Seguimos desarrollando cada detalle de{" "}
-          <span className="font-bold">ANNA SKY LIVING</span> con altos
-          estándares de calidad y un enfoque constante en brindar una
-          experiencia residencial excepcional.
-        </h3>
+        <Reveal delay={0} y={20}>
+          <h2 className="header-2 font-bangla uppercase">Avance de obra</h2>
+        </Reveal>
+
+        <Reveal delay={0.1} y={20}>
+          <p className="paragraph text-center font-light leading-[130%]">
+            Seguimos desarrollando cada detalle de{" "}
+            <span className="font-bold">ANNA SKY LIVING</span> con altos
+            estándares de calidad y un enfoque constante en brindar una
+            experiencia residencial excepcional.
+          </p>
+        </Reveal>
       </div>
 
       {/* progress bar */}
